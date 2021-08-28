@@ -1,0 +1,15 @@
+---
+layout: archive
+permalink: /c/
+side:
+  nav: docs
+---
+<h1>Imported Articles</h1>
+<ul>
+    {% assign notes = site.confluence_pages | sort:'title' %}
+    {% for note in notes %}
+    {% if page.url != note.url and include.category == nil or note.url contains include.category %}
+    <li><a href={{ note.url }}>{{note.title}}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
