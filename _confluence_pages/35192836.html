@@ -1,0 +1,47 @@
+---
+layout: single
+title: "My Love Page (old)"
+---
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code" data-macro-id="1972ed1a-f283-4dca-b2eb-fdcfd6ba8124"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Code Block~
+
+package net.sickhack.remote_touch.model;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Room {
+	String roomId;
+	long timestamp;
+	ConcurrentHashMap&lt;String, MemberStatus&gt; members = new ConcurrentHashMap&lt;&gt;();
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	@Override
+	public String toString() {
+		return &quot;Room [roomId=&quot; + roomId + &quot;, members=&quot; + members + &quot;]&quot;;
+	}
+
+	public String getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(String roomId) {
+		this.roomId = roomId;
+	}
+
+	public ConcurrentHashMap&lt;String, MemberStatus&gt; getMembers() {
+		return members;
+	}
+
+	public void setMembers(ConcurrentHashMap&lt;String, MemberStatus&gt; members) {
+		this.members = members;
+	}
+
+}</pre>
+</div></div>
