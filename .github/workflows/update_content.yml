@@ -6,12 +6,17 @@ name: Update Content
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main, testing ]
   pull_request:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+  # Automatically trigger the import. 20:30 JST == 11:30 UTC
+  # https://www.timeanddate.com/worldclock/converter.html?iso=20210829T113000&p1=248&p2=1440
+  schedule:
+    - cron: '30 11 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,6 +24,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    environment: Confluence Integration
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,16 +35,29 @@ jobs:
 
       # Fetch and process the content from the backend
       # TODO: Implement.
+      # Runs a set of commands using the runners shell
+      - name: Trigger Import from the backend. and Prepare a commit.
+        run: |
+          mkdir -p cache _confluence_pages
+          bash ./tools/run.sh
+          git diff
+          find .
+          git config --global user.name "by github-actions"
+          git config --global user.email "on-behalf-of-haruki@users.noreply.github.com"
+          git add _confluence_pages
+          git commit -m "Imported at $(date)"
+        env:
+          CONFLUENCE_TOKEN: ${{ secrets.CONFLUENCE_TOKEN }}
+
       # Create a pull-request and push to gh-pages. Maybe only on scheduled and manual triggered.
       # TODO: Implement.
-      
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Push to gh-pages
+        if: ${{ github.ref == 'refs/heads/main' }} # Only in the execution from the main.
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          find .
+          git push origin
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.ref == 'refs/heads/testing' }} # Only in the execution from the testing.
+        with:
+          limit-access-to-actor: true
