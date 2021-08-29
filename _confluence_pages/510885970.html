@@ -1,0 +1,112 @@
+---
+layout: single
+title: "Design Docs - Site Converter Rough Design"
+---
+<h1 id="DesignDocs-SiteConverterRoughDesign-Overview">
+ Overview
+</h1>
+<p>
+ This page roughly describes the system which generates and serves Jekyll (GitHub Pages) site backed by Confluence Cloud instance.
+</p>
+<p>
+ The author can edit the content in the Confluence Cloud, GitHub Actions fetches and converts them into data for Jekyll, GitHub Pages serves the content with configured custom domain.
+</p>
+<h1 id="DesignDocs-SiteConverterRoughDesign-InvolvedComponents">
+ Involved Components
+</h1>
+<ul>
+ <li>
+  <p>
+   Atlassian Confluence Cloud instance
+  </p>
+ </li>
+ <li>
+  <p>
+   GitHub Repository
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a href="https://github.com/haruki-sugarsun/text.sickhack.net" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/haruki-sugarsun/text.sickhack.net</a>  and <code>gh-pages</code> branch.
+    </p>
+   </li>
+   <li>
+    <p>
+     Actions to automatically fetch and convert content <a href="https://github.com/haruki-sugarsun/text.sickhack.net/actions" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/haruki-sugarsun/text.sickhack.net/actions</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   GitHub Pages
+  </p>
+  <ul>
+   <li>
+    <p>
+     with a custom domain
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h1 id="DesignDocs-SiteConverterRoughDesign-Diagram">
+ Diagram
+</h1>
+<div>
+ <div>
+  <pre>                         +--------------------------------------------------------+
+                         | text.sickhack.net repository                           |
+                         |                                                        |
+                         |                                                        |
++------------------+     |  +-------------------------+    +-------------------+  |
+|Confluence        |     |  | GitHub Actions          |    | gh-pages branch   |  |
+|                  |     |  |                         |    |                   +--+-&gt;text.sickhack.net
+|  -page content   +-----|-&gt;|  -Recursive fetch       +---&gt;|  -Jekyll          |  |
+|  -editor         |fetch|  |  -Metadata processing   |push|                   |  |
+|  -attachments    | by  |  |  -HTML Conversion       |    +-------------------+  |
+|                  | REST|  |  -Rule-based extra      |                           |
++------------------+     |  |                         |                           |
+                         |  +-------------------------+                           |
+                         |                                                        |
+                         +--------------------------------------------------------+</pre>
+ </div>
+</div>
+<p>
+ (powered by <a href="https://asciiflow.com/#/" class="external-link" rel="nofollow">https://asciiflow.com/</a>)
+</p>
+<p></p>
+<h1 id="DesignDocs-SiteConverterRoughDesign-Components">
+ Components
+</h1>
+<p>
+ See other documents for the details for each component.
+</p>
+<h2 id="DesignDocs-SiteConverterRoughDesign-GitHubActions">
+ GitHub Actions
+</h2>
+<h2 id="DesignDocs-SiteConverterRoughDesign-Converter">
+ Converter
+</h2>
+<p>
+ Converter code is currently managed in my private repository not published to GitHub.
+</p>
+<p>
+ roughly, it fetches the pages by page id (e.g. 12345) and generates files (e.g. _pages/12345.html) for Jekyll with adding some Front Matter (<a href="http://jekyllrb-ja.github.io/docs/front-matter/" data-card-appearance="inline" class="external-link" rel="nofollow">http://jekyllrb-ja.github.io/docs/front-matter/</a> ) to help page generation.
+</p>
+<h2 id="DesignDocs-SiteConverterRoughDesign-GitHubPages">
+ GitHub Pages
+</h2>
+<ul>
+ <li>
+  <p>
+   published from <code>gh-pages</code> branch, with Jekyll-based GitHub-pages
+  </p>
+ </li>
+ <li>
+  <p>
+   with custom domain text.sickhack.net.
+  </p>
+ </li>
+</ul>
+
