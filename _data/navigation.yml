@@ -1,18 +1,12 @@
 main:
-  - title: "Quick-Start Guide"
-    url: /docs/quick-start-guide/
-  - title: "Posts"
+  - title: "Posts (⚠️not working)"
     url: /year-archive/
   - title: "Pages"
     url: /c/
-  - title: "Tags"
+  - title: "Tags (⚠️not working)"
     url: /tags/
-  - title: "Pages"
-    url: /page-archive/
-  - title: "Collections"
-    url: /collection-archive/
-  - title: "External Link"
-    url: https://google.com
+  - title: "Sickhack.net Main"
+    url: https://www.sickhack.net/
 
 docs:
   - title: Getting Started

@@ -5,4 +5,5 @@
                                   --cache false \
                                   --cache-dir cache \
                                   --output-dir _confluence_pages \
-                                  --sleep 1
+                                  --sleep 1 \
+    > processing.log 2>&1
