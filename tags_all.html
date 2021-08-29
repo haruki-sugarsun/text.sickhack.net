@@ -1,0 +1,120 @@
+---
+# https://mmistakes.github.io/minimal-mistakes/docs/layouts/
+# Implementation need the base layouts into the consideration:
+#   https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts
+#   https://github.com/mmistakes/minimal-mistakes/blob/master/_layouts/tags.html
+# Logic learned from
+#   https://silvae86.github.io/2020/05/06/jekyll-tags-page-forpages-and-posts/
+#   https://raw.githubusercontent.com/silvae86/silvae86.github.io/master/_pages/tags.md
+title: "Posts and Pages by Tag"
+permalink: /tags/
+layout: default
+author_profile: true
+---
+
+{% assign all_tags = "" | split: ',' %}
+
+{% comment %}
+# get all post tags
+{% endcomment %}
+
+
+{% capture post_tags %}
+  {% for tag in site.tags %}
+    {{ tag[0] }}
+  {% endfor %}
+{% endcapture %}
+{% assign tags = post_tags | strip_newlines | split:' ' %}
+
+{% comment %}
+# get all unique page tags
+{% endcomment %}
+
+{%- for collection in site.collections -%}
+  {%- for doc in collection.docs -%}
+    {%- for tag in doc.tags -%}
+      {% assign all_tags = all_tags | push:tag %}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{% assign all_tags = all_tags | uniq | sort %}
+
+{% comment %}
+# debug prints
+post_tags
+{{post_tags | jsonify}}
+
+page_tags
+{{page_tags | jsonify}}
+
+all_tags
+{{ all_tags | jsonify }}
+{% endcomment %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+
+    <ul class="taxonomy__index">
+      {% for tag in all_tags %}
+        <li>
+          <a href="#{{ tag | slugify }}">
+            <strong>{{ tag }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for tag in all_tags %}
+      {% assign all_tagged = "" | split: ',' %}
+
+      <h3 id="{{ tag | slugify }}">{{ tag }}</h3>
+      <ul>
+
+        {% comment %}
+        # combine posts and pages with this tag
+        {% endcomment %}
+
+        {%- for collection in site.collections -%}
+          {%- for doc in collection.docs -%}
+            {% if doc.tags contains tag %}
+              {% assign all_tagged = all_tagged | push: doc %}
+            {% endif %}
+          {%- endfor -%}
+        {%- endfor -%}
+
+        {% comment %}
+        # sort by title
+        {% endcomment %}
+        {% assign all_tagged = all_tagged | sort: "title" %}
+
+        {% comment %}
+        # finally, print the list item!
+        {% endcomment %}
+        {% for post in all_tagged %}
+          {% include archive-single.html %}
+        {% endfor %}
+
+      </ul>
+    {% endfor %}
+
+  </div>
+</div>
+
