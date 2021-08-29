@@ -49,6 +49,15 @@ jobs:
         env:
           CONFLUENCE_TOKEN: ${{ secrets.CONFLUENCE_TOKEN }}
 
+      # We might need it to implement incremental build.
+      - uses: actions/upload-artifact@v2
+        with:
+          name: last-run-state
+          path: |
+            _site
+            cache
+            processing.log
+
       # Create a pull-request and push to gh-pages. Maybe only on scheduled and manual triggered.
       # TODO: Implement.
       - name: Push to gh-pages
