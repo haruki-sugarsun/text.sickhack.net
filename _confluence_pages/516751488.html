@@ -1,0 +1,96 @@
+---
+layout: single
+title: "2021-09-05 Dev Meeting もくもくlog"
+---
+<p>
+ 今日やろうと思ったこと追記型
+</p>
+<ul>
+ <li>
+  <p>
+   Confluence Site Converter（このサイトをもとのConfluenceから変換しているツール written in OCaml) をcode publish
+  </p>
+ </li>
+ <li>
+  <p>
+   Converter の処理で、img tag対応、および添付ファイル対応をする。作業内容は以下の順
+  </p>
+  <ul>
+   <li>
+    <p>
+     img tag の src を残す処理
+    </p>
+   </li>
+   <li>
+    <p>
+     添付ファイルを対応する directory に ダウンロードする処理
+    </p>
+    <ul>
+     <li>
+      <p>
+       <code>_CACHE_DIR_/_PAGE_ID_/Filename.ext</code> あたり？
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     Jekyll 向けに適当な場所にコピーして src の URL も変換
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   最近の OCaml の build tool について調べて適用する
+  </p>
+ </li>
+ <li>
+  <p>
+   VSCode に OCaml 対応環境を入れる
+  </p>
+ </li>
+ <li>
+  <p>
+   半仕事半プライベートなメールの処理
+  </p>
+ </li>
+</ul>
+<p></p>
+<p>
+ 今日やれたことのlog
+</p>
+<ul>
+ <li>
+  <p>
+   code pushed to <a href="https://github.com/haruki-sugarsun/confluenece_site_converter" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/haruki-sugarsun/confluenece_site_converter</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   img tag の src を残す処理
+  </p>
+ </li>
+ <li>
+  <p>
+   ダウンロードのために Confluence の認証付きで attattiment の redirect URIを取るところまで
+  </p>
+  <ul>
+   <li>
+    <p>
+     → ぎりぎりで保存するとこまでできた。
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p>
+ この勢いでメールとかは処理しないとしんでまう。
+</p>
+<p>
+ そして、どこかで実装した、label を Jekyll で tagにする部分がどこかに行っちゃったな。。commit し忘れたかな？
+</p>
+<p></p>
+<p></p>
+
