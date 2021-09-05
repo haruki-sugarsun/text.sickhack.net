@@ -64,9 +64,3 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }} # Only in the execution from the main.
         run: |
           git push origin
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.ref == 'refs/heads/testing' }} && ${{ failure() }} # Only in the execution from the testing.
-        with:
-          limit-access-to-actor: true
