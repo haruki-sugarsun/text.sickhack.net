@@ -67,6 +67,6 @@ jobs:
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
-        if: ${{ github.ref == 'refs/heads/testing' }} # Only in the execution from the testing.
+        if: ${{ github.ref == 'refs/heads/testing' }} && ${{ failure() }} # Only in the execution from the testing.
         with:
           limit-access-to-actor: true
