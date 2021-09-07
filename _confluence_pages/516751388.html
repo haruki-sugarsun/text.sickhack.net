@@ -1,0 +1,135 @@
+---
+layout: single
+title: "2021-09-xx Confluence, Webhook, and Actions"
+---
+<p>
+ Taking notes for webhook to trigger updates in GitHub Actions.
+</p>
+<ul>
+ <li>
+  <p>
+   Some docs
+  </p>
+  <ul>
+   <li>
+    <p>
+     Webhook from Confluence
+    </p>
+    <ul>
+     <li>
+      <p>
+       <a href="https://sickhack.atlassian.net/wiki/plugins/servlet/ac/com.atlassian.confluence.emcee/discover#!/discover/app/com.stiltsoft.confluence.cloud.webhooks" rel="nofollow">https://sickhack.atlassian.net/wiki/plugins/servlet/ac/com.atlassian.confluence.emcee/discover#!/discover/app/com.stiltsoft.confluence.cloud.webhooks</a> 使うのはシャク。かんたんすぎるし？
+      </p>
+     </li>
+     <li>
+      <p>
+       ネタ元 <a href="https://community.atlassian.com/t5/Confluence-questions/Does-confluence-Cloud-supports-Webhooks/qaq-p/1229110?tempId=eyJvaWRjX2NvbnNlbnRfbGFuZ3VhZ2VfdmVyc2lvbiI6IjIuMCIsIm9pZGNfY29uc2VudF9ncmFudGVkX2F0IjoxNjMwNTA4MzEwODMxfQ%3D%3D" data-card-appearance="inline" class="external-link" rel="nofollow">https://community.atlassian.com/t5/Confluence-questions/Does-confluence-Cloud-supports-Webhooks/qaq-p/1229110?tempId=eyJvaWRjX2NvbnNlbnRfbGFuZ3VhZ2VfdmVyc2lvbiI6IjIuMCIsIm9pZGNfY29uc2VudF9ncmFudGVkX2F0IjoxNjMwNTA4MzEwODMxfQ%3D%3D</a>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://blog.seibert-media.com/2018/02/26/confluence-cloud-apps-spring-boot-atlassian-connect-part-1/" data-card-appearance="inline" class="external-link" rel="nofollow">https://blog.seibert-media.com/2018/02/26/confluence-cloud-apps-spring-boot-atlassian-connect-part-1/</a>
+        </p>
+       </li>
+       <li>
+        <p>
+         <a href="https://developer.atlassian.com/cloud/confluence/using-webhooks/" data-card-appearance="inline" class="external-link" rel="nofollow">https://developer.atlassian.com/cloud/confluence/using-webhooks/</a>
+        </p>
+       </li>
+       <li>
+        <p>
+         <a href="http://go.atlassian.com/about-cloud-dev-instance" class="external-link" rel="nofollow">http://go.atlassian.com/about-cloud-dev-instance</a>
+        </p>
+        <ul>
+         <li>
+          <p>
+           with “Development mode“ link in the configuration, ended up creating <a href="https://sickhack-dev.atlassian.net/wiki/spaces/SD/overview" data-card-appearance="inline" class="external-link" rel="nofollow">https://sickhack-dev.atlassian.net/wiki/spaces/SD/overview</a>  ….
+          </p>
+         </li>
+         <li>
+          <p>
+           <a href="https://developer.atlassian.com/cloud/jira/platform/getting-started-with-connect/" data-card-appearance="inline" class="external-link" rel="nofollow">https://developer.atlassian.com/cloud/jira/platform/getting-started-with-connect/</a>  should be the right page to go…?
+          </p>
+         </li>
+         <li>
+          <p>
+           <a href="https://developer.atlassian.com/platform/forge/example-apps/" data-card-appearance="inline" class="external-link" rel="nofollow">https://developer.atlassian.com/platform/forge/example-apps/</a>  yet another something.. Forge App?
+          </p>
+          <ul>
+           <li>
+            <p>
+             Forge: <a href="https://developer.atlassian.com/platform/forge/build-a-hello-world-app-in-confluence/" data-card-appearance="inline" class="external-link" rel="nofollow">https://developer.atlassian.com/platform/forge/build-a-hello-world-app-in-confluence/</a>
+            </p>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     Simple webhook translator
+    </p>
+    <ul>
+     <li>
+      <p>
+       <a href="https://blog.uedder.com/setup-cgi-with-nginx.html" data-card-appearance="inline" class="external-link" rel="nofollow">https://blog.uedder.com/setup-cgi-with-nginx.html</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://qiita.com/gam0022/items/d16cc83a32c5c2efdefc" data-card-appearance="inline" class="external-link" rel="nofollow">https://qiita.com/gam0022/items/d16cc83a32c5c2efdefc</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/" data-card-appearance="inline" class="external-link" rel="nofollow">https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="http://mogile.web.fc2.com/nginx_wiki/nginx_wiki201510/start/topics/examples/simplecgi.html" data-card-appearance="inline" class="external-link" rel="nofollow">http://mogile.web.fc2.com/nginx_wiki/nginx_wiki201510/start/topics/examples/simplecgi.html</a>
+      </p>
+     </li>
+     <li>
+      <p></p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     Triggering GitHub Actions with callback
+    </p>
+    <ul>
+     <li>
+      <p>
+       GitHub API and deployment key… and processor CGI in my server….?
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Setup
+  </p>
+  <ul>
+   <li>
+    <p></p>
+   </li>
+   <li>
+    <p>
+     www.sickhack.net
+    </p>
+   </li>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+
