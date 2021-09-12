@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "2021-09-12 Dev Meeting もくもくOCaml書き"
-date: "2021-09-12T02:10:47.383Z"
+date: "2021-09-12T03:48:23.549Z"
 ---
 <p>
  前回のあらすじ: <a href="/c/516751488" data-linked-resource-version="2" data-linked-resource-type="page">2021-09-05 Dev Meeting もくもくlog</a>
@@ -53,25 +53,81 @@ date: "2021-09-12T02:10:47.383Z"
 <ul>
  <li>
   <p>
-   code pushed to <a class="external-link" data-card-appearance="inline" href="https://github.com/haruki-sugarsun/confluenece_site_converter" rel="nofollow">https://github.com/haruki-sugarsun/confluenece_site_converter</a>
-  </p>
- </li>
- <li>
-  <p>
-   img tag の src を残す処理
-  </p>
- </li>
- <li>
-  <p>
-   ダウンロードのために Confluence の認証付きで attattiment の redirect URIを取るところまで
+   前回どこかに言っていたLabels to tags のcommit発掘というかコミットされていないのをとある環境で発見。
   </p>
   <ul>
    <li>
     <p>
-     → ぎりぎりで保存するとこまでできた。
+     gitは分散なので管理が苦手な人が使うと分散します（何
+    </p>
+   </li>
+   <li>
+    <p>
+     本筋にcommit
     </p>
    </li>
   </ul>
+ </li>
+ <li>
+  <p>
+   まず <a class="external-link" data-card-appearance="inline" href="https://github.com/ocamllabs/vscode-ocaml-platform" rel="nofollow">https://github.com/ocamllabs/vscode-ocaml-platform</a>  試そうということで
+  </p>
+  <ul>
+   <li>
+    <p>
+     <code>$ opam install ocaml-lsp-server</code>
+    </p>
+   </li>
+   <li>
+    <p>
+     きになったので（フラグ）<code>ocamlformat</code> <code>ocamlformat-rpc</code> も
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<blockquote>
+ <p>
+  Build your project with Dune to get go-to-definition, auto-completion, etc.
+ </p>
+</blockquote>
+<p>
+ とのことなので、やはり dune.
+</p>
+<p>
+ 一番気になったのは
+</p>
+<blockquote>
+ <p>
+  I am getting Unbound module ... error. What should I do?
+ </p>
+ <p>
+  Make sure the module should be visible, e.g., there is no typo in the module name, you added the module to libraries stanza in your dune file, etc.
+ </p>
+</blockquote>
+<p>
+ の部分なので、実際は設定だけあればよい？ いや
+</p>
+<blockquote>
+ <p>
+  Important note: OCaml Language Server has its information about the files from the last time your built your project.
+ </p>
+</blockquote>
+<p>
+ なので、この制限はocaml-lsp-server由来なのか。であれば逆にstandardとしてこの組み合わせは一応筋はいいのかな？
+</p>
+<p>
+ というところで徐々に〆。
+</p>
+<p></p>
+<p>
+ 気になったこと
+</p>
+<ul>
+ <li>
+  <p>
+   ReasonML とは。
+  </p>
  </li>
 </ul>
 
