@@ -1,0 +1,78 @@
+---
+layout: single
+title: "2022-05-30 OPAM install conf-ssl.4 failed with missing openssl on Mac OS X"
+date: "2022-05-29T17:55:32.510Z"
+---
+<p>
+ Just taking notes.
+</p>
+<p></p>
+<p>
+ Mac OS X 上、homebrewとOPAMを組み合わせて構築していた環境で、
+</p>
+<div>
+ <div>
+  <pre>$ uname -mprsv
+Darwin 20.6.0 Darwin Kernel Version 20.6.0: Tue Feb 22 21:10:41 PST 2022; root:xnu-7195.141.26~1/RELEASE_X86_64 x86_64 i386
+
+$ brew --version
+Homebrew 3.4.11
+Homebrew/homebrew-core (git revision 5e04cffec74; last commit 2022-05-29)
+
+ opam --version
+2.1.2</pre>
+ </div>
+</div>
+<p>
+ OPAM を利用して、 <code>cohttp-lwt-unix</code> を install しようとしたところ、依存している <code>conf-libssl</code>
+</p>
+<p>
+ のbuildが失敗して修正することに。
+</p>
+<p></p>
+<div>
+ <div>
+  <pre>[ERROR] The compilation of conf-libssl.4 failed at "sh -ex ./homebrew.sh check".
+
+#=== ERROR while compiling conf-libssl.4 ======================================#
+# context     2.1.2 | macos/x86_64 | ocaml.4.14.0 | https://opam.ocaml.org#40f3586d
+# path        ~/.opam/default/.opam-switch/build/conf-libssl.4
+# command     ~/.opam/opam-init/hooks/sandbox.sh build sh -ex ./homebrew.sh check
+# exit-code   1
+# env-file    ~/.opam/log/conf-libssl-75408-e05b83.env
+# output-file ~/.opam/log/conf-libssl-75408-e05b83.out
+### output ###
+# ++ brew --prefix openssl
+# + brew_pkg_config=/usr/local/opt/openssl@3/lib/pkgconfig
+# + case "$1" in
+# + test 1 '!=' 1
+# + export PKG_CONFIG_PATH=/usr/local/opt/openssl@3/lib/pkgconfig:/Users/sugarsun/.opam/default/lib/pkgconfig
+# + PKG_CONFIG_PATH=/usr/local/opt/openssl@3/lib/pkgconfig:/Users/sugarsun/.opam/default/lib/pkgconfig
+# + pkg-config --print-errors --exists openssl
+# Package openssl was not found in the pkg-config search path.
+# Perhaps you should add the directory containing `openssl.pc'
+# to the PKG_CONFIG_PATH environment variable
+# No package 'openssl' found
+</pre>
+ </div>
+</div>
+<p>
+ 一部usernameが漏れていますが、まあお気になさらず。。。
+</p>
+<p>
+ 結局<code>$ brew reinstall openssl</code> にて修正。
+</p>
+<p>
+ エラーをよく読むと、OPAMが<code>openssl</code>の依存先を探していて、それがbrewで <code>openssl@3</code>のalias？になっているが、自分の環境だと、 <code>openssl@1.1</code> が入っていたが、 <code>@3</code> がなかったので、エラーになっていたよう。。
+</p>
+<h1 id="id-2022-05-30OPAMinstallconf-ssl.4failedwithmissingopensslonMacOSX-Reference">
+ Reference
+</h1>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://github.com/ocaml/opam-repository/issues/15295" rel="nofollow">https://github.com/ocaml/opam-repository/issues/15295</a>
+  </p>
+ </li>
+</ul>
+

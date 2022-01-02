@@ -1,0 +1,86 @@
+---
+layout: single
+title: "2022-06-19 Version mismatch between git-completion & git"
+date: "2022-06-19T13:03:01.871Z"
+---
+<p>
+ 私は Bash ユーザーなのですが、以前から自分の環境で git-completion が動いている環境とそうでない環境があってちょっとモヤモヤしていました。条件・環境は以下の通りです。
+</p>
+<ul>
+ <li>
+  <p>
+   bash 環境: 様々（Mac OS X, Linux 主に Debian, WSL2 on Windows, etc.）
+  </p>
+ </li>
+ <li>
+  <p>
+   git: 基本的には各環境の standard package manager
+  </p>
+ </li>
+ <li>
+  <p>
+   git-completion: 欲しくなった時に自分で <code>~/.bash_completion.d</code> に <code>wget</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" data-card-appearance="inline" href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash" rel="nofollow">https://github.com/git/git/blob/master/contrib/completion/git-completion.bash</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p>
+ 結論から言うと、git-completion.bash はgitのversionに依存している場合がある（当たり前）ので、組み合わせが大事ということでした。
+</p>
+<p>
+ 直近のケースでは、 WSL2 (Debian) on Windows で、最新の <code>git-completion.bash</code> が <code>git 2.11.0</code> で動かなかったので、近そうな <a class="external-link" data-card-appearance="inline" href="https://github.com/git/git/blob/v2.11.4/contrib/completion/git-completion.bash" rel="nofollow">https://github.com/git/git/blob/v2.11.4/contrib/completion/git-completion.bash</a>  をダウンロードして解決できました。
+</p>
+<div>
+ <div>
+  <pre>$ git --version
+git version 2.11.0
+
+$ cd ~/.bash_completion.d/
+$ wget 'https://raw.githubusercontent.com/git/git/v2.11.4/contrib/completion/git-completion.bash'</pre>
+ </div>
+</div>
+<p></p>
+<p>
+ git-completion.bash をダウンロードしなおしたり、package manager からのもので置き換えたりすると動くことがあるなー、くらいには思っていて、なにが根本なのか確認していなかっただけではあるのですが、
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://askubuntu.com/questions/1110473/git-completion-fails-after-updating-to-ubuntu-18-10-cosmic-cuttlefish" rel="nofollow">https://askubuntu.com/questions/1110473/git-completion-fails-after-updating-to-ubuntu-18-10-cosmic-cuttlefish</a>
+  </p>
+ </li>
+</ul>
+<p>
+ を見かけて、ハタと腹落ちした次第でした。
+</p>
+<p></p>
+<p>
+ 関連する記事などはチラ見はしていましたが、再インストール・何らかのupgradeで解決してしまうケースが多かったのでちゃんと考えていませんでした orz
+</p>
+<p>
+ 以下のようなissueも見ていましたが、基本は新しい git version に <code>git-completion.bash</code> を対応させるということだったので、なんとなく最新ならいいのかなって思ってしまい。。
+</p>
+<p>
+ Other references:
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://github.com/github/hub/issues/2684" rel="nofollow">https://github.com/github/hub/issues/2684</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://github.com/thoughtbot/gitsh/issues/336" rel="nofollow">https://github.com/thoughtbot/gitsh/issues/336</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+

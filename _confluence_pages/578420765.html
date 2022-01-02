@@ -1,0 +1,114 @@
+---
+layout: single
+title: "2022-05-21 ポストゴールデンウィーク作業メモ"
+date: "2022-05-21T13:00:47.089Z"
+---
+<p>
+ <a class="external-link" data-card-appearance="inline" href="https://lancul.com/blog/article-gw" rel="nofollow">https://lancul.com/blog/article-gw</a>
+</p>
+<p>
+ を見かけて、
+</p>
+<p>
+ <a href="/c/576356364" data-linked-resource-version="3" data-linked-resource-type="page">2022-05-04 Go勉やらネタコーディングやら</a>
+</p>
+<p>
+ 関連の
+</p>
+<p>
+ <a class="external-link" data-card-appearance="inline" href="https://github.com/haruki-sugarsun/go-ldenweek" rel="nofollow">https://github.com/haruki-sugarsun/go-ldenweek</a>
+</p>
+<p>
+ にゴールデンウィークとはなんぞやということを書いておかなければと思うなど。
+</p>
+<p></p>
+<p>
+ <code>README.md</code>を編集するにはやはり（やはり？）<a class="external-link" data-card-appearance="inline" href="https://github.com/haruki-sugarsun/markdown_editor" rel="nofollow">https://github.com/haruki-sugarsun/markdown_editor</a>  を使わなければと思い、今の環境でまず動かそうと思った。
+</p>
+<p></p>
+<p>
+ とりま、手元環境がJava 17だったのでそれ基準でテスト。
+</p>
+<p>
+ Gradle Wrapper が6.3で、<a class="external-link" data-card-appearance="inline" href="https://docs.gradle.org/current/userguide/compatibility.html" rel="nofollow">https://docs.gradle.org/current/userguide/compatibility.html</a>   によるとGradle は7.3以上が必要というわけで、最新の7.4.2へ。
+</p>
+<p>
+ JVM互換性チェックで落ちているので、 <code>gradle/wrapper/gradle-wrapper.properties</code>を直接編集。ちなみに、下記log中で使っている <code>gradleww</code>はただの俺俺スクリプトで、gradle wrapper の wrapper です（何
+</p>
+<div>
+ <div>
+  <pre>$ sdk install java 17.0.3-tem
+...
+
+
+$ gradleww 
+...
+&gt; startup failed:
+  General error during semantic analysis: Unsupported class file major version 61
+  
+  java.lang.IllegalArgumentException: Unsupported class file major version 61
+...
+
+
+$ gradleww --version
+
+------------------------------------------------------------
+Gradle 6.8
+------------------------------------------------------------
+...
+
+
+&lt;&lt;&lt;Edit gradle/wrapper/gradle-wrapper.properties&gt;&gt;&gt;
+
+
+$ gradleww --version
+
+------------------------------------------------------------
+Gradle 7.4.2
+------------------------------------------------------------
+...
+
+
+&lt;&lt;&lt;なんやかんやあって&gt;&gt;&gt;
+
+
+$ ./gradlew run --args="-f ../go-ldenweek/README.md "</pre>
+ </div>
+</div>
+<p>
+ で、参考情報追加しておきました。また来年のゴールデンウィークにお会いしましょう。
+</p>
+<p></p>
+<p>
+ 参考メモ等:
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://qiita.com/nobuoka/items/09cbdcd4716b930abdc4" rel="nofollow">https://qiita.com/nobuoka/items/09cbdcd4716b930abdc4</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://www.baeldung.com/gradle-command-line-arguments" rel="nofollow">https://www.baeldung.com/gradle-command-line-arguments</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://one-piece.com/log/character/detail/Ms_Goldenweek.html" rel="nofollow">https://one-piece.com/log/character/detail/Ms_Goldenweek.html</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<p>
+ Pending Task:
+</p>
+<ul>
+ <li>
+  <p>
+   markdown_editor’s Error message after the boot is wrong.
+  </p>
+ </li>
+</ul>
+<p></p>
+
