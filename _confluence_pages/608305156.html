@@ -1,0 +1,39 @@
+---
+layout: single
+title: "Tech Notes - Squid"
+date: "2023-02-12T16:20:15.957Z"
+---
+<p>
+ <a href="http://www.squid-cache.org/" data-card-appearance="inline" class="external-link" rel="nofollow">http://www.squid-cache.org/</a>
+</p>
+<p></p>
+<p></p>
+<h2 id="TechNotes-Squid-LocalSquidinstance">
+ Local Squid instance
+</h2>
+<h3 id="TechNotes-Squid-inWSL2">
+ in WSL2
+</h3>
+<div>
+ <div>
+  <pre>$ sudo apt install squid
+
+$ service --status-all
+...
+ [ - ]  squid
+...
+
+$ sudo service squid start
+[ ok ] Starting Squid HTTP Proxy: squid.</pre>
+ </div>
+</div>
+<p>
+ From <code>squid.conf</code>
+</p>
+<div>
+ <div>
+  <pre># Squid normally listens to port 3128
+http_port 3128</pre>
+ </div>
+</div>
+
