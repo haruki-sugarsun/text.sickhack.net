@@ -33,6 +33,12 @@ jobs:
         with:
           ref: gh-pages
 
+      - name: Setup tmate session (pre)
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.ref == 'refs/heads/testing' }} # Only in the execution from the testing.
+        with:
+          limit-access-to-actor: true
+
       # Fetch and process the content from the backend
       # TODO: Implement.
       # Runs a set of commands using the runners shell
@@ -64,3 +70,9 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }} # Only in the execution from the main.
         run: |
           git push origin
+
+      - name: Setup tmate session (post)
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.ref == 'refs/heads/testing' }} && ${{ failure() }} # Only in the execution from the testing.
+        with:
+          limit-access-to-actor: true
