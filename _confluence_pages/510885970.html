@@ -1,7 +1,9 @@
 ---
 layout: single
 title: "Design Docs - Site Converter Rough Design"
-date: "2023-02-25T10:46:27.236Z"
+date: "2023-02-26T03:33:31.929Z"
+toc: true
+toc_sticky: true
 tags:
   - designdoc
 ---
@@ -146,6 +148,23 @@ tags:
    </li>
   </ul>
  </li>
+ <li>
+  <p>
+   A “content”
+  </p>
+  <ul>
+   <li>
+    <p>
+     API response fetched with Confluence API.
+    </p>
+   </li>
+   <li>
+    <p>
+     especially “raw content” is the returned JSON returned
+    </p>
+   </li>
+  </ul>
+ </li>
 </ul>
 <h2 id="DesignDocs-SiteConverterRoughDesign-“verb”Definitions">
  “verb” Definitions
@@ -159,6 +178,11 @@ tags:
    <li>
     <p>
      Fetch (a tree/a page)
+    </p>
+   </li>
+   <li>
+    <p>
+     Analyze (a tree/a page)
     </p>
    </li>
    <li>
@@ -185,10 +209,114 @@ tags:
 <p>
  TODO: write.
 </p>
-<h2 id="DesignDocs-SiteConverterRoughDesign-OutputDirectoryStrucuture">
- Output Directory Strucuture
+<h2 id="DesignDocs-SiteConverterRoughDesign-OutputDirectoryStructure">
+ Output Directory Structure
 </h2>
 <p>
  TODO: write.
 </p>
+<p></p>
+<h2 id="DesignDocs-SiteConverterRoughDesign-FlagsandPhasesRelationships">
+ Flags and Phases Relationships
+</h2>
+<p>
+ TODO: write.
+</p>
+<div>
+ <table>
+  <colgroup>
+   <col>
+   <col>
+   <col>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th>
+     <p>
+      <strong>Phase \ Flag</strong>
+     </p>
+    </th>
+    <th>
+     <ul>
+      <li>
+       <p>
+        <code>root-page-id</code>
+       </p>
+      </li>
+      <li>
+       <p>
+        <code>process-one-target-id</code>
+       </p>
+      </li>
+     </ul>
+    </th>
+    <th>
+     <ul>
+      <li>
+       <p>
+        <code>use_cache</code>
+       </p>
+      </li>
+      <li>
+       <p>
+        (and cache mode later)
+       </p>
+      </li>
+     </ul>
+    </th>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      fetch
+     </p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      analyze
+     </p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      convert
+     </p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p></p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+    <td>
+     <p></p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p></p>
 
