@@ -10,4 +10,4 @@ set -eu
                                   --cache-dir cache \
                                   --output-dir _confluence_pages \
                                   --sleep ${SLEEP_SEC:-1} \
-    > processing.log 2>&1
+    2>&1 | tee processing.log
