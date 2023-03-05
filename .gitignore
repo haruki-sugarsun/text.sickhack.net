@@ -1,5 +1,7 @@
-_site
-.sass-cache
+# typical cache and build directory.
+cache/
+
+# by Jekyll. See http://jekyllrb.com/docs/structure/
 .jekyll-cache
 .jekyll-metadata
-vendor
+_site/
