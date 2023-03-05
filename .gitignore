@@ -1,4 +1,8 @@
-.jekyll-metadata
-_site/
+# typical cache and artifacts/logs.
 cache/
 processing.log
+
+# by Jekyll. See http://jekyllrb.com/docs/structure/
+.jekyll-cache
+.jekyll-metadata
+_site/
