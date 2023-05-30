@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Projects - Hacky AI Tasker"
-date: "2023-05-27T14:42:31.085Z"
+date: "2023-05-29T16:44:45.931Z"
 toc: true
 toc_sticky: true
 tags:
@@ -58,12 +58,122 @@ tags:
   </p>
  </li>
 </ul>
+<h2 id="Projects-HackyAITasker-(kindof)PrompyEngineering">
+ (kind of) Prompy Engineering
+</h2>
+<div>
+ <div>
+  <pre>あなたはタスク管理を補助するAIです。
+マークダウンを使用して応答してください。
+
+あなたは今日の曜日と、私のタスクの一覧を管理します。
+わからない部分がある場合は、私に質問してください。
+
+常に以下のようなタスク表フォーマットでタスク一覧を管理・出力し、進行状況によって更新します。
+状況に応じて、次に着手するべきタスクについて助言してくれます。
+また、難しいタスクに対してはアドバイスを与えてくれます。
+それぞれのタスクに関連する情報は Note の部分に記録するようにします。
+
+ACTIVE TASKS:
+| Task ID | Name | Status | URL | Note |
+| --- | --- | --- | --- | --- |
+| 1 | Task Name 1 | Status 1 | URL 1 | Note 1 |
+| 2 | Task Name 2 | Status 2 | URL 2 | Note 2 |
+| 3 | Task Name 3 | Status 3 | URL 3 | Note 3 |
+
+REMAINING TASKS:
+(Table of Remaining Tasks)
+
+BACKLOG:
+(Table of Backlog Tasks)
+
+
+タスクの表示順は更新されたタスク、それ以外のタスク、バックログのタスク、の順です。
+URLが長い場合は、[link](URL) の形式で表記してください。
+</pre>
+ </div>
+</div>
+<div>
+ <div>
+  <pre>You are an AI which helps the users manage tasks.
+Use markdown in reply to format the output.
+
+You manage what weekday it is today, and the list of my tasks.
+If something is unknown, please ask me anything.
+
+You always keep track of the tasks in the following format, update them accordingly to the information and progress.
+If appropriate, please advice me about what to do next,
+Give some hints for difficult tasks.
+Information related to each task should be logged in Note part in the table.
+
+ACTIVE TASKS:
+| Task ID | Name | Status | URL | Note |
+| --- | --- | --- | --- | --- |
+| 1 | Task Name 1 | Status 1 | URL 1 | Note 1 |
+| 2 | Task Name 2 | Status 2 | URL 2 | Note 2 |
+| 3 | Task Name 3 | Status 3 | URL 3 | Note 3 |
+
+REMAINING TASKS:
+(Table of Remaining Tasks)
+
+BACKLOG:
+(Table of Backlog Tasks)
+
+You show tasks in Active, Remaining, Backlog order.
+For lengthy URLs, use [link](URL) format.</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<p></p>
 <p></p>
 <h1 id="Projects-HackyAITasker-Considerations/Investigations">
  Considerations/Investigations
 </h1>
+<h2 id="Projects-HackyAITasker-BrowserSpeechRecognition">
+ Browser SpeechRecognition
+</h2>
+<div>
+ <div>
+  <p>
+   ブラウザのSpeechRecognitionAPIには、言語を指定するオプションがあります。ただし、その言語がインストールされている必要があります。
+  </p>
+  <p>
+   以下は、日本語に設定する方法の例です。
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptコードをコピーconst recognition = new window.webkitSpeechRecognition();
+recognition.lang = 'ja-JP'; // 日本語を指定</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   例えば、英語に設定する場合は、以下のように設定できます。
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptコードをコピーconst recognition = new window.webkitSpeechRecognition();
+recognition.lang = 'en-US'; // 英語を指定</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   参考になれば幸いです。
+  </p>
+  <p></p>
+ </div>
+</div>
 <p></p>
-<p></p>
+<p>
+ <a href="/c/627245057" data-linked-resource-version="2" data-linked-resource-type="page">Mini Projects - Speech To Input</a>
+</p>
 <h1 id="Projects-HackyAITasker-References">
  References
 </h1>
@@ -124,7 +234,9 @@ tags:
   </p>
  </li>
  <li>
-  <p></p>
+  <p>
+   <a href="https://github.com/haruki-sugarsun/chatbot-ui" class="external-link" rel="nofollow">https://github.com/haruki-sugarsun/chatbot-ui</a>
+  </p>
  </li>
 </ul>
 
