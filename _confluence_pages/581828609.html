@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - WSL2"
-date: "2023-06-09T12:26:12.905Z"
+date: "2023-09-05T16:00:24.913Z"
 toc: true
 toc_sticky: true
 tags:
@@ -92,7 +92,37 @@ tags:
    </li>
   </ul>
  </li>
+ <li>
+  <p>
+   Linux ディストリビューションの .vhdx ファイルとディスク パスを見つける方法 - <a href="https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution" class="external-link" rel="nofollow">https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/" class="external-link" rel="nofollow">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps" class="external-link" rel="nofollow">https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps</a>
+  </p>
+ </li>
 </ul>
+<h3 id="Investigations-WSL2-Cheatsheet">
+ Cheatsheet
+</h3>
+<div id="expander-1640292096">
+ <div id="expander-control-1640292096">
+  <span>&nbsp;</span><span>ここをクリックすると展開されます...</span>
+ </div>
+ <div id="expander-content-1640292096">
+  <div>
+   <div>
+    <pre>Optimize-VHD -Path "C:\Users\jumpi\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx" -Mode Full</pre>
+   </div>
+  </div>
+ </div>
+</div>
 <h2 id="Investigations-WSL2-FixingErrors">
  Fixing Errors
 </h2>
