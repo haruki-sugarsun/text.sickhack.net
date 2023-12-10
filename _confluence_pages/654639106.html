@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - lollms/Lord of Large Language Models"
-date: "2023-12-09T06:18:00.341Z"
+date: "2023-12-09T12:40:36.860Z"
 toc: true
 toc_sticky: true
 tags:
@@ -11,6 +11,32 @@ tags:
 </h1>
 <p>
  This page contains my personal notes about <a href="https://github.com/ParisNeo/lollms" class="external-link" rel="nofollow">https://github.com/ParisNeo/lollms</a> and webui.
+</p>
+<p></p>
+<h1 id="Notes-lollms/LordofLargeLanguageModels-Tips">
+ Tips
+</h1>
+<h2 id="Notes-lollms/LordofLargeLanguageModels-Updatefailure">
+ Update failure
+</h2>
+<p>
+ Internal update checking may fail if you have some local change, and the lollms logic repeats to update.
+</p>
+<div>
+ <div>
+  <pre>-------------------------------------------------------------
+Checking for updates from /home/sugarsun/apps/lollms-webui/lollms-webui
+update availability: True
+New version found. Updating!
+----------------&gt; Updating the code &lt;-----------------------
+Error during git pull: Cmd('git') failed due to: exit code(1)
+  cmdline: git pull -v -- origin
+  stderr: 'error: Your local changes to the following files would be overwritten by merge:'
+Requirement already satisfied: tqdm in /home/sugarsun/apps/lollms-webui/installer_files/lollms_env/lib/python3.10/site-packages (from -r re</pre>
+ </div>
+</div>
+<p>
+ You may need to pull (and resolve) yourself.
 </p>
 <h1 id="Notes-lollms/LordofLargeLanguageModels-Trials">
  Trials
