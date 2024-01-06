@@ -1,0 +1,150 @@
+---
+layout: single
+title: "2024-01-06 Learning Virtualized Environments"
+date: "2024-01-06T15:00:03.836Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p>
+ なぜか、2024はじめの諸々として、古いWindowsゲームを動かそうとしていたという話。
+</p>
+<p>
+ 背景: <a class="external-link" href="https://twitter.com/singing_hacky/status/1743462194103333226" rel="nofollow">https://twitter.com/singing_hacky/status/1743462194103333226</a>
+</p>
+<h1 id="id-2024-01-06LearningVirtualizedEnvironments-WhatIdid">
+ What I did
+</h1>
+<p>
+ 結局、やったこととしては
+</p>
+<ul>
+ <li>
+  <p>
+   Virtual Box + Windows 98/2000
+  </p>
+ </li>
+ <li>
+  <p>
+   VMWare Player + Windows 98/2000
+  </p>
+ </li>
+ <li>
+  <p>
+   QEMU + Windows 98
+  </p>
+ </li>
+</ul>
+<p>
+ という組み合わせで、ゲームが楽しめるかを試しておりました。
+</p>
+<p>
+ OSは手元に保持していたバックアップイメージやメディアイメージをもとにしているので、再現性があるか、環境依存かなどはちょっと怪しいところです。
+</p>
+<p>
+ 86Boxを試したくなったけど、まだ。
+</p>
+<h1 id="id-2024-01-06LearningVirtualizedEnvironments-WhatILearned">
+ What I Learned
+</h1>
+<p>
+ 多少齟齬があるかもですが、まとめると、
+</p>
+<ul>
+ <li>
+  <p>
+   VMWare Player, Virtual Box などのHyperVisor は最近のハードだと、Win 95/98は想定外の動作をして <code>illegal operations</code> と言われてしまい、うまく行かないのでした。
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://github.com/JHRobotics/patcher9x" rel="nofollow">https://github.com/JHRobotics/patcher9x</a> を当てるのが一番簡単。
+    </p>
+   </li>
+   <li>
+    <p>
+     手順としては <a class="external-link" href="https://www.sysnettechsolutions.com/en/install-windows-98-virtualbox-windows-10/" rel="nofollow">https://www.sysnettechsolutions.com/en/install-windows-98-virtualbox-windows-10/</a> を参考にするのが簡単でした。
+    </p>
+   </li>
+   <li>
+    <p>
+     議論の中心は <a class="external-link" href="https://msfn.org/board/topic/176962-failed-ryzen-and-fall-of-the-roman-empire-sort-of/page/6/#comment-1177561" rel="nofollow">https://msfn.org/board/topic/176962-failed-ryzen-and-fall-of-the-roman-empire-sort-of/page/6/#comment-1177561</a> ここあたりだった模様。
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://winraid.level1techs.com/t/windows-98se-on-modern-hardware/34540?page=4" rel="nofollow">https://winraid.level1techs.com/t/windows-98se-on-modern-hardware/34540?page=4</a> を参考に。
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   QEMUでemulationさせれば実行はできるが、Windows98日本語版のインストールではコケる場合があり、自分の試したケースでは、
+  </p>
+  <ul>
+   <li>
+    <p>
+     QEMU on Windows ( <a class="external-link" href="https://www.qemu.org/download/#windows" rel="nofollow">https://www.qemu.org/download/#windows</a> よりの <code>qemu-w64-setup-20231224.exe</code>) ではFDISK/FORMAT後にC:ドライブへファイルコピーを行うGUIがクラッシュするか何かで砂時計が出てすぐ終わって失敗する。
+    </p>
+   </li>
+   <li>
+    <p>
+     （ほぼ同じ条件で、VMWare Player, Virtual Box はインストール進行可能。ただし上記の問題でインストール中及び起動後にエラー）
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   QEMU on WSL2 でインストール進行＆実行は問題なし。
+  </p>
+  <ul>
+   <li>
+    <p>
+     インストール後、QEMU on Windowsで実行可能。
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   QEMUはMIDIサポートがないor不完全なので、MIDIでBGM再生するゲームでBGMが再生できず。
+  </p>
+ </li>
+ <li>
+  <p>
+   Virtual Box/VMWare Player + Windows 2000 は動作はしていましたが、表示とオーディオは不安定。
+  </p>
+  <ul>
+   <li>
+    <p>
+     自分の持っていたイメージでのことなので、再現性は微妙。
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   最終的には、 <a class="external-link" href="https://superuser.com/questions/851131/how-to-play-midi-music-in-virtualbox-windows-98" rel="nofollow">https://superuser.com/questions/851131/how-to-play-midi-music-in-virtualbox-windows-98</a> を参考に Virtual Box + Windows 98 にドライバー更新をいれてある程度プレイ可能な状態に。
+  </p>
+ </li>
+</ul>
+<p></p>
+<p>
+ MIDI再生以外はQEMUが一番安定させやすかったけど、
+</p>
+<p>
+ Microsoft KB Archive/239887 - <a class="external-link" href="https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/239887" rel="nofollow">https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/239887</a>
+</p>
+<p>
+ おそらくこちらのイシューで毎度固まるけど、 Update Patch を当てるのが面倒で放置している。。
+</p>
+<p></p>
+<p>
+ 関連リンクは以下のlogにも:
+</p>
+<p>
+ Raw notes: <a href="/c/661749777" data-linked-resource-version="25" data-linked-resource-type="page">https://sickhack.atlassian.net/wiki/spaces/TS/pages/661749777/Investigations+-+Virtualized+Environments</a>
+</p>
+
