@@ -1,6 +1,9 @@
 # typical cache and build directory.
 cache/
 
+# my hack
+_config_local.yml
+
 # by Jekyll. See http://jekyllrb.com/docs/structure/
 .jekyll-cache
 .jekyll-metadata
