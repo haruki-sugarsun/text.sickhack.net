@@ -1,0 +1,119 @@
+---
+layout: single
+title: "Investigations - Linux Admin"
+date: "2023-06-11T13:54:59.380Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<h1 id="Investigations-LinuxAdmin-Tips">
+ Tips
+</h1>
+<ul>
+ <li>
+  <p>
+   for <code>mkfs.xfs: command not found</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://www.thegeekdiary.com/mkfs-xfs-command-not-found/" rel="nofollow">https://www.thegeekdiary.com/mkfs-xfs-command-not-found/</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <code>apt-get install xfsprogs</code> for Debian-based.
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   TRIM and <code>discard</code> option for fstab
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://qiita.com/kiida/items/67bda4881fef5444fbe5" rel="nofollow">https://qiita.com/kiida/items/67bda4881fef5444fbe5</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://slacknotebook.com/linux-ssd-optimization/" rel="nofollow">https://slacknotebook.com/linux-ssd-optimization/</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Ed25519
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://linuxfan.info/ssh-ed25519" rel="nofollow">https://linuxfan.info/ssh-ed25519</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Investigations-LinuxAdmin-swapfile">
+ swapfile
+</h2>
+<p>
+ (copying from ChatGPT advice 😄 )
+</p>
+<p>
+ First, you need to create an empty file with the desired size. The <code>dd</code> command can do this. You will use the <code>/swapfile</code> path for the file.
+</p>
+<div>
+ <div>
+  <pre>sudo dd if=/dev/zero of=/swapfile bs=1M count=2048</pre>
+ </div>
+</div>
+<p>
+ In this command, <code>bs=1M</code> sets the block size to 1 megabyte and <code>count=2048</code> specifies that 2048 blocks should be copied, resulting in a 2GB file.
+</p>
+<p>
+ Next, you need to set the correct permissions on the file. Only root should have read and write permissions.
+</p>
+<div>
+ <div>
+  <pre>sudo chmod 600 /swapfile
+</pre>
+ </div>
+</div>
+<p>
+ Now you can format the file for swapping:
+</p>
+<div>
+ <div>
+  <pre>sudo mkswap /swapfile
+</pre>
+ </div>
+</div>
+<p>
+ And finally, enable the swap file:
+</p>
+<div>
+ <div>
+  <pre>sudo swapon /swapfile
+</pre>
+ </div>
+</div>
+<p>
+ The swap file is now enabled for your current session. If you want the swap file to persist across reboots, you will need to add an entry to <code>/etc/fstab</code>:
+</p>
+<div>
+ <div>
+  <pre>echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+</pre>
+ </div>
+</div>
+<p>
+ This appends the required configuration to the end of the <code>fstab</code> file.
+</p>
+<p>
+ Please note, excessive use of swap can degrade overall system performance and it is recommended to add more physical memory (RAM) for memory-intensive applications. Swap should be used as a buffer for temporary spikes in memory usage, not as an extension of your system memory.
+</p>
+

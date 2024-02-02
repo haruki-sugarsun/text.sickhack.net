@@ -1,0 +1,468 @@
+---
+layout: single
+title: "Investigations - Playwright Automation"
+date: "2023-04-29T13:09:06.933Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<h1 id="Investigations-PlaywrightAutomation-Overview">
+ Overview
+</h1>
+<p></p>
+<h1 id="Investigations-PlaywrightAutomation-Notes">
+ Notes
+</h1>
+<h2 id="Investigations-PlaywrightAutomation-InitializationNote">
+ Initialization Note
+</h2>
+<div>
+ <div>
+  <pre>$ npm init playwright@latest
+
+</pre>
+ </div>
+</div>
+<h2 id="Investigations-PlaywrightAutomation-Resolution">
+ Resolution
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/next/api/class-page#page-set-viewport-size" rel="nofollow">https://playwright.dev/docs/next/api/class-page#page-set-viewport-size</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-Cookieintest">
+ Cookie in test
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/71775082/how-can-i-use-browsercontext-in-the-playwright-test-runner" rel="nofollow">https://stackoverflow.com/questions/71775082/how-can-i-use-browsercontext-in-the-playwright-test-runner</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/64211501/add-cookies-in-playwright-test" rel="nofollow">https://stackoverflow.com/questions/64211501/add-cookies-in-playwright-test</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/microsoft/playwright/issues/13647" rel="nofollow">https://github.com/microsoft/playwright/issues/13647</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies" rel="nofollow">https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   tips script:
+  </p>
+  <div>
+   <div>
+    <pre>$ cat mysb.json | jq | egrep -v '"expirationDate":|"hostOnly": false,|"httpOnly": false,|"sameSite": "unspecified",|"secure": false,|"session": false,|"storeId": "0",'</pre>
+   </div>
+  </div>
+ </li>
+</ul>
+<p></p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://scrapfly.io/blog/how-to-find-elements-by-css-selectors-in-playwright/" rel="nofollow">https://scrapfly.io/blog/how-to-find-elements-by-css-selectors-in-playwright/</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-Createatestwithcodegenanddebug">
+ Create a test with codegen and debug
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/codegen" rel="nofollow">https://playwright.dev/docs/codegen</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/debug" rel="nofollow">https://playwright.dev/docs/debug</a>
+  </p>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre> </pre>
+ </div>
+</div>
+<h2 id="Investigations-PlaywrightAutomation-ScreenshotonFailure">
+ Screenshot on Failure
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/microsoft/playwright/issues/14854" rel="nofollow">https://github.com/microsoft/playwright/issues/14854</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-UsingProxy">
+ Using Proxy
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://minerva.mamansoft.net/Notes/Playwright%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88%E3%81%A7%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92%E7%B5%8C%E7%94%B1" rel="nofollow">https://minerva.mamansoft.net/Notes/Playwrightのテストでプロキシサーバーを経由</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://scrapingant.com/blog/how-to-use-a-proxy-in-playwright" rel="nofollow">https://scrapingant.com/blog/how-to-use-a-proxy-in-playwright</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/test-configuration#network" rel="nofollow">https://playwright.dev/docs/test-configuration#network</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://github.com/microsoft/playwright/issues/2131" rel="nofollow">https://github.com/microsoft/playwright/issues/2131</a> <code>socks5://... </code>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-Waiting">
+ Waiting
+</h2>
+<ul>
+ <li>
+  <p>
+   <code>await page.waitForTimeout(1000);</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://dev.to/checkly/avoiding-hard-waits-in-playwright-and-puppeteer-272" rel="nofollow">https://dev.to/checkly/avoiding-hard-waits-in-playwright-and-puppeteer-272</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://playwright.dev/docs/api/class-page#page-wait-for-timeout" rel="nofollow">https://playwright.dev/docs/api/class-page#page-wait-for-timeout</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-Tips">
+ Tips
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.summerbud.org/dev-notes/playwright-tips-that-will-make-your-life-easier/" rel="nofollow">https://www.summerbud.org/dev-notes/playwright-tips-that-will-make-your-life-easier/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/microsoft/playwright/issues/18020" rel="nofollow">https://github.com/microsoft/playwright/issues/18020</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h2 id="Investigations-PlaywrightAutomation-DebuggingwithBrowser">
+ Debugging with Browser
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/debug#browser-developer-tools" rel="nofollow">https://playwright.dev/docs/debug#browser-developer-tools</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-CheckingIdeas">
+ Checking Ideas
+</h2>
+<ul>
+ <li>
+  <p>
+   Change the behavior by
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/69476762/playwright-testing-how-to-skip-to-the-next-action-if-a-click-on-a-button-is-no" rel="nofollow">https://stackoverflow.com/questions/69476762/playwright-testing-how-to-skip-to-the-next-action-if-a-click-on-a-button-is-no</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/70179441/check-if-element-is-visible-in-playwright" rel="nofollow">https://stackoverflow.com/questions/70179441/check-if-element-is-visible-in-playwright</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://minerva.mamansoft.net/Notes/Playwright%E3%81%A7%E8%A6%81%E7%B4%A0%E3%81%8Cvisible%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D" rel="nofollow">https://minerva.mamansoft.net/Notes/Playwrightで要素がvisibleかどうかを確認</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/70179441/check-if-element-is-visible-in-playwright" rel="nofollow">https://stackoverflow.com/questions/70179441/check-if-element-is-visible-in-playwright</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://chercher.tech/python-playwright/playwright-python-check-if-element-exists" rel="nofollow">https://chercher.tech/python-playwright/playwright-python-check-if-element-exists</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     hmmm… is this the only way..?
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<h2 id="Investigations-PlaywrightAutomation-ParentElement">
+ Parent Element
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/microsoft/playwright/issues/13286" rel="nofollow">https://github.com/microsoft/playwright/issues/13286</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<h2 id="Investigations-PlaywrightAutomation-iframe">
+ iframe
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/73807634/how-can-i-select-a-button-contained-within-an-iframe-in-playwright-python-by-i" rel="nofollow">https://stackoverflow.com/questions/73807634/how-can-i-select-a-button-contained-within-an-iframe-in-playwright-python-by-i</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Investigations-PlaywrightAutomation-Unstructured">
+ Unstructured
+</h1>
+<p></p>
+<p></p>
+<p></p>
+<p>
+ On WSL
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://github.com/microsoft/playwright/issues/4047" rel="nofollow">https://github.com/microsoft/playwright/issues/4047</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Some missing dependencies
+  </p>
+  <ul>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<div id="expander-965693807">
+ <div id="expander-control-965693807">
+  <span>&nbsp;</span><span>ここをクリックすると展開されます...</span>
+ </div>
+ <div id="expander-content-965693807">
+  <div>
+   <div>
+    <pre>browserType.launch:
+    ╔══════════════════════════════════════════════════════╗
+    ║ Host system is missing dependencies to run browsers. ║
+    ║ Missing libraries:                                   ║
+    ║     libnss3.so                                       ║
+    ║     libnssutil3.so                                   ║
+    ║     libsmime3.so                                     ║
+    ║     libnspr4.so                                      ║
+    ║     libatk-1.0.so.0                                  ║
+    ║     libatk-bridge-2.0.so.0                           ║
+    ║     libcups.so.2                                     ║
+    ║     libdrm.so.2                                      ║
+    ║     libatspi.so.0                                    ║
+    ║     libXcomposite.so.1                               ║
+    ║     libXdamage.so.1                                  ║
+    ║     libXrandr.so.2                                   ║
+    ║     libgbm.so.1                                      ║
+    ║     libxkbcommon.so.0                                ║
+    ║     libpango-1.0.so.0                                ║
+    ║     libcairo.so.2                                    ║
+    ╚══════════════════════════════════════════════════════╝
+browserType.launch:
+    ╔══════════════════════════════════════════════════════╗
+    ║ Host system is missing dependencies to run browsers. ║
+    ║ Missing libraries:                                   ║
+    ║     libgtk-3.so.0                                    ║
+    ║     libgdk-3.so.0                                    ║
+    ║     libXcomposite.so.1                               ║
+    ║     libXdamage.so.1                                  ║
+    ║     libXrandr.so.2                                   ║
+    ║     libXtst.so.6                                     ║
+    ║     libpangocairo-1.0.so.0                           ║
+    ║     libpango-1.0.so.0                                ║
+    ║     libatk-1.0.so.0                                  ║
+    ║     libcairo-gobject.so.2                            ║
+    ║     libcairo.so.2                                    ║
+    ║     libgdk_pixbuf-2.0.so.0                           ║
+    ║     libdbus-glib-1.so.2                              ║
+    ║     libxcb-shm.so.0                                  ║
+    ║     libX11-xcb.so.1                                  ║
+    ║     libXi.so.6                                       ║
+    ╚══════════════════════════════════════════════════════╝
+browserType.launch:
+    ╔══════════════════════════════════════════════════════╗
+    ║ Host system is missing dependencies to run browsers. ║
+    ║ Missing libraries:                                   ║
+    ║     libsoup-2.4.so.1                                 ║
+    ║     libgstreamer-1.0.so.0                            ║
+    ║     libgtk-3.so.0                                    ║
+    ║     libgdk-3.so.0                                    ║
+    ║     libcairo.so.2                                    ║
+    ║     libepoxy.so.0                                    ║
+    ║     libevent-2.1.so.7                                ║
+    ║     libopus.so.0                                     ║
+    ║     libicui18n.so.66                                 ║
+    ║     libicuuc.so.66                                   ║
+    ║     libpango-1.0.so.0                                ║
+    ║     libharfbuzz.so.0                                 ║
+    ║     libgdk_pixbuf-2.0.so.0                           ║
+    ║     libxslt.so.1                                     ║
+    ║     liblcms2.so.2                                    ║
+    ║     libwoff2dec.so.1.0.2                             ║
+    ║     libharfbuzz-icu.so.0                             ║
+    ║     libgstallocators-1.0.so.0                        ║
+    ║     libgstapp-1.0.so.0                               ║
+    ║     libgstbase-1.0.so.0                              ║
+    ║     libgstpbutils-1.0.so.0                           ║
+    ║     libgstaudio-1.0.so.0                             ║
+    ║     libgsttag-1.0.so.0                               ║
+    ║     libgstvideo-1.0.so.0                             ║
+    ║     libgstgl-1.0.so.0                                ║
+    ║     libgstfft-1.0.so.0                               ║
+    ║     libjpeg.so.8                                     ║
+    ║     libopenjp2.so.7                                  ║
+    ║     libwebpdemux.so.2                                ║
+    ║     libwebp.so.6                                     ║
+    ║     libenchant-2.so.2                                ║
+    ║     libsecret-1.so.0                                 ║
+    ║     libhyphen.so.0                                   ║
+    ║     libXcomposite.so.1                               ║
+    ║     libXdamage.so.1                                  ║
+    ║     libgbm.so.1                                      ║
+    ║     libdrm.so.2                                      ║
+    ║     libffi.so.7                                      ║
+    ║     libevdev.so.2                                    ║
+    ║     libgudev-1.0.so.0                                ║
+    ║     libxkbcommon.so.0                                ║
+    ║     libwayland-server.so.0                           ║
+    ║     libwayland-egl.so.1                              ║
+    ║     libwayland-client.so.0                           ║
+    ║     libGLESv2.so.2                                   ║
+    ║     libx264.so                                       ║
+    ╚══════════════════════════════════════════════════════╝</pre>
+   </div>
+  </div>
+  <p>
+   So, Crafting apt commands
+  </p>
+  <div>
+   <div>
+    <pre>Chromium
+$ sudo apt install libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libatspi2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxkbcommon0 libpango-1.0-0 libcairo2
+
+Firefox
+
+sudo apt install libgtk-3-0 libpangocairo-1.0-0 libcairo-gobject2 libgdk-pixbuf2.0-0 libdbus-glib-1-2 libx11-xcb1
+
+WebKit</pre>
+   </div>
+  </div>
+  <p></p>
+  <p></p>
+  <p>
+   still having error
+  </p>
+  <div>
+   <div>
+    <pre>undefined symbol: gbm_bo_get_modifier</pre>
+   </div>
+  </div>
+  <p>
+   and maybe <a class="external-link" data-card-appearance="inline" href="https://forum.puppylinux.com/viewtopic.php?t=7542" rel="nofollow">https://forum.puppylinux.com/viewtopic.php?t=7542</a>
+  </p>
+  <p></p>
+ </div>
+</div>
+<p></p>
+<h2 id="Investigations-PlaywrightAutomation-ScreenResolution">
+ Screen Resolution
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://obel.hatenablog.jp/entry/20210506/1620244800" rel="nofollow">https://obel.hatenablog.jp/entry/20210506/1620244800</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://playwright.dev/docs/next/api/class-page#page-set-viewport-size" rel="nofollow">https://playwright.dev/docs/next/api/class-page#page-set-viewport-size</a>
+    </p>
+   </li>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<h1 id="Investigations-PlaywrightAutomation-References">
+ References
+</h1>
+<ul>
+ <li>
+  <p>
+   Playwright Official - <a class="external-link" href="https://playwright.dev/" rel="nofollow">https://playwright.dev/</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://github.com/microsoft/playwright/blob/main/README.md" rel="nofollow">https://github.com/microsoft/playwright/blob/main/README.md</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://playwright.dev/docs/codegen" rel="nofollow">https://playwright.dev/docs/codegen</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://zenn.dev/azukiazusa/articles/playwright-component-testing" rel="nofollow">https://zenn.dev/azukiazusa/articles/playwright-component-testing</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://dormoshe.io/trending-news/how-to-end-to-end-test-your-vue-js-apps-with-playwright-268f-23666?utm_source=facebook&amp;utm_campaign=facebook" rel="nofollow">https://dormoshe.io/trending-news/how-to-end-to-end-test-your-vue-js-apps-with-playwright-268f-23666?utm_source=facebook&amp;utm_campaign=facebook</a>
+  </p>
+ </li>
+</ul>
+

@@ -1,0 +1,42 @@
+---
+layout: single
+title: "Investigations - Google Calendar"
+date: "2023-11-12T01:06:01.537Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<h1 id="Investigations-GoogleCalendar-ChatGPT">
+ ChatGPT
+</h1>
+<div>
+ <div>
+  <pre>Google Calendar provides a way to create events through a URL link that follows a specific format. This format allows you to pre-fill event details such as the event title, date, time, location, and more. To create a Google Calendar event link, you can use the following format:
+```
+https://www.google.com/calendar/render?action=TEMPLATE&amp;text=EVENT_TITLE&amp;dates=START_DATE/END_DATE&amp;location=LOCATION&amp;details=DESCRIPTION
+```
+Here's what each parameter in the link does:
+- `text`: This is the event title. Replace `EVENT_TITLE` with your desired event title.
+- `dates`: This parameter specifies the event start and end date and time. The format is `YYYYMMDDTHHMMSSZ/YYYYMMDDTHHMMSSZ`, where the first part represents the start date and time, and the second part represents the end date and time. The "T" and "Z" characters are required to format the dates properly. Replace `START_DATE` and `END_DATE` with the appropriate values in this format.
+- `location`: This is the event location. Replace `LOCATION` with the desired location.
+- `details`: This parameter is for event details or description. Replace `DESCRIPTION` with the event description.
+You can also specify additional parameters, such as attendees and reminders, by appending them to the URL. For example:
+- `&amp;add=EMAIL_ADDRESS`: To add attendees to the event, you can use the `add` parameter and provide one or more email addresses separated by commas.
+- `&amp;reminders=MINUTES`: To set event reminders, you can use the `reminders` parameter and specify the number of minutes before the event for reminders.
+Here's an example of a complete Google Calendar event link:
+```
+https://www.google.com/calendar/render?action=TEMPLATE&amp;text=My%20Event&amp;dates=20231101T090000Z/20231101T110000Z&amp;location=Meeting%20Room&amp;details=Agenda%20for%20the%20meeting
+```
+When a user clicks on this link, it will open Google Calendar in their web browser with the event details pre-filled, and they can choose to save the event to their calendar.
+Please note that Google Calendar's features and URL parameters may change over time, so it's a good idea to refer to the official Google Calendar documentation for the most up-to-date information:
+Google Calendar Help Center: https://support.google.com/calendar/
+Google Calendar Developer Documentation: https://developers.google.com/calendar/overview</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<h1 id="Investigations-GoogleCalendar-References">
+ References
+</h1>
+

@@ -1,0 +1,201 @@
+---
+layout: single
+title: "Investigations - Git"
+date: "2023-06-08T23:09:09.464Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<h1 id="Investigations-Git-Overview">
+ Overview
+</h1>
+<h1 id="Investigations-Git-Notes">
+ Notes
+</h1>
+<h1 id="Investigations-Git-Tips">
+ Tips
+</h1>
+<ul>
+ <li>
+  <p>
+   How to change the commit a branch is pointing to (adviced by ChatGPT 🥳
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>Option 1: Using `git branch -f`
+
+First, ensure you have checked out the branch you want to modify. Then, use the `git branch -f` command to forcibly move the branch pointer to a new commit.
+
+```bash
+git checkout &lt;branch_name&gt;
+git branch -f &lt;branch_name&gt; &lt;new_commit&gt;
+```
+
+Replace `&lt;branch_name&gt;` with your desired branch and `&lt;new_commit&gt;` with the target commit's hash or any other way of specifying the commit (like `HEAD~3`).
+
+Option 2: Using `git reset`
+
+First, check out the branch you want to update, and then reset the branch to the target commit:
+
+```bash
+git checkout &lt;branch_name&gt;
+git reset --hard &lt;new_commit&gt;
+```
+
+Replace `&lt;branch_name&gt;` with your desired branch and `&lt;new_commit&gt;` with the target commit's hash or any other way of specifying the commit (like `HEAD~3`).
+
+Note: When using `git reset --hard`, be mindful that it **may discard uncommitted changes** in your working directory.
+
+After updating the branch with one of the previous methods, if you want to push the updated branch to a remote repository, you'll need to force-push using the `--force` option:
+
+```bash
+git push --force origin &lt;branch_name&gt;
+```
+
+Keep in mind that force-pushing can cause issues for other collaborators. Make sure you communicate the changes to your entire team to avoid conflicts.</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h1 id="Investigations-Git-References">
+ References
+</h1>
+<p></p>
+<p></p>
+<hr>
+<p></p>
+<p></p>
+<ul>
+ <li>
+  <p></p>
+ </li>
+ <li>
+  <p>
+   ref aliases
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://git-scm.com/book/ja/v2/Git%E3%81%AE%E5%86%85%E5%81%B4-Git%E3%81%AE%E5%8F%82%E7%85%A7" rel="nofollow">https://git-scm.com/book/ja/v2/Gitの内側-Gitの参照</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://stackoverflow.com/questions/15284109/command-to-determine-the-upstream-ref-of-the-current-head" rel="nofollow">https://stackoverflow.com/questions/15284109/command-to-determine-the-upstream-ref-of-the-current-head</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       <code>HEAD</code>
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>@{u}</code>
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   grafted
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" data-card-appearance="inline" href="https://tukaelu.hatenablog.jp/entry/2018/04/10/git-grafted-commit" rel="nofollow">https://tukaelu.hatenablog.jp/entry/2018/04/10/git-grafted-commit</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Shallow clone
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>$ git fetch --unshallow
+remote: Total 0 (delta 0), reused 0 (delta 0)
+$ git rev-parse --is-shallow-repository
+true</pre>
+     </div>
+    </div>
+    <p></p>
+   </li>
+   <li>
+    <p>
+     Hmm. <code>unshallow</code> does not always make it “full”.
+    </p>
+   </li>
+   <li>
+    <p>
+     <code>rm .git/shallow</code>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p></p>
+ </li>
+ <li>
+  <p>
+   clean
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://stackoverflow.com/questions/59645813/how-to-reset-a-git-repository-including-ignored-files" rel="nofollow">https://stackoverflow.com/questions/59645813/how-to-reset-a-git-repository-including-ignored-files</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://git-scm.com/docs/git-clean" rel="nofollow">https://git-scm.com/docs/git-clean</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       <code>git clean -fd</code> to remove untracked files, while keeping ignored ones.
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>git clean -fdx</code> to remove ...
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>git clean -fdX</code> to remove ...
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   History squashing
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://stackoverflow.com/questions/1657017/how-to-squash-all-git-commits-into-one" rel="nofollow">https://stackoverflow.com/questions/1657017/how-to-squash-all-git-commits-into-one</a>
+    </p>
+   </li>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+

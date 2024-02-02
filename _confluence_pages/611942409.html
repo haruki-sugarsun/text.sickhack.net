@@ -1,0 +1,94 @@
+---
+layout: single
+title: "Investigations - Ruby"
+date: "2024-02-01T02:53:37.565Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<h1 id="Investigations-Ruby-Notes">
+ Notes
+</h1>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://zenn.dev/fuuukeee3/articles/22caeb537cf1a6" rel="nofollow">https://zenn.dev/fuuukeee3/articles/22caeb537cf1a6</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     issue installing 3.2.1
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" data-card-appearance="inline" href="https://www.ruby-lang.org/ja/news/2022/12/25/ruby-3-2-0-released/" rel="nofollow">https://www.ruby-lang.org/ja/news/2022/12/25/ruby-3-2-0-released/</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" data-card-appearance="inline" href="https://github.com/rbenv/ruby-build/discussions/2118#discussioncomment-4872830" rel="nofollow">https://github.com/rbenv/ruby-build/discussions/2118#discussioncomment-4872830</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" data-card-appearance="inline" href="https://github.com/rbenv/ruby-build/wiki#suggested-build-environment" rel="nofollow">https://github.com/rbenv/ruby-build/wiki#suggested-build-environment</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       In my case, on Linux (based on Debian 11.5 according to /etc/debian_version) on ChromeOS
+      </p>
+      <ul>
+       <li>
+        <p>
+         <code>sudo apt install zlib1g-dev libyaml-dev</code>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Investigations-Ruby-ffi-1.15.5/lib/ffi.rb:5:in`require':libffi.so.8:cannotopensharedobjectfile">
+ ffi-1.15.5/lib/ffi.rb:5:in `require': libffi.so.8: cannot open shared object file
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://askubuntu.com/questions/1377139/loaderror-libffi-so-8-cannot-open-shared-object-file-no-such-file-or-director" rel="nofollow">https://askubuntu.com/questions/1377139/loaderror-libffi-so-8-cannot-open-shared-object-file-no-such-file-or-director</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     for me, the following was better.
+    </p>
+    <div>
+     <div>
+      <pre>gem uninstall ffi 
+gem install ffi -v 1.15.0 -- --disable-system-libffi</pre>
+     </div>
+    </div>
+    <p>
+     with adding <code>gem "ffi", "1.15.0"</code> in Gemfile
+    </p>
+    <ul>
+     <li>
+      <p>
+       (WSL2. Debian,  <time>2024/02/01</time> )
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<h1 id="Investigations-Ruby-References">
+ References
+</h1>
+

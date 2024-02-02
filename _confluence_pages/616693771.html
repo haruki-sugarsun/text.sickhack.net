@@ -1,0 +1,706 @@
+---
+layout: single
+title: "Mini Project: ChatGPT CLI"
+date: "2023-04-16T00:03:29.429Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<p></p>
+<p></p>
+<h1 id="MiniProject:ChatGPTCLI-Overview">
+ Overview
+</h1>
+<p></p>
+<h2 id="MiniProject:ChatGPTCLI-(confirmed)Dependencies">
+ (confirmed) Dependencies
+</h2>
+<ul>
+ <li>
+  <p>
+   Node.js v17.9.1
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/tj/commander.js/" rel="nofollow">https://github.com/tj/commander.js/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.npmjs.com/package/chalk" rel="nofollow">https://www.npmjs.com/package/chalk</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<h1 id="MiniProject:ChatGPTCLI-Note/Iterations">
+ Note / Iterations
+</h1>
+<h2 id="MiniProject:ChatGPTCLI-FrameworkChoice">
+ Framework Choice
+</h2>
+<div>
+ <div>
+  <p>
+   I'd like to implement a CLI tool for ChatGPT querying. which framework do you recommend?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   There are several popular frameworks for building CLI tools in Node.js, each with its own strengths and weaknesses. Here are three frameworks that I recommend considering for building a ChatGPT querying CLI tool:
+  </p>
+  <ol>
+   <li>
+    <p>
+     Commander.js: Commander.js is a popular and widely-used CLI framework for Node.js. It provides an easy way to define commands and options for your CLI tool, as well as handling error messages and help output. Commander.js is well-documented and has a large user community, making it a good choice for beginners and experienced developers alike.
+    </p>
+   </li>
+   <li>
+    <p>
+     Vorpal: Vorpal is a powerful and extensible CLI framework for Node.js, designed for building complex CLI applications. It provides features such as command auto-completion, persistent command history, and tabbed interfaces. Vorpal is highly customizable and can be used to build tools ranging from simple scripts to full-featured CLI applications.
+    </p>
+   </li>
+   <li>
+    <p>
+     Ink: Ink is a relatively new CLI framework for Node.js, which uses React to create interactive terminal interfaces. It provides a familiar development experience for web developers and can be used to build rich, interactive CLI applications with features such as text input, dropdown menus, and checkboxes. Ink is a good choice if you want to create a more interactive and visually appealing CLI tool.
+    </p>
+   </li>
+  </ol>
+  <p>
+   Depending on your needs and experience level, any of these frameworks can be a good choice for building a ChatGPT querying CLI tool. You may also want to consider other factors such as documentation, community support, and ease of use when choosing a framework.
+  </p>
+ </div>
+</div>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/tj/commander.js/" rel="nofollow">https://github.com/tj/commander.js/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://vorpal.js.org/" rel="nofollow">https://vorpal.js.org/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.npmjs.com/package/ink" rel="nofollow">https://www.npmjs.com/package/ink</a>
+  </p>
+ </li>
+</ul>
+<div>
+ <div>
+  <p>
+   Cooool~ I'd like to try implementing a CLI using Commander.js. how should I start?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   Great! Here's a step-by-step guide to getting started with Commander.js and building a basic CLI tool:
+  </p>
+  <ol>
+   <li>
+    <p>
+     Create a new directory for your project and navigate into it:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>mkdir my-chatgpt-cli
+cd my-chatgpt-cli</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Initialize a new Node.js project using <code>npm init</code> command:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>npm init</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Install Commander.js as a dependency for your project using <code>npm install</code> command:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>npm install commander --save</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Create a new file called <code>index.js</code> in your project directory. This file will contain the main code for your CLI tool.
+    </p>
+   </li>
+   <li>
+    <p>
+     Add the following code to your <code>index.js</code> file to set up a basic Commander.js CLI:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>#!/usr/bin/env node
+
+const { program } = require('commander');
+const chalk = require('chalk');
+
+program
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;text&gt;', 'Query text to send to ChatGPT')
+  .option('-l, --language &lt;language&gt;', 'Language of the query text (default: "en")')
+  .parse(process.argv);
+
+if (!program.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${program.query}" in ${program.language || 'en'}...`));
+// TODO: implement ChatGPT querying logic</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   This code sets up a basic Commander.js CLI with two options: <code>-q</code> for the query text to send to ChatGPT, and <code>-l</code> for the language of the query text (defaulting to "en"). The code also includes basic error handling to ensure that the query text is provided.
+  </p>
+  <ol>
+   <li>
+    <p>
+     To test your CLI application, run the <code>./index.js</code> command in your project directory and pass in any necessary options. For example:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>./index.js -q "What is the meaning of life?"</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   This should output a message indicating that the query is being sent to ChatGPT.
+  </p>
+  <p>
+   That's it! You can now build on this basic setup to add more functionality and features to your ChatGPT querying CLI tool, such as saving and retrieving previous queries, displaying results in different formats, and more.
+  </p>
+ </div>
+</div>
+<p>
+ Some additional references:
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://medium.com/@leandrofahur_/building-a-command-line-interface-with-node-js-yargs-and-chalk-b86fca87359b" rel="nofollow">https://medium.com/@leandrofahur_/building-a-command-line-interface-with-node-js-yargs-and-chalk-b86fca87359b</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.npmjs.com/package/chalk" rel="nofollow">https://www.npmjs.com/package/chalk</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<div>
+ <div>
+  <p>
+   it says "require" is not supported and use import. how should be rewrite it?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   The error message you are seeing is because the <code>require</code> syntax is part of the CommonJS module system, which is not natively supported in modern versions of Node.js when using ECMAScript modules. Instead, you should use the <code>import</code> syntax, which is the standard syntax for ECMAScript modules.
+  </p>
+  <p>
+   Here's how you can rewrite the code in your <code>index.js</code> file to use the <code>import</code> syntax with Commander.js:
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptCopy code#!/usr/bin/env node
+
+import { program } from 'commander';
+import chalk from 'chalk';
+
+program
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;text&gt;', 'Query text to send to ChatGPT')
+  .option('-l, --language &lt;language&gt;', 'Language of the query text (default: "en")')
+  .parse(process.argv);
+
+if (!program.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${program.query}" in ${program.language || 'en'}...`));
+// TODO: implement ChatGPT querying logic
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   Note that we use the <code>import</code> keyword to import both the <code>program</code> object from Commander.js and the <code>chalk</code> library. The rest of the code is the same as before.
+  </p>
+  <p>
+   With this change, you should be able to run your CLI tool without any issues. If you encounter any further errors, make sure that you are running a version of Node.js that supports ECMAScript modules (Node.js v14 or later) and that you have installed the required dependencies using <code>npm install</code>.
+  </p>
+ </div>
+</div>
+<p></p>
+<p></p>
+<div>
+ <div>
+  <p>
+   It then says
+  </p>
+  <p>
+   &gt; SyntaxError: Cannot use import statement outside a module
+  </p>
+  <p>
+   ... How can I fix it?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   The <code>SyntaxError: Cannot use import statement outside a module</code> error occurs when you try to use the <code>import</code> statement in a Node.js script that is not running in ECMAScript module mode. This error can occur when you try to run a script that uses the <code>import</code> statement without first specifying that it should be run as a module.
+  </p>
+  <p>
+   To fix this error, you need to tell Node.js to run your script as a module by adding the <code>"type": "module"</code> field to your <code>package.json</code> file:
+  </p>
+  <ol>
+   <li>
+    <p>
+     Open your <code>package.json</code> file in a text editor.
+    </p>
+   </li>
+   <li>
+    <p>
+     Add the <code>"type": "module"</code> field to the top level of your <code>package.json</code> file:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>{
+  "name": "my-chatgpt-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "chalk": "^4.1.1"
+  },
+  "bin": {
+    "my-chatgpt-cli": "./index.js"
+  }
+}
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   This tells Node.js to run your script in ECMAScript module mode, which enables you to use the <code>import</code> statement.
+  </p>
+  <ol>
+   <li>
+    <p>
+     Save your changes to the <code>package.json</code> file.
+    </p>
+   </li>
+   <li>
+    <p>
+     Update your <code>index.js</code> file to use the <code>import</code> statement as follows:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>#!/usr/bin/env node
+
+import { program } from 'commander';
+import chalk from 'chalk';
+
+program
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;text&gt;', 'Query text to send to ChatGPT')
+  .option('-l, --language &lt;language&gt;', 'Language of the query text (default: "en")')
+  .parse(process.argv);
+
+if (!program.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${program.query}" in ${program.language || 'en'}...`));
+// TODO: implement ChatGPT querying logic
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Save your changes to the <code>index.js</code> file.
+    </p>
+   </li>
+   <li>
+    <p>
+     Run your CLI tool using the <code>./index.js</code> command.
+    </p>
+   </li>
+  </ol>
+  <p>
+   With these changes, your CLI tool should now run without the <code>SyntaxError: Cannot use import statement outside a module</code> error.
+  </p>
+ </div>
+</div>
+<p></p>
+<div>
+ <div>
+  <p>
+   Hmmm.. It now says
+  </p>
+  <p>
+   &gt;Error: query text is required.
+  </p>
+  <p>
+   When I run the ./index.js script. Seems like it did not parse the query?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   If you're getting the <code>Error: query text is required.</code> message when running your script, it's likely that the Commander.js options are not being parsed correctly.
+  </p>
+  <p>
+   Here are a few things to check:
+  </p>
+  <ol>
+   <li>
+    <p>
+     Make sure that you're passing the options correctly when running your script. For example, to pass in the <code>-q</code> option with a query text value, you would run:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>bashCopy code./index.js -q "What is the meaning of life?"
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Check that the <code>program.parse()</code> method is being called at the end of your <code>index.js</code> file. This method is required to parse the command-line arguments:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptCopy code// ...
+program.parse(process.argv);
+
+if (!program.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+// ...
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <ol>
+   <li>
+    <p>
+     Check that you're using the correct property name when accessing the query text value. In the code you posted earlier, you're accessing the <code>text</code> property instead of <code>query</code>. Make sure that you're using the same property name when defining the option and when accessing the value:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptCopy codeprogram
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;query&gt;', 'Query text to send to ChatGPT')
+  .parse(process.argv);
+
+if (!program.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${program.query}" in ${program.language || 'en'}...`));
+// TODO: implement ChatGPT querying logic
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   By making these changes, you should be able to successfully parse the command-line arguments and avoid the <code>Error: query text is required.</code> message.
+  </p>
+ </div>
+</div>
+<p></p>
+<p></p>
+<div>
+ <div>
+  <p>
+   Seems like I need to use `const options = program.opts();`.
+  </p>
+  <p>
+   Which Command.js version do you use?
+  </p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   You're correct that in newer versions of Commander.js (v8.0.0 and later), the recommended way to access command-line options is by using the <code>program.opts()</code> method instead of <code>program.parse()</code>.
+  </p>
+  <p>
+   Here's how you can update your code to use <code>program.opts()</code>:
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>#!/usr/bin/env node
+
+import { program } from 'commander';
+import chalk from 'chalk';
+
+program
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;text&gt;', 'Query text to send to ChatGPT')
+  .option('-l, --language &lt;language&gt;', 'Language of the query text (default: "en")')
+  .parse(process.argv);
+
+const options = program.opts();
+
+if (!options.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${options.query}" in ${options.language || 'en'}...`));
+// TODO: implement ChatGPT querying logic
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   In this updated code, we use the <code>program.opts()</code> method to get an object with the parsed options, which we then use to check whether the <code>query</code> property is set.
+  </p>
+  <p>
+   Note that this code should work with Commander.js version 8.0.0 or later. If you're using an earlier version of Commander.js, you should be able to use the <code>program.parse()</code> method as before. You can check your version of Commander.js by running <code>npm list commander</code> in your project directory.
+  </p>
+ </div>
+</div>
+<p></p>
+<div>
+ <div>
+  <p>
+   Is there a good way to implement a config file for node-based CLI?
+  </p>
+  <p></p>
+ </div>
+</div>
+<div>
+ <div>
+  <p>
+   Yes, it's common to use configuration files for Node.js-based CLI tools to allow users to customize the behavior of the tool without having to pass command-line arguments every time they run it. There are several ways to implement configuration files for a Node.js CLI tool, but one common approach is to use a JSON file.
+  </p>
+  <p>
+   Here's how you can implement a JSON configuration file for your Node.js-based CLI tool:
+  </p>
+  <ol>
+   <li>
+    <p>
+     Create a new file called <code>config.json</code> in your project directory. This file will contain the default configuration values for your CLI tool:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>jsonCopy code{
+  "language": "en",
+  "history": []
+}
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   In this example, we're defining two configuration values: <code>language</code>, which specifies the default language for queries, and <code>history</code>, which is an empty array that will later be used to store query history.
+  </p>
+  <ol>
+   <li>
+    <p>
+     Modify your <code>index.js</code> file to read the configuration values from the <code>config.json</code> file:
+    </p>
+   </li>
+  </ol>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>javascriptCopy code#!/usr/bin/env node
+
+import { program } from 'commander';
+import chalk from 'chalk';
+import fs from 'fs';
+
+program
+  .version('0.1.0')
+  .description('A CLI tool for querying ChatGPT')
+  .option('-q, --query &lt;text&gt;', 'Query text to send to ChatGPT')
+  .option('-l, --language &lt;language&gt;', 'Language of the query text')
+  .parse(process.argv);
+
+// Read the configuration file
+const configPath = './config.json';
+let config = {};
+try {
+  const configData = fs.readFileSync(configPath);
+  config = JSON.parse(configData);
+} catch (err) {
+  console.error(`Error reading configuration file: ${err}`);
+}
+
+// Merge the command-line options with the configuration values
+const options = { ...config, ...program.opts() };
+
+// Check for required options
+if (!options.query) {
+  console.log(chalk.red('Error: query text is required.'));
+  process.exit(1);
+}
+
+console.log(chalk.blue(`Sending query "${options.query}" in ${options.language}...`));
+// TODO: implement ChatGPT querying logic
+</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+  <p>
+   In this updated code, we use the Node.js <code>fs</code> module to read the configuration data from the <code>config.json</code> file. We then merge the command-line options with the configuration values using the spread operator (<code>{ ...config, ...program.opts() }</code>).
+  </p>
+  <p>
+   Note that in this example, the configuration file is read synchronously using <code>fs.readFileSync()</code>. Depending on the complexity of your CLI tool and the size of your configuration file, you may want to consider using an asynchronous file read method instead.
+  </p>
+  <p>
+   With these changes, your CLI tool will now use the configuration values from the <code>config.json</code> file if they are available, or fall back to the default values defined in your <code>index.js</code> file. This makes it easy for users to customize the behavior of your CLI tool without having to pass command-line arguments every time they run it.
+  </p>
+ </div>
+</div>
+<p></p>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<p></p>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<p></p>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<div>
+ <div>
+  <p></p>
+ </div>
+</div>
+<p></p>
+<h1 id="MiniProject:ChatGPTCLI-Reference">
+ Reference
+</h1>
+<h1 id="MiniProject:ChatGPTCLI-Reference.1">
+ Reference
+</h1>
+<p></p>
+<h1 id="MiniProject:ChatGPTCLI-References">
+ References
+</h1>
+<p></p>
+

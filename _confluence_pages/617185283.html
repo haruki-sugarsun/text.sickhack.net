@@ -1,0 +1,269 @@
+---
+layout: single
+title: "Investigations - ChatRWKV"
+date: "2023-05-20T13:00:42.501Z"
+toc: true
+toc_sticky: true
+tags:
+  - llm
+---
+<h1 id="Investigations-ChatRWKV-Note">
+ Note
+</h1>
+<p>
+ I’d like to try <a class="external-link" href="https://huggingface.co/spaces/BlinkDL/Raven-RWKV-7B" rel="nofollow">https://huggingface.co/spaces/BlinkDL/Raven-RWKV-7B</a> locally 🥺
+</p>
+<ul>
+ <li>
+  <p>
+   Download some models from <a class="external-link" href="https://huggingface.co/BlinkDL/rwkv-4-raven/tree/main" rel="nofollow">https://huggingface.co/BlinkDL/rwkv-4-raven/tree/main</a>
+  </p>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre>$ </pre>
+ </div>
+</div>
+<ul>
+ <li>
+  <p>
+   Clone ChatRWKV
+  </p>
+  <ul>
+   <li>
+    <p>
+     <code>$ git clone 'https://github.com/BlinkDL/ChatRWKV.git'</code>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Roundtrip trying to run <code>v2/chat.py</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     Some dependency requires <code>python &lt;3.11</code>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre>$ cd v2
+$ python --version
+Python 3.10.10
+$ python chat.py
+&lt;...ERRORS and FIXES...&gt;
+
+$ pip install -r ../requirements.txt
+$ pip install numpy torch
+</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<h1 id="Investigations-ChatRWKV-Tips">
+ Tips
+</h1>
+<ul>
+ <li>
+  <p>
+   <code>ModuleNotFoundError: No module named '_ctypes'</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://blog.goo.ne.jp/dak-ikd/e/ae172dc7afc8700cc1244ccc96e0a75d" rel="nofollow">https://blog.goo.ne.jp/dak-ikd/e/ae172dc7afc8700cc1244ccc96e0a75d</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://blog.hidenori.biz/1419" rel="nofollow">https://blog.hidenori.biz/1419</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     Follow <a class="external-link" href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment" rel="nofollow">https://github.com/pyenv/pyenv/wiki#suggested-build-environment</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       <code>sudo apt install....</code>
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     and re-build the Python environment (I am using pyenv)
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <code>RuntimeError: Ninja is required to load C++ extensions</code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     when <code>os.environ["RWKV_CUDA_ON"] = '1'</code>
+    </p>
+   </li>
+   <li>
+    <p>
+     <code>raise EnvironmentError('CUDA_HOME environment variable is not set. '</code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       needed <code>/.pyenv/versions/3.10.11/lib/python3.10/site-packages/nvidia/cuda_runtime</code> ??
+      </p>
+     </li>
+     <li>
+      <p>
+       or install CUDA
+      </p>
+     </li>
+     <li>
+      <p>
+       (Not yet resolved.)
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre> </pre>
+ </div>
+</div>
+<ul>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<h1 id="Investigations-ChatRWKV-Combinations">
+ Combinations
+</h1>
+<ul>
+ <li>
+  <div>
+   <div>
+    <pre>args.strategy = 'cpu fp32i8'</pre>
+   </div>
+  </div>
+  <ul>
+   <li>
+    <p>
+     runs well for 3B (<code>RWKV-4-Raven-3B-v8-EngAndMore-20230408-ctx4095.pth</code>) with 12+GB RAM
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <div>
+   <div>
+    <pre>args.strategy = 'cuda fp16i8 *10 -&gt; cpu fp32i8'</pre>
+   </div>
+  </div>
+  <ul>
+   <li>
+    <p>
+     run l for 3B (<code>RWKV-4-Raven-3B-v8-EngAndMore-20230408-ctx4095.pth</code>) with 9+GB RAM and 1.9GB VRAM
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <div>
+   <div>
+    <pre>args.strategy = 'cuda fp16i8 *15 -&gt; cpu fp32i8'</pre>
+   </div>
+  </div>
+  <ul>
+   <li>
+    <p>
+     run l for 3B (<code>RWKV-4-Raven-3B-v8-EngAndMore-20230408-ctx4095.pth</code>) with 9+GB RAM and 2.3GB VRAM
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <div>
+   <div>
+    <pre>args.strategy = 'cuda fp16i8 *16 -&gt; cpu fp32i8'</pre>
+   </div>
+  </div>
+  <ul>
+   <li>
+    <p></p>
+   </li>
+   <li>
+    <p>
+     Somehow unstable…
+    </p>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<h1 id="Investigations-ChatRWKV-References">
+ References
+</h1>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/BlinkDL/ChatRWKV" rel="nofollow">https://github.com/BlinkDL/ChatRWKV</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/saharNooby/rwkv.cpp" rel="nofollow">https://github.com/saharNooby/rwkv.cpp</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.reddit.com/r/MachineLearning/comments/11nre6t/p_rwkv_14b_is_a_strong_chatbot_despite_only/" rel="nofollow">https://www.reddit.com/r/MachineLearning/comments/11nre6t/p_rwkv_14b_is_a_strong_chatbot_despite_only/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/saharNooby/rwkv.cpp" rel="nofollow">https://github.com/saharNooby/rwkv.cpp</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://qiita.com/riversun/items/6c125fc80d85ad62da1c" rel="nofollow">https://qiita.com/riversun/items/6c125fc80d85ad62da1c</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://qiita.com/ahinore@github/items/90189dc2e99baca29f8d" rel="nofollow">https://qiita.com/ahinore@github/items/90189dc2e99baca29f8d</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://twitter.com/npaka123/status/1644540091149463552?s=20" rel="nofollow">https://twitter.com/npaka123/status/1644540091149463552?s=20</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" data-card-appearance="inline" href="https://twitter.com/syoyo/status/1650238512858529792?s=20" rel="nofollow">https://twitter.com/syoyo/status/1650238512858529792?s=20</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+
