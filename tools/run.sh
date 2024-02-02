@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eu
 
+chmod +x ./tools/confluence_site_converter
 ./tools/confluence_site_converter --domain sickhack.atlassian.net \
                                   --user text@sickhack.net \
                                   --password ${CONFLUENCE_TOKEN} \
