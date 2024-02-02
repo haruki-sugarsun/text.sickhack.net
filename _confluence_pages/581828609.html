@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - WSL2"
-date: "2023-12-12T16:07:37.702Z"
+date: "2024-02-02T11:29:12.956Z"
 toc: true
 toc_sticky: true
 tags:
@@ -134,45 +134,57 @@ tags:
 <ul>
  <li>
   <p>
-   <a class="external-link" href="https://writeabout.net/2021/10/14/shrink-your-wsl2-virtual-disk-on-windows-home/" rel="nofollow">https://writeabout.net/2021/10/14/shrink-your-wsl2-virtual-disk-on-windows-home/</a>
+   <a class="external-link" href="https://github.com/MicrosoftDocs/WSL/issues/1855" rel="nofollow">https://github.com/MicrosoftDocs/WSL/issues/1855</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Maybe older info:
   </p>
   <ul>
    <li>
     <p>
-     DISKPART
+     <a class="external-link" href="https://writeabout.net/2021/10/14/shrink-your-wsl2-virtual-disk-on-windows-home/" rel="nofollow">https://writeabout.net/2021/10/14/shrink-your-wsl2-virtual-disk-on-windows-home/</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       DISKPART
+      </p>
+     </li>
+     <li>
+      <p>
+       optimize-vhd is obsolete?
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     Linux ディストリビューションの .vhdx ファイルとディスク パスを見つける方法 - <a class="external-link" href="https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution" rel="nofollow">https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution</a>
     </p>
    </li>
    <li>
     <p>
-     optimize-vhd is obsolete?
+     <a class="external-link" href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/" rel="nofollow">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps" rel="nofollow">https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps</a>
     </p>
    </li>
   </ul>
- </li>
- <li>
-  <p>
-   Linux ディストリビューションの .vhdx ファイルとディスク パスを見つける方法 - <a class="external-link" href="https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution" rel="nofollow">https://learn.microsoft.com/ja-jp/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution</a>
-  </p>
- </li>
- <li>
-  <p>
-   <a class="external-link" href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/" rel="nofollow">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a>
-  </p>
- </li>
- <li>
-  <p>
-   <a class="external-link" href="https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps" rel="nofollow">https://learn.microsoft.com/ja-jp/powershell/module/hyper-v/optimize-vhd?view=windowsserver2022-ps&amp;viewFallbackFrom=win10-ps</a>
-  </p>
  </li>
 </ul>
 <h3 id="Investigations-WSL2-Cheatsheet">
  Cheatsheet
 </h3>
-<div id="expander-1836110664">
- <div id="expander-control-1836110664">
+<div id="expander-481377654">
+ <div id="expander-control-481377654">
   <span>&nbsp;</span><span>ここをクリックすると展開されます...</span>
  </div>
- <div id="expander-content-1836110664">
+ <div id="expander-content-481377654">
   <div>
    <div>
     <pre>Optimize-VHD -Path "C:\Users\jumpi\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx" -Mode Full</pre>
