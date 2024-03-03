@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - ChromeOS Linux (Termina/Penguin)"
-date: "2023-03-11T15:30:02.598Z"
+date: "2024-03-02T21:35:58.647Z"
 toc: true
 toc_sticky: true
 tags:
@@ -9,12 +9,12 @@ tags:
 <ul>
  <li>
   <p>
-   <a class="external-link" data-card-appearance="inline" href="https://support.google.com/chromebook/thread/75582463/when-opening-terminal-in-linux-beta-it-says-error-starting-penguin-container-13?hl=en" rel="nofollow">https://support.google.com/chromebook/thread/75582463/when-opening-terminal-in-linux-beta-it-says-error-starting-penguin-container-13?hl=en</a>
+   <a class="external-link" href="https://support.google.com/chromebook/thread/75582463/when-opening-terminal-in-linux-beta-it-says-error-starting-penguin-container-13?hl=en" rel="nofollow">https://support.google.com/chromebook/thread/75582463/when-opening-terminal-in-linux-beta-it-says-error-starting-penguin-container-13?hl=en</a>
   </p>
  </li>
  <li>
   <p>
-   <a class="external-link" data-card-appearance="inline" href="https://support.google.com/chromebook/thread/46985986/linux-beta-button-is-greyed-out-how-do-i-enable-it-my-chrome-is-up-to-date-i-am-the-admin?hl=en" rel="nofollow">https://support.google.com/chromebook/thread/46985986/linux-beta-button-is-greyed-out-how-do-i-enable-it-my-chrome-is-up-to-date-i-am-the-admin?hl=en</a>
+   <a class="external-link" href="https://support.google.com/chromebook/thread/46985986/linux-beta-button-is-greyed-out-how-do-i-enable-it-my-chrome-is-up-to-date-i-am-the-admin?hl=en" rel="nofollow">https://support.google.com/chromebook/thread/46985986/linux-beta-button-is-greyed-out-how-do-i-enable-it-my-chrome-is-up-to-date-i-am-the-admin?hl=en</a>
   </p>
  </li>
  <li>
@@ -26,4 +26,44 @@ tags:
   <p></p>
  </li>
 </ul>
+<p></p>
+<p></p>
+<h1 id="Notes-ChromeOSLinux(Termina/Penguin)-TroubleshootingLog">
+ Troubleshooting Log
+</h1>
+<h2 id="Notes-ChromeOSLinux(Termina/Penguin)-launchingvmshellfailed:errorstartingcrostiniforterminal:74(start_lxd_failed_signal)">
+ <code>launching vmshell failed: error starting crostini for terminal: 74 (start_lxd_failed_signal)</code>
+</h2>
+<p>
+ (on <time>2024/03/03</time> , ChromeOS ver: <code>バージョン: 121.0.6167.188（Official Build） （64 ビット）</code> )
+</p>
+<p>
+ and saw the following when running <code>vmc start terminal</code>in crosh terminal (with ctrl+zlt+t)
+</p>
+<p>
+ <code>Error: operation vm_start failed: failed to start lxd: FAILED: Starting LXD failed: Unable to clear path "/mnt/stateful/lxd/database": rename /mnt/stateful/lxd/database /mnt/stateful/lxd/database.old: no space left on device</code>
+</p>
+<p></p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.technipages.com/fix-chromebook-error-starting-penguin-container/" rel="nofollow">https://www.technipages.com/fix-chromebook-error-starting-penguin-container/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://support.google.com/chromebook/thread/203162367/cannot-start-linux?hl=en" rel="nofollow">https://support.google.com/chromebook/thread/203162367/cannot-start-linux?hl=en</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     This says “vmc resize”, so I just used ChromeOS Settings menu <span><img src="/c_attachments/577142785/image-20240302-211006.png"></span>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
 
