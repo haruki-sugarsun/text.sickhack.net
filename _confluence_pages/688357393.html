@@ -1,0 +1,40 @@
+---
+layout: single
+title: "2024-03-15 diff is no diff?"
+date: "2024-03-15T16:42:56.820Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<div>
+ <div>
+  <pre>$ echo 1 &gt; 1
+$ echo 2 &gt; 2
+$ diff 1 1 &amp;&amp; echo it is true 
+it is true
+$ diff 1 2 &amp;&amp; echo it is false
+1c1
+&lt; 1
+---
+&gt; 2</pre>
+ </div>
+</div>
+<p>
+ などと供述しておりました。
+</p>
+<p></p>
+<p>
+ 持った疑問としては、 <code>diff</code> command
+</p>
+<p>
+ from <a class="external-link" href="https://man7.org/linux/man-pages/man1/diff.1.html" rel="nofollow">https://man7.org/linux/man-pages/man1/diff.1.html</a>
+</p>
+<blockquote>
+ <p>
+  Exit status is 0 if inputs are the same, 1 if different, 2 if trouble.
+ </p>
+</blockquote>
+<p>
+ であり、shell script における if-else では
+</p>
+
