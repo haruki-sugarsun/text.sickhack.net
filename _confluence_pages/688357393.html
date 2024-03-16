@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "2024-03-15 diff is no diff?"
-date: "2024-03-15T16:42:56.820Z"
+date: "2024-03-15T17:26:29.182Z"
 toc: true
 toc_sticky: true
 tags:
@@ -19,15 +19,13 @@ $ diff 1 2 &amp;&amp; echo it is false
 &gt; 2</pre>
  </div>
 </div>
+<p></p>
 <p>
  などと供述しておりました。
 </p>
 <p></p>
 <p>
- 持った疑問としては、 <code>diff</code> command
-</p>
-<p>
- from <a class="external-link" href="https://man7.org/linux/man-pages/man1/diff.1.html" rel="nofollow">https://man7.org/linux/man-pages/man1/diff.1.html</a>
+ 持った疑問としては、 <code>diff</code> command の挙動は
 </p>
 <blockquote>
  <p>
@@ -35,6 +33,83 @@ $ diff 1 2 &amp;&amp; echo it is false
  </p>
 </blockquote>
 <p>
- であり、shell script における if-else では
+ (from <a class="external-link" href="https://man7.org/linux/man-pages/man1/diff.1.html" rel="nofollow">https://man7.org/linux/man-pages/man1/diff.1.html</a>)
+</p>
+<p>
+ であり、shell script における if-else では、以下のようにstatus codeによって分岐するので、
+</p>
+<blockquote>
+ <p>
+  <strong>if</strong> <em>list</em>; <strong>then</strong> <em>list;</em> [ <strong>elif</strong> <em>list</em>; <strong>then</strong> <em>list</em>; ] ... [ <strong>else</strong> <em>list</em>; ] <strong>fi</strong>
+ </p>
+ <p>
+  The <strong>if</strong> <em>list</em> is executed. If its exit status is zero, the <strong>then</strong> <em>list</em> is executed. Otherwise, each <strong>elif</strong> <em>list</em> is executed in turn, and if its exit status is zero, the corresponding <strong>then</strong> <em>list</em> is executed and the command completes. Otherwise, the <strong>else</strong> <em>list</em> is executed, if present.
+ </p>
+</blockquote>
+<p>
+ (from <a class="external-link" href="https://linux.die.net/man/1/bash#:~:text=if%20list%3B%20then%20list%3B%20%5B%20elif%20list%3B%20then%20list%3B%20%5D%20...%20%5B%20else%20list%3B%20%5D%20fi" rel="nofollow">https://linux.die.net/man/1/bash#:~:text=if list%3B then list%3B [ elif list%3B then list%3B ] ... [ else list%3B ] fi</a>)
+</p>
+<p>
+ まとめると、挙動はこの表のようになり、
+</p>
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <th>
+     <p>
+      <strong>diffが</strong>
+     </p>
+    </th>
+    <th>
+     <p>
+      <strong>diff status code</strong>
+     </p>
+    </th>
+    <th>
+     <p>
+      <strong>if true(then) or false(else)</strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      ある
+     </p>
+    </td>
+    <td>
+     <p>
+      1
+     </p>
+    </td>
+    <td>
+     <p>
+      false
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      ない
+     </p>
+    </td>
+    <td>
+     <p>
+      0
+     </p>
+    </td>
+    <td>
+     <p>
+      true
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <code>diff</code> command はその解釈としては、<br>「diffがあること」を判定するコマンドではなく、<br>「diffがないこと」を判定することになっているのでは？<br>という。。
 </p>
 
