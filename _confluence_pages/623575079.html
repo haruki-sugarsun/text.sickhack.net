@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Python"
-date: "2024-01-14T09:18:51.968Z"
+date: "2024-03-19T04:15:16.722Z"
 toc: true
 toc_sticky: true
 tags:
@@ -43,6 +43,9 @@ tags:
 <h2 id="Investigations-Python-ERROR:ThePythonsslextensionwasnotcompiled.MissingtheOpenSSLlib?">
  ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
 </h2>
+<p>
+ in short, <code>brew unlink openssl@3 openssl@1.1 pkg-config</code> might help (actually <code>pkg-config</code> part).
+</p>
 <ul>
  <li>
   <p>
