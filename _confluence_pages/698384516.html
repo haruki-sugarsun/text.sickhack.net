@@ -1,0 +1,44 @@
+---
+layout: single
+title: "Notes - Command Line Tips"
+date: "2024-04-01T18:09:20.029Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<h1 id="Notes-CommandLineTips-Overview">
+ Overview
+</h1>
+<p></p>
+<p></p>
+<h1 id="Notes-CommandLineTips-Tips">
+ Tips
+</h1>
+<h2 id="Notes-CommandLineTips-RandomString(password)Generation">
+ Random String (password) Generation
+</h2>
+<p>
+ <code>tr -dc '[:alnum:][:punct:]' &lt; /dev/urandom | head -c 12</code>
+</p>
+<div>
+ <div>
+  <pre>$ chatgpt_ask.sh can i get random string using alphabets, numbers, and symbols in command li
+ne? I guess using tr, /dev/urandom, head would work.
+YOUR MSG:  can i get random string using alphabets, numbers, and symbols in command line? I guess using tr, /dev/urandom, head would work.
+REPLY:  Yes, you can generate a random string with alphabets, numbers, and symbols using command line utilities like `tr`, `/dev/urandom`, and `head`. Here's the command:
+
+```
+tr -dc '[:alnum:][:punct:]' &lt; /dev/urandom | head -c 12
+```
+
+This command generates a random string with a length of 12 characters by using the `tr` utility to filter out unwanted characters and the `/dev/urandom` device file as a source of random data. The `head -c 12` command then selects the first 12 characters.
+
+The `[:alnum:]` character class represents alphabetic characters and numbers, and `[:punct:]` represents punctuation symbols. By combining them using `[:alnum:][:punct:]`, we ensure that the generated string contains a mix of alphabets, numbers, and symbols.
+
+You can modify the number `12` to change the length of the generated string according to your requirements.
+
+Note that the randomness of `/dev/urandom` may depend on your operating system and configuration.</pre>
+ </div>
+</div>
+
