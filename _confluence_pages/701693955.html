@@ -1,0 +1,88 @@
+---
+layout: single
+title: "2024-04-07 3D Printing from Scratch"
+date: "2024-04-06T19:44:31.851Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p>
+ まず最初のケースとしては、ベクター画像から単純に3D化しようと思い、適当なコースター的な敷物を作ろうと思いました。
+</p>
+<p></p>
+<p>
+ やり方としては、
+</p>
+<p>
+ <a class="external-link" href="https://note.com/lobo_hello/n/n5c3fa8294c0a#IuyLV" rel="nofollow">https://note.com/lobo_hello/n/n5c3fa8294c0a#IuyLV</a> を参考にしつつ、ツールとしては
+</p>
+<ul>
+ <li>
+  <p>
+   Inkscape
+  </p>
+ </li>
+ <li>
+  <p>
+   Fusion 360
+  </p>
+ </li>
+</ul>
+<p>
+ を利用しようということで、また、たまたま見ていた、
+</p>
+<p>
+ 「Bambu Lab A1 miniと生きる！4色プリントのためのデータをBlenderで作ってみる」の巻 #276  - <a class="external-link" href="https://www.youtube.com/watch?v=uTMAGPwwrm4" rel="nofollow">https://www.youtube.com/watch?v=uTMAGPwwrm4</a>
+</p>
+<p>
+ を手順・アイディアとして参考にしました。
+</p>
+<p>
+ ただし単色。
+</p>
+<p></p>
+<p>
+ まず、作りたいものの画像を用意します。
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-174959.png"></span>
+<p>
+ 今回は、MidJourneyさんに作ってもらいました。
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-191340.png"></span>
+<p>
+ これをInkscapeでimportし、
+</p>
+<p>
+ 「ビットマップのトレース」からベクター化。
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-175131.png"></span>
+<p>
+ これをsvgとして保存できるので、
+</p>
+<p>
+ Fusion 360でこれをさらにimport.
+</p>
+<p>
+ <span><img src="/c_attachments/701693955/image-20240406-180804.png"></span>
+</p>
+<p>
+ このスケッチを「押し出し」機能を用いて3次元のボディに。
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-182454.png"></span>
+<p>
+ なんやかんや（ここがめんどい）やって、ほしいサイズに拡縮して配置をすると、
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-185912.png"></span>
+<p>
+ stlファイルでexport、Bambu Studioでimport
+</p>
+<span><img src="/c_attachments/701693955/image-20240406-191827.png"></span>
+<p>
+ （サイズを間違えていたので、さらにここでスケールを変更。。。）
+</p>
+<p></p>
+<p>
+ して、印刷。
+</p>
+<p></p>
+
