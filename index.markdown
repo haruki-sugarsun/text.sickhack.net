@@ -7,15 +7,12 @@ author_profile: true
 title: Start Page
 ---
 
-## Greetings!
-Welcome to text.sickhack.net - 四苦八苦計画文書 site.
+{% comment %}
+This hack somewhat works :p
+Thanks to https://stackoverflow.com/questions/71475643/include-another-page-with-jekyll-without-displaying-front-matter
+{% endcomment %}
 
-### Are you familar with Haruki Sato?
-If you are new to the site, and would like to know about Haruki Sato, take a look at
-[&lt;Profile&gt;](/c/510918793/).
-
-
-### Seeking for some content to read?
-If you comes here to find some content, try some from the following:
-- [Site Tree](/c/506363930/)
-- [Diary Logs](/c/35192901/)
+{% capture index_src %}
+{% include_relative _confluence_pages/701595785.html %}
+{% endcapture %}
+{{ index_src | split: "---" | last }}
