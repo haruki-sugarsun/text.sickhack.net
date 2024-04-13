@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - WSL2"
-date: "2024-02-02T11:29:12.956Z"
+date: "2024-04-12T13:43:38.358Z"
 toc: true
 toc_sticky: true
 tags:
@@ -25,6 +25,20 @@ tags:
 <h1 id="Investigations-WSL2-Tips">
  Tips
 </h1>
+<p></p>
+<p>
+ 1111 VPN + ping/DNS
+</p>
+<p>
+ <a class="external-link" href="https://github.com/microsoft/WSL/issues/5068" rel="nofollow">https://github.com/microsoft/WSL/issues/5068</a>
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/MicrosoftDocs/WSL/blob/main/WSL/troubleshooting.md#wsl-has-no-network-connectivity-once-connected-to-a-vpn" rel="nofollow">https://github.com/MicrosoftDocs/WSL/blob/main/WSL/troubleshooting.md#wsl-has-no-network-connectivity-once-connected-to-a-vpn</a>
+  </p>
+ </li>
+</ul>
 <h2 id="Investigations-WSL2-MissingVirtualMachinePlatform">
  Missing Virtual Machine Platform
 </h2>
@@ -180,11 +194,11 @@ tags:
 <h3 id="Investigations-WSL2-Cheatsheet">
  Cheatsheet
 </h3>
-<div id="expander-1023538678">
- <div id="expander-control-1023538678">
+<div id="expander-1205820603">
+ <div id="expander-control-1205820603">
   <span>&nbsp;</span><span>ここをクリックすると展開されます...</span>
  </div>
- <div id="expander-content-1023538678">
+ <div id="expander-content-1205820603">
   <div>
    <div>
     <pre>Optimize-VHD -Path "C:\Users\jumpi\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx" -Mode Full</pre>
@@ -250,8 +264,31 @@ tags:
    <a class="external-link" href="https://learn.microsoft.com/en-us/windows/wsl/disk-space" rel="nofollow">https://learn.microsoft.com/en-us/windows/wsl/disk-space</a>
   </p>
  </li>
+</ul>
+<p></p>
+<h2 id="Investigations-WSL2-VPN+NetworkIssues">
+ VPN + Network Issues
+</h2>
+<p>
+ <time>2024/04/12</time>
+</p>
+<ul>
  <li>
-  <p></p>
+  <p>
+   <a class="external-link" href="https://zenn.dev/yukikaoru/articles/fix-wsl-network-on-vpn" rel="nofollow">https://zenn.dev/yukikaoru/articles/fix-wsl-network-on-vpn</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://github.com/sakai135/wsl-vpnkit/#setup-as-a-standalone-script" rel="nofollow">https://github.com/sakai135/wsl-vpnkit/#setup-as-a-standalone-script</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://gist.github.com/machuu/7663aa653828d81efbc2aaad6e3b1431" rel="nofollow">https://gist.github.com/machuu/7663aa653828d81efbc2aaad6e3b1431</a>
+  </p>
  </li>
 </ul>
 <h1 id="Investigations-WSL2-Misc">
