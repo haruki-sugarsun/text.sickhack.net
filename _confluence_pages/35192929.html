@@ -1,18 +1,45 @@
 ---
 layout: single
 title: "2020-05-02 Steamのクロノトリガーが動かなくて難儀。。"
-date: "2020-05-02T01:57:31.000Z"
+date: "2024-04-17T14:54:32.638Z"
 toc: true
 toc_sticky: true
 tags:
 ---
 <p>
- <a class="external-link" href="https://steamcommunity.com/app/613830/discussions/0/2260188150864700878/" rel="nofollow">https://steamcommunity.com/app/613830/discussions/0/2260188150864700878/</a>
+ “Game won't launch“ &amp; answer - <a class="external-link" href="https://steamcommunity.com/app/613830/discussions/0/2260188150864700878/#c2260188150865556281" rel="nofollow">https://steamcommunity.com/app/613830/discussions/0/2260188150864700878/#c2260188150865556281</a>
 </p>
+<blockquote>
+ <p>
+  メモ帳などでいいので libEGL.dll というファイルをクロノトリガーのフォルダに作る。
+ </p>
+</blockquote>
 <p>
  を参考に libEGL.dll を作ってみたら、動いた（エラーがでる）が、この人はどうやってこれを見つけたんだろ。。
 </p>
 <p>
  symbol table から、呼び出される可能性があることを見つけて、とかかなー
+</p>
+<p></p>
+<p>
+ （以下、参考として後日追記）
+</p>
+<p>
+ 日本語で同等の情報としては
+</p>
+<ul>
+ <li>
+  <p>
+   【Steam版】クロノトリガーが起動しない時の対処法【CHRONO TRIGGER】 - <a class="external-link" href="https://note.com/matchfestival/n/n5cfb4bd41415" rel="nofollow">https://note.com/matchfestival/n/n5cfb4bd41415</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   クロノ・トリガー起動に至る道 - <a class="external-link" href="https://blog.goo.ne.jp/comawhite_no15/e/1c223699023befc1476fd954a9598db0" rel="nofollow">https://blog.goo.ne.jp/comawhite_no15/e/1c223699023befc1476fd954a9598db0</a>
+  </p>
+ </li>
+</ul>
+<p>
+ ちゃんとした libEGL.dll をほかのところからコピーする方法もあるようだけど、空ファイルでも動くので、実は中身はなんでもいいのかな。。
 </p>
 
