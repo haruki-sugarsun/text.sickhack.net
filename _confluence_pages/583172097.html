@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Git"
-date: "2023-06-08T23:09:09.464Z"
+date: "2024-04-19T17:24:21.983Z"
 toc: true
 toc_sticky: true
 tags:
@@ -61,6 +61,37 @@ Keep in mind that force-pushing can cause issues for other collaborators. Make s
   </ul>
  </li>
 </ul>
+<h2 id="Investigations-Git-fatal:gitupload-pack:abortingduetopossiblerepositorycorruptionontheremoteside.">
+ <code>fatal: git upload-pack: aborting due to possible repository corruption on the remote side.</code>
+</h2>
+<p>
+ When I fetch remote my private <code>git</code> repository via pure SSH, I saw this error and researched some articles, including:
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://forum.gitlab.com/t/git-clone-reports-git-upload-pack-aborting-due-to-possible-repository-corruption-on-the-remote-side/32974" rel="nofollow">https://forum.gitlab.com/t/git-clone-reports-git-upload-pack-aborting-due-to-possible-repository-corruption-on-the-remote-side/32974</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://forum.gitea.com/t/remote-aborting-due-to-possible-repository-corruption/6617/2" rel="nofollow">https://forum.gitea.com/t/remote-aborting-due-to-possible-repository-corruption/6617/2</a>
+  </p>
+ </li>
+</ul>
+<p>
+ It seems like it is related to a memory issue, and I investigated the remote site to find the oom-killer killing git process. As the remote instance was a small cloud instance with limited memory, I added a swap file.
+</p>
+<div>
+ <div>
+  <pre>$ sudo dmesg
+...
+[165437.371179] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=user.slice,mems_allowed=0,global_oom,task_memcg=/user.slice/user-1001.slice/session-114.scope,task=git,pid=20097,uid=1001
+[165437.371214] Out of memory: Killed process 20097 (git) total-vm:1118668kB, anon-rss:83372kB, file-rss:128kB, shmem-rss:0kB, UID:1001 pgtables:872kB oom_score_adj:0
+
+$ sudo swapon /swapfile</pre>
+ </div>
+</div>
 <h1 id="Investigations-Git-References">
  References
 </h1>
