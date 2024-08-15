@@ -1,0 +1,20 @@
+---
+layout: single
+title: "Investigations - PDF Processing"
+date: "2024-08-14T19:16:53.184Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p>
+ Tips
+</p>
+<p></p>
+<div>
+ <div>
+  <pre>INPUTPDF=filename.pdf ; gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/prepress -sOutputFile=`ec
+ho $INPUTPDF | sed -e 's/\.pdf/_cleaned.pdf/'` $INPUTPDF</pre>
+ </div>
+</div>
+<p></p>
+
