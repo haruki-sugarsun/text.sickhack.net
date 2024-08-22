@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - PDF Processing"
-date: "2024-08-14T19:16:53.184Z"
+date: "2024-08-22T10:33:34.071Z"
 toc: true
 toc_sticky: true
 tags:
@@ -12,9 +12,9 @@ tags:
 <p></p>
 <div>
  <div>
-  <pre>INPUTPDF=filename.pdf ; gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/prepress -sOutputFile=`ec
-ho $INPUTPDF | sed -e 's/\.pdf/_cleaned.pdf/'` $INPUTPDF</pre>
+  <pre>INPUTPDF=filename.pdf ; gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/prepress -sOutputFile=`echo $INPUTPDF | sed -e 's/\.pdf/_cleaned.pdf/'` $INPUTPDF</pre>
  </div>
 </div>
+<p></p>
 <p></p>
 
