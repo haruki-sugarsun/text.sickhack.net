@@ -10,12 +10,6 @@ $primary-color: #008080 !default;
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-// Haruki Customization.
-.adsbygoogle {
-    border-bottom: none;
-}
-
-// Patchwork-ish though...
-li p {
-    margin: 0 0 0 0 !important;
-}
+// Below are Haruki Customization.
+// See _sass directory and https://jekyllrb-ja.github.io/docs/assets/
+@import "haruki-customizations";

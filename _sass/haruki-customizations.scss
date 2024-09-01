@@ -1,0 +1,32 @@
+// Haruki Customization.
+.adsbygoogle {
+    border-bottom: none;
+}
+
+// Patchwork-ish though...
+li p {
+    margin: 0 0 0 0 !important;
+}
+
+// header lines
+.page__content h1 {
+    margin-top: 1em !important;
+    background-color: #f0f0f0;
+    padding: 0.1em 0.5em;
+    border-bottom: 2px solid gray;
+    border-left: 2.0em solid gray;
+}
+
+.page__content h2 {
+    background-color: #f0f0f0;
+    padding: 0.1em 0.8em !important;
+    border-bottom: 1px solid gray;
+    border-left: 0.75em solid gray;
+}
+
+.page__content h3 {
+    background-color: #f0f0f0;
+    padding: 0.1em 0.8em;
+    border-bottom: 1px solid gray;
+    border-left: 0.25em solid gray;
+}
