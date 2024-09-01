@@ -33,6 +33,21 @@ jobs:
         with:
           ref: gh-pages
 
+      - name: List Github Actions Run
+        run: gh run list --branch main --workflow 'Update Content' --status completed --limit 1 --json databaseId --jq .[0].databaseId | tee gh_run_list.txt
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch the last artifact.
+        run: |
+          pwd
+          echo Fetching artifacts from the run `cat gh_run_list.txt`
+          gh run download `cat gh_run_list.txt`
+          mv last-run-state/cache ./
+          ls -lha
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Fetch and process the content from the backend
       # TODO: Implement.
       # Runs a set of commands using the runners shell
