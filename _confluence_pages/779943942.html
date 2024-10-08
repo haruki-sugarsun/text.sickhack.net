@@ -1,0 +1,79 @@
+---
+layout: single
+title: "Investigations - ollama"
+date: "2024-10-08T11:14:06.354Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<h1 id="Investigations-ollama-Log">
+ Log
+</h1>
+<div>
+ <div>
+  <pre>[/usr/share/ollama/.ollama/models/blobs]
+$ sudo cp /home/haruki-sato/.ollama/models/blobs/sha256-* ./
+
+$ ls
+sha256-34bb5ab01051a11372a91f95f3fbbc51173eed8e7f13ec395b9ae9b8bd0e242b  sha256-a70ff7e570d97baaf4e62ac6e6ad9975e04caa6d900d3742d37698494479e0cd
+sha256-56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb  sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff
+sha256-966de95ca8a62200913e3f8bfbf84c8494536f1b94b49166851e76644e966396  sha256-fcc5a6bec9daf9b561a68827b67ab6088e1dba9d1fa2a50d7bbcc8384e0a265d
+
+$ sudo chown ollama:ollama *
+$ ls -lha
+total 1.9G
+drwxr-xr-x 2 ollama ollama 4.0K Oct  8 11:44 .
+drwxr-xr-x 3 ollama ollama 4.0K Oct  8 11:43 ..
+-rw-r--r-- 1 ollama ollama  561 Oct  8 11:44 sha256-34bb5ab01051a11372a91f95f3fbbc51173eed8e7f13ec395b9ae9b8bd0e242b
+-rw-r--r-- 1 ollama ollama   96 Oct  8 11:44 sha256-56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb
+-rw-r--r-- 1 ollama ollama 1.4K Oct  8 11:44 sha256-966de95ca8a62200913e3f8bfbf84c8494536f1b94b49166851e76644e966396
+-rw-r--r-- 1 ollama ollama 5.9K Oct  8 11:44 sha256-a70ff7e570d97baaf4e62ac6e6ad9975e04caa6d900d3742d37698494479e0cd
+-rw-r--r-- 1 ollama ollama 1.9G Oct  8 11:44 sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff
+-rw-r--r-- 1 ollama ollama 7.6K Oct  8 11:44 sha256-fcc5a6bec9daf9b561a68827b67ab6088e1dba9d1fa2a50d7bbcc8384e0a265d
+
+$ sudo cp -a /home/haruki-sato/.ollama/models/manifests ./manifests
+
+$ sudo chown ollama:ollama -r manifests/
+
+$ ls -lha `find manifests/`
+-rw-r--r-- 1 ollama ollama 1005 Oct  7 18:21 manifests/registry.ollama.ai/library/llama3.2/latest
+
+manifests/:
+total 12K
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 .
+drwxr-xr-x 4 ollama ollama 4.0K Oct  8 11:51 ..
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 registry.ollama.ai
+
+manifests/registry.ollama.ai:
+total 12K
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 .
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 ..
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 library
+
+manifests/registry.ollama.ai/library:
+total 12K
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 .
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 ..
+drwxr-xr-x 2 ollama ollama 4.0K Oct  7 18:21 llama3.2
+
+manifests/registry.ollama.ai/library/llama3.2:
+total 12K
+drwxr-xr-x 2 ollama ollama 4.0K Oct  7 18:21 .
+drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 ..
+-rw-r--r-- 1 ollama ollama 1005 Oct  7 18:21 latest</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<h1 id="Investigations-ollama-Notes">
+ Notes
+</h1>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://note.com/catap_art3d/n/n1ae2474509b7" rel="nofollow">https://note.com/catap_art3d/n/n1ae2474509b7</a>
+  </p>
+ </li>
+</ul>
+
