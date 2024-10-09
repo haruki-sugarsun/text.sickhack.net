@@ -1,11 +1,52 @@
 ---
 layout: single
 title: "Investigations - ollama"
-date: "2024-10-08T11:14:06.354Z"
+date: "2024-10-09T09:56:53.284Z"
 toc: true
 toc_sticky: true
 tags:
 ---
+<p></p>
+<ul>
+ <li>
+  <p>
+   Ad-hoc tool calling prompting
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://python.langchain.com/docs/how_to/tools_prompting/" rel="nofollow">https://python.langchain.com/docs/how_to/tools_prompting/</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://js.langchain.com/docs/how_to/tools_prompting/" rel="nofollow">https://js.langchain.com/docs/how_to/tools_prompting/</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<ul>
+ <li>
+  <p>
+   ollama tool calling support
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://ollama.com/library/llama3.2" rel="nofollow">https://ollama.com/library/llama3.2</a>
+    </p>
+   </li>
+   <li>
+    <p></p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
 <p></p>
 <h1 id="Investigations-ollama-Log">
  Log
@@ -65,7 +106,174 @@ drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 ..
  </div>
 </div>
 <p></p>
+<h2 id="Investigations-ollama-LogofGeneratingatemplatedlink">
+ Log of Generating a templated link
+</h2>
+<h3 id="Investigations-ollama-WithNOknowledge">
+ With NO knowledge
+</h3>
+<div>
+ <div>
+  <pre>You
+Could you help me schedule a meeting for tomorrow 12:00-?
+
+gemma2:27b
+Please give me more information so I can help you schedule your meeting!
+
+Who needs to be at the meeting?
+What is the purpose of the meeting?
+How long do you think the meeting will last? (e.g., 30 minutes, 1 hour)
+Do you have a preferred platform for the meeting (e.g., Zoom, Google Meet)?
+Once I have this information, I can help you find a suitable time and send out invitations.
+
+You
+attendees: Haruki &amp; Master Yoda.
+topic: how to make green force out of red one
+duration: 99min
+tool: zoom
+
+gemma2:27b
+This sounds like an intriguing meeting!
+
+Let me see...finding a 99-minute slot tomorrow at 12:00pm for Haruki, Master Yoda and on Zoom might be tricky. Yoda has notoriously unpredictable scheduling, and a 99-minute session is quite long!
+
+To make sure this goes smoothly:
+
+Confirm with Haruki: Double-check that they're available tomorrow at 12:00pm for a meeting of this length.
+Yoda's Wisdom: Perhaps Yoda could provide a more specific timeframe he'd be available? A shorter initial session might be easier to schedule.
+Once I have confirmation from both attendees, I can help generate a Zoom invitation. May the Force be with you in your scheduling endeavors! 😜
+
+You
+Can you make a Google Calendar Link to add an entry?
+
+gemma2:27b
+You got it! Since I can't directly access and create calendar entries for you, I can give you the building blocks to create the Google Calendar link yourself.
+
+Here's how you would structure a Google Calendar event link:
+
+
+https://calendar.google.com/event?action=TEMPLATE&amp;text=[EVENT_TITLE]&amp;details=[EVENT_DESCRIPTION]&amp;location=[LOCATION]&amp;dates=[START_DATE]/[END_DATE]
+Let's fill it in with your meeting details. Remember, you'll need to adjust the timezones accordingly:
+
+EVENT_TITLE: "Green Force Transformation with Haruki &amp; Master Yoda"
+
+EVENT_DESCRIPTION: "Discussion on techniques for converting red force energy into green force energy."
+
+LOCATION: "Zoom Meeting" (you can include a Zoom link here once you've created the meeting)
+
+DATES: Use the format YYYYMMDDTHHMMSSZ. For example:
+
+Tomorrow at 12:00 pm: 20231027T120000Z
+Example Link:
+
+(Remember to replace the bracketed information with your specific details)
+
+
+https://calendar.google.com/event?action=TEMPLATE&amp;text=Green Force Transformation with Haruki &amp; Master Yoda&amp;details=Discussion on techniques for converting red force energy into green force energy.&amp;location=Zoom Meeting&amp;dates=20231027T120000Z/20231027T1339▋
+
+Once you create the Zoom meeting, replace "Zoom Meeting" with the actual link. Then, share this Google Calendar link with Haruki and Master Yoda so they can easily add it to their calendars!
+
+
+</pre>
+ </div>
+</div>
+<h3 id="Investigations-ollama-Withapieceofknowledgeinasystemprompt">
+ With a piece of knowledge in a system prompt
+</h3>
+<div>
+ <div>
+  <pre>You
+Could you help me schedule a meeting for tomorrow 12:00-?
+
+gemma2:27b
+Okay, I can help with that!
+
+To get started, please tell me what date and timezone you'd like to manage tasks for. 😊
+
+For example, you could say "Tomorrow, October 27th, in the Pacific Standard Time (PST) zone".
+
+You
+Today is 2024-10-09. Tomorrow is 2024-10-10.
+All in JST.
+
+gemma2:27b
+Great! So we're working with tasks for October 10th, 2024, in JST.
+
+Let me know when you have a list of tasks ready. I'll help you prioritize them and even generate Google Calendar links for easy scheduling. 🗓️
+
+For now, your task list is empty:
+
+Task ID	Name	Status	URL	Note
+You
+A meeting with
+attendees: Haruki &amp; Master Yoda.
+topic: how to make green force out of red one
+duration: 99min
+tool: zoom
+
+gemma2:27b
+Sounds like a fascinating topic! 🤔 Let's get that meeting scheduled.
+
+Here's what I've added to your task list:
+
+Task ID	Name	Status	URL	Note
+1	Meeting with Haruki &amp; Master Yoda	📝 Planned	[Link will be generated upon confirmation]	Discuss transforming red Force into green. Duration: 99 minutes. Tool: Zoom.
+To finalize the Google Calendar event, I just need a start time for the meeting. What time would work best for you and your attendees?
+
+Remember, Yoda might have some... unique scheduling preferences. 👽 Let's make sure this aligns with the Force! ✨
+
+You
+start time is 12:00-
+
+gemma2:27b
+Excellent! Let's get that meeting scheduled with the power of Google Calendar.
+
+Here's your event link:
+
+[https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Meeting%20with%20Haruki%20%26%20Master%20Yoda&amp;dates=20241010T120000Z/20241010T133900Z&amp;location=Zoom&amp;details=Discuss%20transforming%20red%20Force%20into%20green.%20Duration:%2099%20minutes.]
+
+Remember to replace "Zoom" with the actual meeting link when you set up the Zoom session.
+
+I've updated your task list:
+
+Task ID	Name	Status	URL	Note
+1	Meeting with Haruki &amp; Master Yoda	✅ Scheduled	[Link above]	Discuss transforming red Force into green. Duration: 99 minutes. Tool: Zoom.
+Let me know if there are any other tasks you'd like to add for tomorrow!</pre>
+ </div>
+</div>
 <p></p>
+<h3 id="Investigations-ollama-WithapieceofknowledgeinEmbeddings">
+ With a piece of knowledge in Embeddings
+</h3>
+<div>
+ <div>
+  <pre>You
+Could you help me schedule a meeting for tomorrow 12:00-?
+
+gemma2:27b
+I am tuned to only answer questions that are related to the context.
+
+Citations
+You
+okok, still I have more details.
+A meeting with
+attendees: Haruki &amp; Master Yoda.
+topic: how to make green force out of red one
+duration: 99min
+tool: zoom
+
+gemma2:27b
+I can help you schedule that meeting!
+
+Here's a Google Calendar link you can use:
+
+https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Green%20Force%20Meeting&amp;dates=20231027T120000Z/20231027T133900Z&amp;location=Zoom&amp;details=Meeting%20with%20Haruki%20%26%20Master%20Yoda%20to%20discuss%20how%20to%20make%20green%20force%20out%20of%20red%20one.
+
+Let me know if you need to make any changes!
+
+Citations</pre>
+ </div>
+</div>
 <h1 id="Investigations-ollama-Notes">
  Notes
 </h1>
