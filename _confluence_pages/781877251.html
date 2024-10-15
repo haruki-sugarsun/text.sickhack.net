@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Web Development"
-date: "2024-10-11T05:43:28.352Z"
+date: "2024-10-15T07:33:15.968Z"
 toc: true
 toc_sticky: true
 tags:
@@ -11,10 +11,142 @@ tags:
   <p>
    How can I get plain text visible in the current viewport? - <a class="external-link" href="https://stackoverflow.com/questions/62227365/how-can-i-get-plain-text-visible-in-the-current-viewport" rel="nofollow">https://stackoverflow.com/questions/62227365/how-can-i-get-plain-text-visible-in-the-current-viewport</a>
   </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.geeksforgeeks.org/how-to-check-a-dom-element-is-visible-in-current-viewport/" rel="nofollow">https://www.geeksforgeeks.org/how-to-check-a-dom-element-is-visible-in-current-viewport/</a>
+  </p>
+ </li>
+ <li>
+  <div>
+   <div>
+    <pre>function getVisibleText() {
+  const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+  let visibleText = '';
+  const elements = document.querySelectorAll('*'); // Select all elements
+
+  elements.forEach(element =&gt; {
+    const rect = element.getBoundingClientRect();
+
+    // Check if element is within the viewport
+    if (rect.top &gt;= 0 &amp;&amp; 
+        rect.left &gt;= 0 &amp;&amp; 
+        rect.bottom &lt;= viewportHeight &amp;&amp; 
+        rect.right &lt;= viewportWidth) {
+      visibleText += element.textContent.trim() + ' '; // Extract text and trim whitespace
+    }
+  });
+
+  return visibleText;
+}
+
+const visibleContent = getVisibleText();
+console.log(visibleContent); </pre>
+   </div>
+  </div>
+ </li>
+ <li>
+  <div>
+   <div>
+    <pre>function nativeTreeWalker() {
+  const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+  let visibleText = '';
+    var walker = document.createTreeWalker(
+        document.body, 
+        NodeFilter.SHOW_TEXT, 
+        null, 
+        false
+    );
+
+    var node;
+    var textNodes = [];
+
+    while(node = walker.nextNode()) {
+        const rect = node.parentNode.getBoundingClientRect();
+        console.log(node, rect);
+
+        // Check if element is within the viewport
+        if (rect.width &gt; 0 &amp;&amp;
+            rect.height &gt; 0 &amp;&amp;
+            rect.top &gt;= 0 &amp;&amp; 
+            rect.left &gt;= 0 &amp;&amp; 
+            rect.bottom &lt;= viewportHeight &amp;&amp; 
+            rect.right &lt;= viewportWidth) {
+          visibleText += node.textContent.trim() + ' '; // Extract text and trim whitespace
+
+          textNodes.push(node.parentNode);
+
+        } else {
+            console.log("invisible node", node.parentNode)
+        }
+    }
+    console.log(textNodes);
+    console.log(visibleText);
+}</pre>
+   </div>
+  </div>
+  <p></p>
+  <p></p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://stackoverflow.com/questions/10730309/find-all-text-nodes-in-html-page" rel="nofollow">https://stackoverflow.com/questions/10730309/find-all-text-nodes-in-html-page</a>
+  </p>
  </li>
  <li>
   <p></p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback</a>
+  </p>
+ </li>
+ <li>
   <p></p>
+  <p>
+   ee
+  </p>
  </li>
 </ul>
+<p></p>
+<h1 id="Investigations-WebDevelopment-Tips">
+ Tips
+</h1>
+<h2 id="Investigations-WebDevelopment-OverriddenNativeFunctions">
+ Overridden Native Functions
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://dev.to/js_bits_bill/how-to-restore-native-browser-code-3e6e" rel="nofollow">https://dev.to/js_bits_bill/how-to-restore-native-browser-code-3e6e</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Investigations-WebDevelopment-References">
+ References
+</h1>
+<p>
+ aaa
+</p>
+<p>
+ cbc
+</p>
+<p></p>
 
