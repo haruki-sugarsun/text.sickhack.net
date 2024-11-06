@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Projects - My Chrome Extension Series"
-date: "2024-10-25T01:51:09.069Z"
+date: "2024-11-06T05:30:28.907Z"
 toc: true
 toc_sticky: true
 tags:
@@ -73,6 +73,43 @@ tags:
       </p>
      </li>
     </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h1 id="Projects-MyChromeExtensionSeries-IssuesandTips">
+ Issues and Tips
+</h1>
+<ul>
+ <li>
+  <p>
+   Ollama: running Vite in production mode fails #4516 - <a class="external-link" href="https://github.com/ollama/ollama/issues/4516" rel="nofollow">https://github.com/ollama/ollama/issues/4516</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     for error log: <code>node_modules/ollama/dist/index.mjs (2:13): "promises" is not exported by "__vite-browser-external", imported by "node_modules/ollama/dist/index.mjs".</code>
+    </p>
+   </li>
+   <li>
+    <p>
+     recommends <a class="external-link" href="https://github.com/vitejs/vite/discussions/8799#discussioncomment-8191565" rel="nofollow">https://github.com/vitejs/vite/discussions/8799#discussioncomment-8191565</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     which means we should hide the non-supported/unused features with polyfills,
+    </p>
+   </li>
+   <li>
+    <p>
+     <a class="external-link" href="https://zenn.dev/kra8/articles/c9ed05abb90d60" rel="nofollow">https://zenn.dev/kra8/articles/c9ed05abb90d60</a> can be a hint
+    </p>
+   </li>
+   <li>
+    <p>
+     and found <a class="external-link" href="https://www.npmjs.com/package/vite-plugin-node-polyfills" rel="nofollow">https://www.npmjs.com/package/vite-plugin-node-polyfills</a>  useful.
+    </p>
    </li>
   </ul>
  </li>
