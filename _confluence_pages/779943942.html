@@ -1,116 +1,365 @@
 ---
 layout: single
 title: "Investigations - ollama"
-date: "2024-10-12T15:29:38.185Z"
+date: "2024-12-25T10:53:57.422Z"
 toc: true
 toc_sticky: true
 tags:
 ---
-<p></p>
-<ul>
- <li>
-  <p>
-   Ad-hoc tool calling prompting
-  </p>
-  <ul>
-   <li>
-    <p>
-     <a href="https://python.langchain.com/docs/how_to/tools_prompting/" class="external-link" rel="nofollow">https://python.langchain.com/docs/how_to/tools_prompting/</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <a href="https://js.langchain.com/docs/how_to/tools_prompting/" class="external-link" rel="nofollow">https://js.langchain.com/docs/how_to/tools_prompting/</a>
-    </p>
-   </li>
-  </ul>
- </li>
-</ul>
-<p></p>
-<ul>
- <li>
-  <p>
-   ollama tool calling support
-  </p>
-  <ul>
-   <li>
-    <p>
-     <a href="https://ollama.com/library/llama3.2" class="external-link" rel="nofollow">https://ollama.com/library/llama3.2</a>
-    </p>
-   </li>
-   <li>
+<div>
+ <div>
+  <div>
+   <div>
     <p></p>
-   </li>
-  </ul>
- </li>
-</ul>
-<p></p>
-<p></p>
-<ul>
- <li>
-  <p>
-   note'
-  </p>
-  <ul>
-   <li>
-    <p>
-     <a href="https://github.com/rancher-sandbox/rancher-desktop/issues/6987" class="external-link" rel="nofollow">https://github.com/rancher-sandbox/rancher-desktop/issues/6987</a>
-    </p>
-   </li>
-  </ul>
- </li>
-</ul>
-<p></p>
-<ul>
- <li>
-  <p>
-   CORS and ollama
-  </p>
-  <ul>
-   <li>
-    <p>
-     <a href="https://medium.com/dcoderai/how-to-handle-cors-settings-in-ollama-a-comprehensive-guide-ee2a5a1beef0" class="external-link" rel="nofollow">https://medium.com/dcoderai/how-to-handle-cors-settings-in-ollama-a-comprehensive-guide-ee2a5a1beef0</a>
-    </p>
-   </li>
-   <li>
-    <p>
-     <code>OLLAMA_ORIGINS=*</code>
-    </p>
-   </li>
-   <li>
-    <p>
-     For Mac
-    </p>
+    <h1 id="Investigations-ollama-llama.cppQuantinizationlevel">
+     llama.cpp Quantinization level
+    </h1>
     <ul>
      <li>
       <p>
-       <code>launchctl setenv OLLAMA_ORIGINS "*"</code>
+       <a href="https://sc-bakushu.hatenablog.com/entry/2024/02/26/062547" class="external-link" rel="nofollow">https://sc-bakushu.hatenablog.com/entry/2024/02/26/062547</a>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://note.com/bakushu/n/n1badaf7a91a0" class="external-link" rel="nofollow">https://note.com/bakushu/n/n1badaf7a91a0</a>
+        </p>
+       </li>
+       <li>
+        <p></p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <p></p>
+    <h1 id="Investigations-ollama-ModelConversion">
+     Model Conversion
+    </h1>
+    <ul>
+     <li>
+      <p>
+       <a href="https://medium.com/@qdrddr/the-easiest-way-to-convert-a-model-to-gguf-and-quantize-91016e97c987" class="external-link" rel="nofollow">https://medium.com/@qdrddr/the-easiest-way-to-convert-a-model-to-gguf-and-quantize-91016e97c987</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://github.com/ggerganov/llama.cpp/discussions/7927" class="external-link" rel="nofollow">https://github.com/ggerganov/llama.cpp/discussions/7927</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://github.com/ggerganov/llama.cpp/discussions/2948" class="external-link" rel="nofollow">https://github.com/ggerganov/llama.cpp/discussions/2948</a>
       </p>
      </li>
     </ul>
-   </li>
-  </ul>
- </li>
- <li>
-  <p>
-   Default keep alive
-  </p>
-  <ul>
-   <li>
+    <p></p>
+    <ul>
+     <li>
+      <p>
+       <a href="https://zenn.dev/hellorusk/articles/2566033cd03f0d" class="external-link" rel="nofollow">https://zenn.dev/hellorusk/articles/2566033cd03f0d</a>
+      </p>
+     </li>
+    </ul>
+    <h2 id="Investigations-ollama-Folloingnpaka-san’sNote">
+     Folloing npaka-san’s Note
+    </h2>
     <p>
-     <a href="https://github.com/ollama/ollama/pull/3094" class="external-link" rel="nofollow">https://github.com/ollama/ollama/pull/3094</a>
+     ref:<a href="https://note.com/npaka/n/n3e99d2a45a4b" class="external-link" rel="nofollow">https://note.com/npaka/n/n3e99d2a45a4b</a>
     </p>
-   </li>
-  </ul>
- </li>
-</ul>
-<p></p>
-<h1 id="Investigations-ollama-Log">
- Log
-</h1>
-<div>
+    <div>
+     <div>
+      <pre>$ mkdir gguf-conversion
+$ cd gguf-conversion/
+$ git clone https://github.com/ggerganov/llama.cpp
+$ cd llama.cpp/
+
+# https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md
+$ cmake -B build
+$ cmake --build build --config Release
+...
+
+$ cd ../
+
+# https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/discussions/123
+$ sudo apt install git-lfs
+$ git clone https://huggingface.co/llm-jp/llm-jp-3-1.8b-instruct
+
+$ git clone 'https://github.com/llm-jp/llm-jp-tokenizer.git'
+$ ln -sf ../llm-jp-tokenizer/models/ver3.0/llm-jp-tokenizer-100k.ver3.0b1.model llm-jp-3-1.8b-instruct/tokenizer.model
+
+# expecting 3.10.*
+$ pyenv local 3.10.16
+
+$ python -m venv env
+$ source env/bin/activate
+
+$ python ./llama.cpp/convert_hf_to_gguf.py ./llm-jp-3-1.8b-instruct --outfile ./gguf-model_f16.gguf --outtype f16
+
+
+$ ./llama.cpp/build/bin/llama-cli -m './gguf-model_f16.gguf' -p '
+### 指示:
+まどか☆マギカでは誰が一番かわいい?
+
+### 応答:
+' -n 512
+
+...
+
+</pre>
+     </div>
+    </div>
+    <p></p>
+    <p></p>
+    <h2 id="Investigations-ollama-GGUF-my-repo">
+     GGUF-my-repo
+    </h2>
+    <p>
+     <a href="https://huggingface.co/spaces/ggml-org/gguf-my-repo" class="external-link" rel="nofollow">https://huggingface.co/spaces/ggml-org/gguf-my-repo</a>
+    </p>
+    <p>
+     →
+    </p>
+    <p></p>
+    <ul>
+     <li>
+      <p></p>
+     </li>
+    </ul>
+    <h2 id="Investigations-ollama-Quantization">
+     Quantization
+    </h2>
+    <ul>
+     <li>
+      <p>
+       <a href="https://qiita.com/7shi/items/14d24a25aa26dcf97d2d" class="external-link" rel="nofollow">https://qiita.com/7shi/items/14d24a25aa26dcf97d2d</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://qiita.com/7shi/items/14d24a25aa26dcf97d2d" class="external-link" rel="nofollow">https://qiita.com/7shi/items/14d24a25aa26dcf97d2d</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://note.com/lucas_san/n/n02a3365ccc7c" class="external-link" rel="nofollow">https://note.com/lucas_san/n/n02a3365ccc7c</a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://sc-bakushu.hatenablog.com/entry/2024/02/26/062547" class="external-link" rel="nofollow">https://sc-bakushu.hatenablog.com/entry/2024/02/26/062547</a>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://note.com/bakushu/n/n1badaf7a91a0" class="external-link" rel="nofollow">https://note.com/bakushu/n/n1badaf7a91a0</a>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <h2 id="Investigations-ollama-ConversionLogforllm-jp-3">
+     Conversion Log for llm-jp-3
+    </h2>
+    <ul>
+     <li>
+      <p>
+       <a href="https://huggingface.co/llm-jp/llm-jp-3-3.7b-instruct" class="external-link" rel="nofollow">https://huggingface.co/llm-jp/llm-jp-3-3.7b-instruct</a>
+      </p>
+      <ul>
+       <li>
+        <p>
+         + <a href="https://github.com/llm-jp/llm-jp-tokenizer" class="external-link" rel="nofollow">https://github.com/llm-jp/llm-jp-tokenizer</a>
+        </p>
+       </li>
+       <li>
+        <p>
+         + <a href="https://x.com/LucasChatGPT/status/1840036482788274580" class="external-link" rel="nofollow">https://x.com/LucasChatGPT/status/1840036482788274580</a>
+        </p>
+        <ul>
+         <li>
+          <div>
+           <div>
+            <pre>FROM llm-jp-3-13b-instruct-Q8_0.gguf
+TEMPLATE """{{ if .System}} 以下は、タスクを説明する指示です。要求を適切に満たす応答を書きなさい。
+### 指示: {{ .System }}
+
+### 応答:
+了解しました。
+{{ end }}
+{{ if.Prompt }}
+### 指示:
+{{ .Prompt }}{{ end }}
+
+### 応答:
+{{ Response }}"""
+
+SYSTEM"以下は、タスクを説明する指示です。要求を適切に満たす応答を書きなさい。"
+PARAMETER repeat_penalty 1.05
+PARAMETER top_p 0.95
+PARAMETER stop "### 指示:"
+PARAMETER stop "### 応答:"
+PARAMETER stop "&lt;s&gt;"
+PARAMETER stop "&lt;/s&gt;"
+</pre>
+           </div>
+          </div>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </div>
+ </div>
  <div>
-  <pre>[/usr/share/ollama/.ollama/models/blobs]
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+ </div>
+ <div>
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+ </div>
+ <div>
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+  <div>
+   <div>
+    <p></p>
+   </div>
+  </div>
+ </div>
+ <div>
+  <div>
+   <div>
+    <p></p>
+    <p></p>
+    <hr>
+    <ul>
+     <li>
+      <p>
+       Ad-hoc tool calling prompting
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://python.langchain.com/docs/how_to/tools_prompting/" class="external-link" rel="nofollow">https://python.langchain.com/docs/how_to/tools_prompting/</a>
+        </p>
+       </li>
+       <li>
+        <p>
+         <a href="https://js.langchain.com/docs/how_to/tools_prompting/" class="external-link" rel="nofollow">https://js.langchain.com/docs/how_to/tools_prompting/</a>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <ul>
+     <li>
+      <p>
+       ollama tool calling support
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://ollama.com/library/llama3.2" class="external-link" rel="nofollow">https://ollama.com/library/llama3.2</a>
+        </p>
+       </li>
+       <li>
+        <p></p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <p></p>
+    <ul>
+     <li>
+      <p>
+       note'
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://github.com/rancher-sandbox/rancher-desktop/issues/6987" class="external-link" rel="nofollow">https://github.com/rancher-sandbox/rancher-desktop/issues/6987</a>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <ul>
+     <li>
+      <p>
+       CORS and ollama
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://medium.com/dcoderai/how-to-handle-cors-settings-in-ollama-a-comprehensive-guide-ee2a5a1beef0" class="external-link" rel="nofollow">https://medium.com/dcoderai/how-to-handle-cors-settings-in-ollama-a-comprehensive-guide-ee2a5a1beef0</a>
+        </p>
+       </li>
+       <li>
+        <p>
+         <code>OLLAMA_ORIGINS=*</code>
+        </p>
+       </li>
+       <li>
+        <p>
+         For Mac
+        </p>
+        <ul>
+         <li>
+          <p>
+           <code>launchctl setenv OLLAMA_ORIGINS "*"</code>
+          </p>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       Default keep alive
+      </p>
+      <ul>
+       <li>
+        <p>
+         <a href="https://github.com/ollama/ollama/pull/3094" class="external-link" rel="nofollow">https://github.com/ollama/ollama/pull/3094</a>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p></p>
+    <h1 id="Investigations-ollama-Log">
+     Log
+    </h1>
+    <div>
+     <div>
+      <pre>[/usr/share/ollama/.ollama/models/blobs]
 $ sudo cp /home/haruki-sato/.ollama/models/blobs/sha256-* ./
 
 $ ls
@@ -160,18 +409,18 @@ total 12K
 drwxr-xr-x 2 ollama ollama 4.0K Oct  7 18:21 .
 drwxr-xr-x 3 ollama ollama 4.0K Oct  7 18:21 ..
 -rw-r--r-- 1 ollama ollama 1005 Oct  7 18:21 latest</pre>
- </div>
-</div>
-<p></p>
-<h2 id="Investigations-ollama-LogofGeneratingatemplatedlink">
- Log of Generating a templated link
-</h2>
-<h3 id="Investigations-ollama-WithNOknowledge">
- With NO knowledge
-</h3>
-<div>
- <div>
-  <pre>You
+     </div>
+    </div>
+    <p></p>
+    <h2 id="Investigations-ollama-LogofGeneratingatemplatedlink">
+     Log of Generating a templated link
+    </h2>
+    <h3 id="Investigations-ollama-WithNOknowledge">
+     With NO knowledge
+    </h3>
+    <div>
+     <div>
+      <pre>You
 Could you help me schedule a meeting for tomorrow 12:00-?
 
 gemma2:27b
@@ -232,14 +481,14 @@ Once you create the Zoom meeting, replace "Zoom Meeting" with the actual link. T
 
 
 </pre>
- </div>
-</div>
-<h3 id="Investigations-ollama-Withapieceofknowledgeinasystemprompt">
- With a piece of knowledge in a system prompt
-</h3>
-<div>
- <div>
-  <pre>You
+     </div>
+    </div>
+    <h3 id="Investigations-ollama-Withapieceofknowledgeinasystemprompt">
+     With a piece of knowledge in a system prompt
+    </h3>
+    <div>
+     <div>
+      <pre>You
 Could you help me schedule a meeting for tomorrow 12:00-?
 
 gemma2:27b
@@ -296,15 +545,15 @@ I've updated your task list:
 Task ID	Name	Status	URL	Note
 1	Meeting with Haruki &amp; Master Yoda	✅ Scheduled	[Link above]	Discuss transforming red Force into green. Duration: 99 minutes. Tool: Zoom.
 Let me know if there are any other tasks you'd like to add for tomorrow!</pre>
- </div>
-</div>
-<p></p>
-<h3 id="Investigations-ollama-WithapieceofknowledgeinEmbeddings">
- With a piece of knowledge in Embeddings
-</h3>
-<div>
- <div>
-  <pre>You
+     </div>
+    </div>
+    <p></p>
+    <h3 id="Investigations-ollama-WithapieceofknowledgeinEmbeddings">
+     With a piece of knowledge in Embeddings
+    </h3>
+    <div>
+     <div>
+      <pre>You
 Could you help me schedule a meeting for tomorrow 12:00-?
 
 gemma2:27b
@@ -329,31 +578,35 @@ https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Green%20Force%20
 Let me know if you need to make any changes!
 
 Citations</pre>
+     </div>
+    </div>
+    <p></p>
+    <h1 id="Investigations-ollama-Tips">
+     Tips
+    </h1>
+    <ul>
+     <li>
+      <p>
+       <a href="https://github.com/open-webui/open-webui/issues/596" class="external-link" rel="nofollow">https://github.com/open-webui/open-webui/issues/596</a>
+      </p>
+     </li>
+     <li>
+      <p></p>
+     </li>
+    </ul>
+    <p></p>
+    <h1 id="Investigations-ollama-Notes">
+     Notes
+    </h1>
+    <ul>
+     <li>
+      <p>
+       <a href="https://note.com/catap_art3d/n/n1ae2474509b7" class="external-link" rel="nofollow">https://note.com/catap_art3d/n/n1ae2474509b7</a>
+      </p>
+     </li>
+    </ul>
+   </div>
+  </div>
  </div>
 </div>
-<p></p>
-<h1 id="Investigations-ollama-Tips">
- Tips
-</h1>
-<ul>
- <li>
-  <p>
-   <a href="https://github.com/open-webui/open-webui/issues/596" class="external-link" rel="nofollow">https://github.com/open-webui/open-webui/issues/596</a>
-  </p>
- </li>
- <li>
-  <p></p>
- </li>
-</ul>
-<p></p>
-<h1 id="Investigations-ollama-Notes">
- Notes
-</h1>
-<ul>
- <li>
-  <p>
-   <a href="https://note.com/catap_art3d/n/n1ae2474509b7" class="external-link" rel="nofollow">https://note.com/catap_art3d/n/n1ae2474509b7</a>
-  </p>
- </li>
-</ul>
 
