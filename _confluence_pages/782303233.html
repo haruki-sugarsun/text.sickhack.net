@@ -1,11 +1,120 @@
 ---
 layout: single
 title: "Mini Project - Chatter Task Mate"
-date: "2024-10-11T16:27:41.587Z"
+date: "2025-01-13T16:23:55.262Z"
 toc: true
 toc_sticky: true
 tags:
 ---
+<p>
+ PoC demo: <a class="external-link" href="https://x.com/singing_hacky/status/1877977694769725787/photo/1" rel="nofollow">https://x.com/singing_hacky/status/1877977694769725787/photo/1</a>
+</p>
+<p></p>
+<p></p>
+<p></p>
+<p>
+ System Diagram:
+</p>
+<ul>
+ <li>
+  <p>
+   Open WebUI: on GCP instance <code>gce-1</code>.
+  </p>
+  <ul>
+   <li>
+    <p>
+     “Pipe Function” to fetch from Notion
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Notion Integrations: <a class="external-link" href="https://www.notion.so/profile/integrations" rel="nofollow">https://www.notion.so/profile/integrations</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     Note (reading from Notion DB properties)
+    </p>
+   </li>
+   <li>
+    <p>
+     Email to Notion writer (<code>[Hacky] Page Writer</code>)
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <code>gpt-4o-mini</code> from OpenAI
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="MiniProject-ChatterTaskMate-Definitionof“Active”Tasks">
+ Definition of “Active” Tasks
+</h1>
+<ul>
+ <li>
+  <p>
+   Active tasks never have a “Done” status.
+  </p>
+ </li>
+ <li>
+  <p>
+   All tasks tagged with `P1` are active.
+  </p>
+ </li>
+ <li>
+  <p>
+   Tasks with “When” between 6-days ago and 6-days later are active.
+  </p>
+ </li>
+</ul>
+<p>
+ So, in a logically structured format:
+</p>
+<ul>
+ <li>
+  <p>
+   The status is not "Done".
+  </p>
+ </li>
+ <li>
+  <p>
+   AND:
+  </p>
+  <ul>
+   <li>
+    <p>
+     Either:
+    </p>
+    <ul>
+     <li>
+      <p>
+       The page is tagged with <code>P1</code>, OR
+      </p>
+     </li>
+     <li>
+      <p>
+       The <code>When</code> property is between <code>today-6</code> and <code>today+6</code>.
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ and note that Notion UI provides slightly different expressions.
+</p>
+<p>
+ <span><img src="/c_attachments/782303233/スクリーンショット 2025-01-14 1.22.27.png"></span>
+</p>
+<h1 id="MiniProject-ChatterTaskMate-OldNotes">
+ Old Notes
+</h1>
 <ul>
  <li>
   <p>
@@ -24,8 +133,8 @@ tags:
    Task management with Table &amp; Chat UI
   </p>
  </li>
- <li>
-  <p></p>
- </li>
 </ul>
+<p></p>
+<p></p>
+<p></p>
 
