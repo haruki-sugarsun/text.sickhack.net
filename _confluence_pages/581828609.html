@@ -1,11 +1,12 @@
 ---
 layout: single
 title: "Investigations - WSL2"
-date: "2024-12-22T12:11:44.204Z"
+date: "2025-02-28T20:03:49.399Z"
 toc: true
 toc_sticky: true
 tags:
 ---
+<div></div>
 <h1 id="Investigations-WSL2-Overview">
  Overview
 </h1>
@@ -239,11 +240,11 @@ tags:
 <h3 id="Investigations-WSL2-Cheatsheet">
  Cheatsheet
 </h3>
-<div id="expander-831308815">
- <div id="expander-control-831308815">
+<div id="expander-1616043638">
+ <div id="expander-control-1616043638">
   <span>&nbsp;</span><span>ここをクリックすると展開されます...</span>
  </div>
- <div id="expander-content-831308815">
+ <div id="expander-content-1616043638">
   <div>
    <div>
     <pre>Optimize-VHD -Path "C:\Users\jumpi\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx" -Mode Full</pre>
@@ -372,6 +373,86 @@ tags:
   </ul>
  </li>
 </ul>
+<h3 id="Investigations-WSL2-VPN+MTU">
+ VPN + MTU
+</h3>
+<ul>
+ <li>
+  <p>
+   Cannot receive large packets inside wsl2 due to MTU #4833 - <a class="external-link" href="https://github.com/tailscale/tailscale/issues/4833" rel="nofollow">https://github.com/tailscale/tailscale/issues/4833</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-WSL2-PortForwarding">
+ Port Forwarding
+</h2>
+<div>
+ <div>
+  <p>
+   <strong>Windowsホスト上のTailscaleを利用する方法</strong>
+  </p>
+  <p>
+   既にWindows 11上でTailscaleを実行している場合、WSL2内のプロセスをWindowsホストのTailscale経由でアクセス可能にすることも可能です。この方法では、Windowsホスト上でポートフォワーディングを設定し、TailscaleネットワークからWSL2内のプロセスにアクセスできるようにします。
+  </p>
+  <ol>
+   <li>
+    <p>
+     <strong>WSL2内でサービスを起動</strong>：WSL2内で、例えば5000番ポートでサービスを起動します。
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>Windowsホストでポートフォワーディングを設定</strong>：管理者権限でPowerShellを開き、以下のコマンドを実行します。
+    </p>
+    <div>
+     <div>
+      <pre>powershell</pre>
+     </div>
+    </div>
+    <p>
+     コピーする編集する
+    </p>
+    <p>
+     <code>netsh interface portproxy add v4tov4 listenport=5000 connectaddress=&lt;WSL2_IP&gt; connectport=5000 </code>
+    </p>
+    <p>
+     <code>&lt;WSL2_IP&gt;</code>は、WSL2内で<code>ip addr</code>コマンドを実行して確認できるWSL2のIPアドレスに置き換えてください。
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>Tailscaleネットワークからアクセス</strong>：Tailscaleネットワーク上の他のデバイスから、WindowsホストのTailscale IPアドレスと設定したポート（この例では5000）でWSL2内のサービスにアクセスできます。
+    </p>
+   </li>
+  </ol>
+  <p>
+   <strong>注意点</strong>：
+  </p>
+  <ul>
+   <li>
+    <p>
+     <strong>WSL2のIPアドレス</strong>：WSL2のIPアドレスは再起動時に変わる可能性があるため、ポートフォワーディング設定を更新する必要があるかもしれません。
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>セキュリティ</strong>：ポートフォワーディングを設定する際は、不要なポートを開放しないよう注意し、セキュリティを確保してください。
+    </p>
+   </li>
+  </ul>
+ </div>
+</div>
+<h3 id="Investigations-WSL2-netshcommand">
+ netsh command
+</h3>
+<div>
+ <div>
+  <pre>netsh interface portproxy show all</pre>
+ </div>
+</div>
+<p>
+ will show the rules.
+</p>
 <h2 id="Investigations-WSL2-Docker+NVIDIA+WSL2">
  Docker + NVIDIA + WSL2
 </h2>
