@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Open WebUI"
-date: "2025-01-15T17:40:33.677Z"
+date: "2025-03-13T15:43:34.804Z"
 toc: true
 toc_sticky: true
 tags:
@@ -120,6 +120,38 @@ ValueError: Invalid model size 'faster-distil-whisper-large-v3', expected one of
   </p>
  </li>
 </ul>
+<p></p>
+<h1 id="Investigations-OpenWebUI-Logs">
+ Logs
+</h1>
+<div>
+ <div>
+  <pre>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</pre>
+ </div>
+</div>
+<p>
+ from <a href="https://github.com/open-webui/open-webui" class="external-link" rel="nofollow">https://github.com/open-webui/open-webui</a>
+</p>
+<p>
+ We may also specify the version of the image
+</p>
+<div>
+ <div>
+  <pre>$ docker rm --force open-webui
+$ docker run --detach --publish 3000:8080 --volume open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:0.5.16</pre>
+ </div>
+</div>
+<p>
+ to avoid some issue on the specific version.
+</p>
+<div>
+ <div>
+  <pre>docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once open-webui</pre>
+ </div>
+</div>
+<p>
+ to update online.
+</p>
 <h1 id="Investigations-OpenWebUI-References">
  References
 </h1>
