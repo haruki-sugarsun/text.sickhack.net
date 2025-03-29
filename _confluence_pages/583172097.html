@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Git"
-date: "2024-04-19T17:24:21.983Z"
+date: "2025-03-29T09:31:14.242Z"
 toc: true
 toc_sticky: true
 tags:
@@ -15,6 +15,39 @@ tags:
 <h1 id="Investigations-Git-Tips">
  Tips
 </h1>
+<h2 id="Investigations-Git-SplittingSplittingasubfolderoutintoanewrepository">
+ SplittingSplitting a subfolder out into a new repository
+</h2>
+<p>
+ Basically just <a class="external-link" href="https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository" rel="nofollow">https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository</a>
+</p>
+<div>
+ <div>
+  <pre>$ git clone --no-local --no-hardlinks ~/priv_git/git/ hacky-helper-crx
+
+$ cd hacky-helper-crx/
+
+$ git filter-repo --path prog/chrome_extension/hacky-helper/
+
+$ git tag -d $(git tag)
+
+$ git tag new_main_20250329
+
+$ git branch -D $(git for-each-ref --format="%(refname)" refs/heads/ | sed -e 's,refs/heads/,,')
+
+$ git checkout -b main
+
+$ git filter-repo --email-callback '
+return {
+    b"old_email@example.com": b"new_email@example.com"
+}.get(email.lower(), email)'</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<h2 id="Investigations-Git-…">
+ …
+</h2>
 <ul>
  <li>
   <p>
