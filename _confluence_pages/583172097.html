@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Git"
-date: "2025-03-29T09:31:14.242Z"
+date: "2025-03-29T15:17:13.057Z"
 toc: true
 toc_sticky: true
 tags:
@@ -15,8 +15,8 @@ tags:
 <h1 id="Investigations-Git-Tips">
  Tips
 </h1>
-<h2 id="Investigations-Git-SplittingSplittingasubfolderoutintoanewrepository">
- SplittingSplitting a subfolder out into a new repository
+<h2 id="Investigations-Git-Splittingasubfolderoutintoanewrepository">
+ Splitting a subfolder out into a new repository
 </h2>
 <p>
  Basically just <a class="external-link" href="https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository" rel="nofollow">https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository</a>
@@ -40,11 +40,14 @@ $ git checkout -b main
 $ git filter-repo --email-callback '
 return {
     b"old_email@example.com": b"new_email@example.com"
-}.get(email.lower(), email)'</pre>
+}.get(email.lower(), email)'
+
+$ git filter-repo --path-rename prog/chrome_extension/hacky-helper/:</pre>
  </div>
 </div>
-<p></p>
-<p></p>
+<p>
+ it ends with <a class="external-link" href="https://github.com/haruki-sugarsun/hacky-helper-crx" rel="nofollow">https://github.com/haruki-sugarsun/hacky-helper-crx</a> ~
+</p>
 <h2 id="Investigations-Git-…">
  …
 </h2>
