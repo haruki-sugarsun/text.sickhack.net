@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Video Editing"
-date: "2024-05-03T03:39:46.181Z"
+date: "2025-04-29T07:34:21.839Z"
 toc: true
 toc_sticky: true
 tags:
@@ -63,6 +63,22 @@ tags:
  </li>
 </ul>
 <p></p>
+<h2 id="Investigations-VideoEditing-cropping">
+ cropping
+</h2>
+<div>
+ <div>
+  <pre>ffmpeg -i input.webm -vf "crop=width:height:x:y" -c:v libx264 -c:a aac output.mp4</pre>
+ </div>
+</div>
+<h2 id="Investigations-VideoEditing-framerate">
+ framerate
+</h2>
+<div>
+ <div>
+  <pre>ffmpeg -i input.webm -vf "crop=width:height:x:y,fps=24" -c:v libx264 -preset slow -crf 22 -c:a aac -b:a 128k output.mp4</pre>
+ </div>
+</div>
 <p></p>
 <h1 id="Investigations-VideoEditing-Apps">
  Apps
