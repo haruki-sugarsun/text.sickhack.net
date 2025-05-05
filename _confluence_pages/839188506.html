@@ -1,0 +1,182 @@
+---
+layout: single
+title: "Notes - AI Bot Mail-Chat Integration (n8n, Open WebUI)"
+date: "2025-05-05T05:03:44.980Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<h1 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-Overview">
+ Overview
+</h1>
+<p></p>
+<h1 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-Requirements">
+ Requirements
+</h1>
+<ul>
+ <li>
+  <p>
+   Docker / <a href="/c/613548059/" data-linked-resource-version="14" data-linked-resource-type="page">Investigations - Docker</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://github.com/n8n-io/n8n" class="external-link" rel="nofollow">GitHub - n8n-io/n8n: Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   open-webui/open-webui: User-friendly AI Interface (Supports Ollama, OpenAI API, ...) - <a href="https://github.com/open-webui/open-webui" class="external-link" rel="nofollow">https://github.com/open-webui/open-webui</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-Tips">
+ Tips
+</h1>
+<ul>
+ <li>
+  <p>
+   Concurrency control | n8n Docs - <a href="https://docs.n8n.io/hosting/scaling/concurrency-control/" class="external-link" rel="nofollow">https://docs.n8n.io/hosting/scaling/concurrency-control/</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-Logs">
+ Logs
+</h1>
+<ul>
+ <li>
+  <p>
+   Setup Windows 10, WSL2, Docker within WSL2.
+  </p>
+ </li>
+ <li>
+  <p>
+   in WSL2
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>docker volume create n8n_data
+docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Using a testing gmail address.
+  </p>
+  <ul>
+   <li>
+    <p>
+     Folllowing the instruction: <a href="https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/?utm_source=n8n_app&amp;utm_medium=node_settings_modal-credential_link&amp;utm_campaign=n8n-nodes-base.gmailTrigger" class="external-link" rel="nofollow">https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/?utm_source=n8n_app&amp;utm_medium=node_settings_modal-credential_link&amp;utm_campaign=n8n-nodes-base.gmailTrigger</a> &amp; Google credentials | n8n Docs - <a href="https://docs.n8n.io/integrations/builtin/credentials/google/" class="external-link" rel="nofollow">https://docs.n8n.io/integrations/builtin/credentials/google/</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       Have a Google Cloud Project “N8N TEST” at <a href="https://console.cloud.google.com/" class="external-link" rel="nofollow">https://console.cloud.google.com/</a>
+      </p>
+      <ul>
+       <li>
+        <p>
+         Prepare for enabling OAuth for the project
+        </p>
+       </li>
+       <li>
+        <p>
+         Add OAuth Client
+        </p>
+       </li>
+       <li>
+        <p>
+         Add the testing gmail address to the “Tester” in OAuth Agreement configuration.
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Build n8n workflow
+  </p>
+  <ul>
+   <li>
+    <span><img src="/c_attachments/839188506/image-20250504-085856.png"></span>
+   </li>
+   <li>
+    <span><img src="/c_attachments/839188506/image-20250504-184741.png"></span>
+   </li>
+   <li>
+    <span><img src="/c_attachments/839188506/image-20250505-042627.png"></span>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   ----WIP----
+  </p>
+ </li>
+ <li>
+  <p>
+   Run Install Open WebUI
+  </p>
+  <ul>
+   <li>
+    <div>
+     <div>
+      <pre>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-TaskParkingLot">
+ Task Parking Lot
+</h2>
+<ul>
+ <li>
+  <p>
+   Setup TLS/HTTPS (<strong>recommended</strong>), for tailscale network and access across instances.
+  </p>
+  <ul>
+   <li>
+    <p>
+     with proper Nginx routing/hardening.
+    </p>
+   </li>
+   <li>
+    <p>
+     Enabling HTTPS · Tailscale Docs - <a href="https://tailscale.com/kb/1153/enabling-https" class="external-link" rel="nofollow">https://tailscale.com/kb/1153/enabling-https</a>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   For testing purpose, setup a cloned instance of my Open WebUI instance: 📦 Exporting and Importing Database | Open WebUI - <a href="https://docs.openwebui.com/tutorials/database/" class="external-link" rel="nofollow">https://docs.openwebui.com/tutorials/database/</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Notes-AIBotMail-ChatIntegration(n8n,OpenWebUI)-References">
+ References
+</h1>
+<ul>
+ <li>
+  <p>
+   <a href="https://qiita.com/YushiYamamoto/items/022e2eb80dd11ca051ea" class="external-link" rel="nofollow">🚀 n8nで業務を自動化！ノーコードツールの導入から実践活用まで 🤖 #業務効率化 - Qiita</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+

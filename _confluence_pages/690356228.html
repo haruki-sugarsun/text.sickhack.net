@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - New PC Setup"
-date: "2024-05-13T03:59:08.917Z"
+date: "2025-05-04T07:24:58.806Z"
 toc: true
 toc_sticky: true
 tags:
@@ -9,7 +9,16 @@ tags:
 <h1 id="Notes-NewPCSetup-Overview">
  Overview
 </h1>
-<p></p>
+<p>
+ Consider the machine name will help me in the future <img class="emoticon emoticon-cheeky" data-emoji-id="1f61b" data-emoji-shortname=":stuck_out_tongue:" data-emoji-fallback="😛" src="/wiki/s/-216730480/6452/74a4ac656f07cd699f21e502c27b797f218e25c9/_/images/icons/emoticons/tongue.png" width="16" height="16" data-emoticon-name="cheeky" alt="(ペロリ)">
+</p>
+<ul>
+ <li>
+  <p>
+   <a href="/c/628457499/" data-linked-resource-version="9" data-linked-resource-type="page">Investigations - Linux Admin</a>
+  </p>
+ </li>
+</ul>
 <h1 id="Notes-NewPCSetup-MacOS">
  Mac OS
 </h1>
@@ -26,7 +35,40 @@ tags:
   </ul>
  </li>
 </ul>
-<p></p>
+<h1 id="Notes-NewPCSetup-Windows">
+ Windows
+</h1>
+<ul>
+ <li>
+  <p>
+   Windows Update
+  </p>
+ </li>
+ <li>
+  <p>
+   WSL2
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a href="https://learn.microsoft.com/ja-jp/windows/wsl/install" class="external-link" rel="nofollow">https://learn.microsoft.com/ja-jp/windows/wsl/install</a>
+    </p>
+    <ul>
+     <li>
+      <p>
+       <code>wsl --install -d Debian</code>
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     See “Linux Systems” below
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
 <h1 id="Notes-NewPCSetup-Common">
  Common
 </h1>
@@ -42,6 +84,11 @@ tags:
     </p>
    </li>
   </ul>
+ </li>
+ <li>
+  <p>
+   Chrome Remote Desktop
+  </p>
  </li>
  <li>
   <p>
@@ -79,6 +126,60 @@ tags:
     <p>
      <a href="/c/510918928/" data-linked-resource-version="8" data-linked-resource-type="page">Investigations - Visual Studio Code / VSCode</a>
     </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h1 id="Notes-NewPCSetup-LinuxSystems">
+ Linux Systems
+</h1>
+<p>
+ (incl. Linux Desktop and WSL2 on Windows. My persona <code>install_local.sh</code> may help.)
+</p>
+<ul>
+ <li>
+  <p>
+   Install favorite tools
+  </p>
+  <ul>
+   <li>
+    <p>
+     git, emacs
+    </p>
+   </li>
+   <li>
+    <div>
+     <div>
+      <pre>$ sudo apt install git emacs</pre>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Generate client ssh key pair
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a href="/c/575897604/" data-linked-resource-version="5" data-linked-resource-type="page">Investigations - Remote Shell (ssh, mosh) - text.sickhack.net source - Confluence</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     Pass the key pair to necessary target server (e.g. my private repo resistory). See private notes “Private git repository setup” for further operations.
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   (Optional) Enable ssh-server / <a href="/c/628457499/" data-linked-resource-version="9" data-linked-resource-type="page">Investigations - Linux Admin</a>
+  </p>
+  <ul>
+   <li>
+    <p></p>
    </li>
   </ul>
  </li>
