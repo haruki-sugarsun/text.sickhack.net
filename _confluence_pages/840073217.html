@@ -1,12 +1,168 @@
 ---
 layout: single
 title: "Projects - Deep Research Pipeline"
-date: "2025-05-06T14:49:11.654Z"
+date: "2025-05-10T11:35:37.970Z"
 toc: true
 toc_sticky: true
 tags:
 ---
+<h1 id="Projects-DeepResearchPipeline-Overview">
+ Overview
+</h1>
 <p></p>
+<p></p>
+<h1 id="Projects-DeepResearchPipeline-ProposedArchitecture">
+ Proposed Architecture
+</h1>
+<ul>
+ <li>
+  <p>
+   Local Deep Researcher
+  </p>
+ </li>
+ <li>
+  <p>
+   SearXNG
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h1 id="Projects-DeepResearchPipeline-Components">
+ Components
+</h1>
+<h2 id="Projects-DeepResearchPipeline-LocalDeepResearcher">
+ Local Deep Researcher
+</h2>
+<ul>
+ <li>
+  <p>
+   <a href="https://langchain-ai.github.io/langgraph/cloud/reference/cli/" class="external-link" rel="nofollow">https://langchain-ai.github.io/langgraph/cloud/reference/cli/</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Projects-DeepResearchPipeline-SearXNG">
+ SearXNG
+</h2>
+<ul>
+ <li>
+  <p>
+   searxng/searxng: SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled. - <a href="https://github.com/searxng/searxng" class="external-link" rel="nofollow">https://github.com/searxng/searxng</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Why use a private instance? — SearXNG Documentation (2025.5.10+e982b9f73) - <a href="https://docs.searxng.org/own-instance.html" class="external-link" rel="nofollow">https://docs.searxng.org/own-instance.html</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Projects-DeepResearchPipeline-Logs">
+ Logs
+</h1>
+<h2 id="Projects-DeepResearchPipeline-Setup">
+ Setup
+</h2>
+<div>
+ <div>
+  <pre>$ cd ~/public_git/
+$ git clone https://github.com/langchain-ai/local-deep-researcher.git
+$ cd local-deep-researcher/
+$ cp .env.example .env
+
+$ uvx --refresh --from "langgraph-cli[inmem]" --with-editable . --python 3.11 langgraph dev
+
+(When debugging in the home network:)
+$ uvx --refresh --from "langgraph-cli[inmem]" --with-editable . --python 3.11 langgraph dev --host 0.0.0.0</pre>
+ </div>
+</div>
+<p>
+ We have seen
+</p>
+<p>
+ (similar issue: <a href="https://community.openai.com/t/error-making-localhost-plugin-http-call-typeerror-failed-to-fetch/225524/2" class="external-link" rel="nofollow">https://community.openai.com/t/error-making-localhost-plugin-http-call-typeerror-failed-to-fetch/225524/2</a>
+</p>
+<p></p>
+<h2 id="Projects-DeepResearchPipeline-Setup(SearXNG)">
+ Setup (SearXNG)
+</h2>
+<ul>
+ <li>
+  <p>
+   Docker Container — SearXNG Documentation (2025.5.10+e982b9f73) - <a href="https://docs.searxng.org/admin/installation-docker.html#installation-docker" class="external-link" rel="nofollow">https://docs.searxng.org/admin/installation-docker.html#installation-docker</a>
+  </p>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre>$ mkdir -p ~/tmp/searxng/my-instance
+$ cd ~/tmp/searxng/my-instance
+
+(with modifying some)
+$ docker run --rm \
+             -d -p ${PORT}:8080 \
+             -v "${PWD}/searxng:/etc/searxng" \
+             -e "BASE_URL=http://localhost:$PORT/" \
+             -e "INSTANCE_NAME=my-instance" \
+             searxng/searxng</pre>
+ </div>
+</div>
+<p>
+ Referring SearXNGをDockerに載せてSearch API経由で検索する - <a href="https://zenn.dev/jun_philos/articles/28f137edc98cf3" class="external-link" rel="nofollow">https://zenn.dev/jun_philos/articles/28f137edc98cf3</a>
+</p>
+<div>
+ <div>
+  <pre>(edit ls ~/tmp/searxng/my-instance/searxng/settings.yml)
+$ fgrep -n3 formats: ~/tmp/searxng/my-instance/searxng/settings.yml
+74-    recaptcha_SearxEngineCaptcha: 604800
+75-
+76-  # remove format to deny access, use lower case.
+77:  # formats: [html, csv, json, rss]
+78:  formats:
+79-    - html
+80-    - json
+81-
+</pre>
+ </div>
+</div>
+<p></p>
+<h1 id="Projects-DeepResearchPipeline-References">
+ References
+</h1>
+<ul>
+ <li>
+  <p>
+   langchain-ai/local-deep-researcher: Fully local web research and report writing assistant - <a href="https://github.com/langchain-ai/local-deep-researcher" class="external-link" rel="nofollow">https://github.com/langchain-ai/local-deep-researcher</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   langchain-ai/open_deep_research - <a href="https://github.com/langchain-ai/open_deep_research" class="external-link" rel="nofollow">https://github.com/langchain-ai/open_deep_research</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   OSS 版 DeepResearch を社内で試す ― local‑deep‑research｜せきとば 〜ChatGPTと暮らす日々〜 - <a href="https://note.com/life_chatgpt/n/n3e873a2cc00e" class="external-link" rel="nofollow">https://note.com/life_chatgpt/n/n3e873a2cc00e</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   SearXNG Tool node documentation | n8n Docs - <a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng/#running-a-searxng-instance" class="external-link" rel="nofollow">https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng/#running-a-searxng-instance</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   SearXNGをDockerに載せてSearch API経由で検索する - <a href="https://zenn.dev/jun_philos/articles/28f137edc98cf3" class="external-link" rel="nofollow">https://zenn.dev/jun_philos/articles/28f137edc98cf3</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<p></p>
+<hr>
 <p>
  https://github.com/langchain-ai/local-deep-researcher based
 </p>
@@ -18,7 +174,18 @@ tags:
 <p>
  <a href="https://riq0h.jp/2023/08/20/091355/" data-card-appearance="inline" class="external-link" rel="nofollow">https://riq0h.jp/2023/08/20/091355/</a>
 </p>
-<p></p>
+<ul>
+ <li>
+  <p>
+   Gemini 2.0 の Search as a tool を試す｜npaka - <a href="https://note.com/npaka/n/n2cd8f9199a74" class="external-link" rel="nofollow">https://note.com/npaka/n/n2cd8f9199a74</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Xユーザーのうえぞう@うな技研代表さん: 「GeminiのGoogle Searchツールアホほど速いので、これをツール化してLLM問わず利用できるようにした」 / X - <a href="https://x.com/uezochan/status/1920421361081839743" class="external-link" rel="nofollow">https://x.com/uezochan/status/1920421361081839743</a>
+  </p>
+ </li>
+</ul>
 <p></p>
 <p>
  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng/#running-a-searxng-instance

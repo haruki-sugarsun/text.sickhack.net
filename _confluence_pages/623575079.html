@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - Python"
-date: "2024-10-23T13:24:04.428Z"
+date: "2025-05-10T07:57:50.760Z"
 toc: true
 toc_sticky: true
 tags:
@@ -73,6 +73,64 @@ tags:
  <li>
   <p>
    <a href="https://github.com/pyenv/pyenv/issues/2823" class="external-link" rel="nofollow">https://github.com/pyenv/pyenv/issues/2823</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h1 id="Investigations-Python-uvInstallation">
+ <code>uv</code> Installation
+</h1>
+<ul>
+ <li>
+  <p>
+   uv - <a href="https://docs.astral.sh/uv/#installation" class="external-link" rel="nofollow">https://docs.astral.sh/uv/#installation</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   First steps | uv - <a href="https://docs.astral.sh/uv/getting-started/first-steps/" class="external-link" rel="nofollow">https://docs.astral.sh/uv/getting-started/first-steps/</a>
+  </p>
+ </li>
+</ul>
+<div>
+ <div>
+  <pre>$ curl -LsSf https://astral.sh/uv/install.sh | sh</pre>
+ </div>
+</div>
+<p></p>
+<h2 id="Investigations-Python-Update">
+ Update
+</h2>
+<div>
+ <div>
+  <pre>$ uv self update</pre>
+ </div>
+</div>
+<h2 id="Investigations-Python-ShellCompletion">
+ ShellCompletion
+</h2>
+<ul>
+ <li>
+  <p>
+   Installation | uv - <a href="https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion" class="external-link" rel="nofollow">https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion</a>
+  </p>
+ </li>
+</ul>
+<h3 id="Investigations-Python-HarukiPersonally">
+ Haruki Personally
+</h3>
+<div>
+ <div>
+  <pre>$ (mkdir -p ~/.bash_completion.d &amp;&amp; echo 'eval "$(uv generate-shell-completion bash)"' &gt; ~/.bash_completion.d/uv-completion.bash)</pre>
+ </div>
+</div>
+<h2 id="Investigations-Python-References">
+ References
+</h2>
+<ul>
+ <li>
+  <p>
+   uv （pythonパッケージマネージャー）の使い方　詳細版 - <a href="https://zenn.dev/tabayashi/articles/52389e0d6c353a" class="external-link" rel="nofollow">https://zenn.dev/tabayashi/articles/52389e0d6c353a</a>
   </p>
  </li>
 </ul>
