@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - New PC Setup"
-date: "2025-05-04T07:24:58.806Z"
+date: "2025-05-18T05:48:48.140Z"
 toc: true
 toc_sticky: true
 tags:
@@ -15,10 +15,13 @@ tags:
 <ul>
  <li>
   <p>
-   <a href="/c/628457499/" data-linked-resource-version="9" data-linked-resource-type="page">Investigations - Linux Admin</a>
+   <a href="/c/628457499/" data-linked-resource-version="10" data-linked-resource-type="page">Investigations - Linux Admin</a>
   </p>
  </li>
 </ul>
+<p>
+ (Note to self: Check also “Private git repository setup” in private notes)
+</p>
 <h1 id="Notes-NewPCSetup-MacOS">
  Mac OS
 </h1>
@@ -56,6 +59,11 @@ tags:
     <ul>
      <li>
       <p>
+       <code>wsl --list --online</code>
+      </p>
+     </li>
+     <li>
+      <p>
        <code>wsl --install -d Debian</code>
       </p>
      </li>
@@ -63,10 +71,15 @@ tags:
    </li>
    <li>
     <p>
-     See “Linux Systems” below
+     See “Linux Systems” below as well.
     </p>
    </li>
   </ul>
+ </li>
+ <li>
+  <p>
+   Windows Terminal
+  </p>
  </li>
 </ul>
 <h1 id="Notes-NewPCSetup-Common">
@@ -134,9 +147,14 @@ tags:
  Linux Systems
 </h1>
 <p>
- (incl. Linux Desktop and WSL2 on Windows. My persona <code>install_local.sh</code> may help.)
+ (incl. Linux Desktop and WSL2 on Windows. My personal <code>install_local.sh</code> may help.)
 </p>
 <ul>
+ <li>
+  <p>
+   <code>$ sudo apt update &amp;&amp; sudo apt upgrade</code>
+  </p>
+ </li>
  <li>
   <p>
    Install favorite tools
@@ -144,15 +162,18 @@ tags:
   <ul>
    <li>
     <p>
-     git, emacs
+     git, emacs, wget, aria2
     </p>
-   </li>
-   <li>
-    <div>
-     <div>
-      <pre>$ sudo apt install git emacs</pre>
-     </div>
-    </div>
+    <ul>
+     <li>
+      <div>
+       <div>
+        <pre>$ sudo apt install git emacs wget aria2</pre>
+       </div>
+      </div>
+      <p></p>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -163,7 +184,7 @@ tags:
   <ul>
    <li>
     <p>
-     <a href="/c/575897604/" data-linked-resource-version="5" data-linked-resource-type="page">Investigations - Remote Shell (ssh, mosh) - text.sickhack.net source - Confluence</a>
+     <a href="/c/575897604/" data-linked-resource-version="5" data-linked-resource-type="page">Investigations - Remote Shell (ssh, mosh)</a>
     </p>
    </li>
    <li>
@@ -175,7 +196,7 @@ tags:
  </li>
  <li>
   <p>
-   (Optional) Enable ssh-server / <a href="/c/628457499/" data-linked-resource-version="9" data-linked-resource-type="page">Investigations - Linux Admin</a>
+   (Optional) Enable ssh-server / <a href="/c/628457499/" data-linked-resource-version="10" data-linked-resource-type="page">Investigations - Linux Admin</a>
   </p>
   <ul>
    <li>

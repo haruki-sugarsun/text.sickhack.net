@@ -1,12 +1,141 @@
 ---
 layout: single
 title: "Investigations - ollama"
-date: "2025-01-17T05:46:20.975Z"
+date: "2025-05-18T10:05:49.554Z"
 toc: true
 toc_sticky: true
 tags:
 ---
 <p></p>
+<p></p>
+<p></p>
+<h1 id="Investigations-ollama-Tips">
+ Tips
+</h1>
+<h2 id="Investigations-ollama-ROCm">
+ ROCm
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://rocm.docs.amd.com/projects/install-on-windows/en/latest/reference/system-requirements.html" rel="nofollow">https://rocm.docs.amd.com/projects/install-on-windows/en/latest/reference/system-requirements.html</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-ollama-LogFileLocations">
+ Log File Locations
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/ollama/ollama/blob/main/docs/troubleshooting.md" rel="nofollow">https://github.com/ollama/ollama/blob/main/docs/troubleshooting.md</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<h2 id="Investigations-ollama-ModifyParameterviaEnvironmentVariables">
+ Modify Parameter via Environment Variables
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://github.com/ollama/ollama/blob/333e360422744e92275af2c1c2d5bc039ad97e8f/docs/windows.md?plain=1#L33C1-L34C1" rel="nofollow">https://github.com/ollama/ollama/blob/333e360422744e92275af2c1c2d5bc039ad97e8f/docs/windows.md?plain=1#L33C1-L34C1</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>環境変数の設定</strong>:
+  </p>
+  <ul>
+   <li>
+    <p>
+     「システムのプロパティ」を開く。
+    </p>
+   </li>
+   <li>
+    <p>
+     「環境変数」をクリック。
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2 id="Investigations-ollama-OllamaModelDirectoryLocation">
+ Ollama Model Directory Location
+</h2>
+<p>
+ By default, Ollama stores its downloaded models in a directory within your user profile:
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>Linux/macOS:</strong> <code>~/.ollama/models</code> or sometimes <code>/usr/share/ollama/.ollama/models</code> or <code>/var/lib/ollama/.ollama/models</code> depending on installation method and system configuration.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>Windows:</strong> <code>C:\Users\%username%\.ollama\models</code>.
+  </p>
+ </li>
+</ul>
+<h3 id="Investigations-ollama-References">
+ References
+</h3>
+<ul>
+ <li>
+  <p></p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://qiita.com/hanaya/items/e55de1e80a04469484fd" rel="nofollow">https://qiita.com/hanaya/items/e55de1e80a04469484fd</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Global Configuration Variables for Ollama · Issue #2941 · ollama/ollama - <a class="external-link" href="https://github.com/ollama/ollama/issues/2941" rel="nofollow">https://github.com/ollama/ollama/issues/2941</a>
+  </p>
+ </li>
+</ul>
+<h2 id="Investigations-ollama-Uninstall">
+ Uninstall
+</h2>
+<h3 id="Investigations-ollama-References.1">
+ References
+</h3>
+<ul>
+ <li>
+  <p>
+   ollama/docs/linux.md at main · ollama/ollama - <a class="external-link" href="https://github.com/ollama/ollama/blob/main/docs/linux.md#uninstall" rel="nofollow">https://github.com/ollama/ollama/blob/main/docs/linux.md#uninstall</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   [Ubuntu24.04] Ollamaのインストール・アンインストール - <a class="external-link" href="https://progzakki.sanachan.com/tools/how-to-install-and-uninstall-ollama/" rel="nofollow">https://progzakki.sanachan.com/tools/how-to-install-and-uninstall-ollama/</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<h1 id="Investigations-ollama-Issues">
+ Issues
+</h1>
+<h2 id="Investigations-ollama-withWSL2andRyzen">
+ with WSL2 and Ryzen
+</h2>
+<ul>
+ <li>
+  <p>
+   Windows/Radeon での Ollama のサポート状況 #ollama - Qiita - <a class="external-link" href="https://qiita.com/7shi/items/dc037c2d5b0add0da33a" rel="nofollow">https://qiita.com/7shi/items/dc037c2d5b0add0da33a</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
+ </li>
+</ul>
+<hr>
 <h1 id="Investigations-ollama-llama.cppQuantinizationlevel">
  llama.cpp Quantinization level
 </h1>
@@ -207,7 +336,7 @@ PARAMETER stop "&lt;/s&gt;"
   </ul>
  </li>
 </ul>
-<h1 id="Investigations-ollama-Tips">
+<h1 id="Investigations-ollama-Tips.1">
  Tips
 </h1>
 <h2 id="Investigations-ollama-ollama/browser">
@@ -575,7 +704,7 @@ Citations</pre>
  </div>
 </div>
 <p></p>
-<h1 id="Investigations-ollama-Tips.1">
+<h1 id="Investigations-ollama-Tips.2">
  Tips
 </h1>
 <ul>
