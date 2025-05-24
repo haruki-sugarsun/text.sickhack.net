@@ -1,12 +1,48 @@
 ---
 layout: single
 title: "Investigations - OpenHands"
-date: "2025-05-02T03:59:22.933Z"
+date: "2025-05-24T02:29:49.142Z"
 toc: true
 toc_sticky: true
 tags:
 ---
+<h1 id="Investigations-OpenHands-Overview">
+ Overview
+</h1>
 <p></p>
+<p></p>
+<h1 id="Investigations-OpenHands-Tips">
+ Tips
+</h1>
+<h2 id="Investigations-OpenHands-Prompt">
+ Prompt
+</h2>
+<h2 id="Investigations-OpenHands-RepositoryCustomizations">
+ Repository Customizations
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://docs.all-hands.dev/ja/modules/usage/customization/repository" rel="nofollow">https://docs.all-hands.dev/ja/modules/usage/customization/repository</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<h2 id="Investigations-OpenHands-HowtoconfigurethetimeoutforLLM?>litellm.exceptions.Timeout:litellm.Timeout:Connectiontimedoutafter600.0seconds.">
+ How to  configure the timeout for LLM? &gt; <code>litellm.exceptions.Timeout: litellm.Timeout: Connection timed out after 600.0 seconds.</code>
+</h2>
+<p>
+ TL;DR <code>export LLM_TIMEOUT=1200</code>
+</p>
+<ul>
+ <li>
+  <p>
+   OpenHands/openhands/resolver/issue_resolver.py at 9a5e5956fc5bf0a9a66ec8307d9863054b8aa838 · All-Hands-AI/OpenHands - <a class="external-link" href="https://github.com/All-Hands-AI/OpenHands/blob/9a5e5956fc5bf0a9a66ec8307d9863054b8aa838/openhands/resolver/issue_resolver.py#L109" rel="nofollow">https://github.com/All-Hands-AI/OpenHands/blob/9a5e5956fc5bf0a9a66ec8307d9863054b8aa838/openhands/resolver/issue_resolver.py#L109</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<hr>
 <p></p>
 <p>
  Backend
@@ -26,4 +62,25 @@ tags:
   <p></p>
  </li>
 </ul>
+<h1 id="Investigations-OpenHands-CheatSheet">
+ Cheat Sheet
+</h1>
+<div>
+ <div>
+  <pre>$ docker run -it --rm --pull=always \
+    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.39-nikolaik \
+    -e LOG_ALL_EVENTS=true \
+    -e VITE_BACKEND_BASE_URL='' \
+    -e LLM_TIMEOUT=1200 \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.openhands-state:/.openhands-state \
+    -p 3000:3000 \
+    --add-host host.docker.internal:host-gateway \
+    --name openhands-app \
+    docker.all-hands.dev/all-hands-ai/openhands:0.39</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<p></p>
 
