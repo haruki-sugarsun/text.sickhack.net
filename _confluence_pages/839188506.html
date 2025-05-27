@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - AI Bot Mail-Chat Integration (n8n, Open WebUI)"
-date: "2025-05-15T17:44:21.157Z"
+date: "2025-05-26T20:05:45.279Z"
 toc: true
 toc_sticky: true
 tags:
@@ -16,7 +16,7 @@ tags:
 <ul>
  <li>
   <p>
-   Docker / <a href="/c/613548059/" data-linked-resource-version="14" data-linked-resource-type="page">Investigations - Docker</a>
+   Docker / <a href="/c/613548059/" data-linked-resource-version="15" data-linked-resource-type="page">Investigations - Docker</a>
   </p>
  </li>
  <li>
@@ -61,7 +61,10 @@ tags:
      <div>
       <pre>docker volume create n8n_data
 docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
-docker run -it --rm --name n8n -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</pre>
+docker run -it --rm --name n8n -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
+
+or
+$ docker run -d --rm --name n8n -e NODE_OPTIONS='--max-old-space-size=2048' -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</pre>
      </div>
     </div>
    </li>
@@ -116,6 +119,22 @@ docker run -it --rm --name n8n -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRO
    </li>
    <li>
     <span><img src="/c_attachments/839188506/image-20250505-042627.png"></span>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Configure Ollama
+  </p>
+  <ul>
+   <li>
+    <p>
+     OllamaでローカルLLM - <a class="external-link" href="https://okumuralab.org/~okumura/misc/250418.html" rel="nofollow">https://okumuralab.org/~okumura/misc/250418.html</a>
+    </p>
+   </li>
+   <li>
+    <span><img src="/c_attachments/839188506/image-20250526-200542.png"></span>
+    <p></p>
    </li>
   </ul>
  </li>

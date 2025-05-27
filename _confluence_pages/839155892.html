@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigates - n8n"
-date: "2025-05-15T17:36:04.570Z"
+date: "2025-05-26T16:02:53.789Z"
 toc: true
 toc_sticky: true
 tags:
@@ -66,6 +66,43 @@ tags:
   </ul>
  </li>
 </ul>
+<h2 id="Investigates-n8n-Node.jsconsumes100%CPU">
+ Node.js consumes 100% CPU
+</h2>
+<h3 id="Investigates-n8n-Debugging">
+ Debugging
+</h3>
+<div>
+ <div>
+  <pre>$ docker stats --no-stream --no-trunc
+CONTAINER ID                                                       NAME                 CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+9df76eab62201e9ea911b4940e8988658fa9794dadb7f103dac6cbcac4b8ed6c   beautiful_brattain   0.01%     240.5MiB / 3.755GiB   6.25%     3.46MB / 1.67MB   0B / 0B     27
+71ed91ae1306bcdc0315721ea05d1c7140fd0dbfdfddd8115d40aa4e10f99981   n8n                  99.93%    507.4MiB / 3.755GiB   13.20%    166MB / 77.9MB    0B / 0B     13
+
+$ docker exec -it n8n cat /sys/fs/cgroup/memory/memory.limit_in_bytes
+9223372036854771712
+
+$ docker exec -it n8n node --version
+v20.19.0
+
+$ docker exec -it n8n ps ux
+PID   USER     TIME  COMMAND
+    1 node      0:04 tini -- /docker-entrypoint.sh
+    7 node      7h03 node /usr/local/bin/n8n
+   53 node      0:00 ps ux</pre>
+ </div>
+</div>
+<p>
+ According to the Dockerfile and other referred files, n8n/docker/images/n8n/Dockerfile at master · n8n-io/n8n - <a class="external-link" href="https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/Dockerfile" rel="nofollow">https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/Dockerfile</a>
+</p>
+<p>
+ Seems like we can pass the <code>NODE_OPTIONS</code> environment variable.
+</p>
+<p>
+ e.g. <code>-e NODE_OPTIONS='--max-old-space-size=1024'</code>
+</p>
+<p></p>
+<p></p>
 <h2 id="Investigates-n8n-Others">
  Others
 </h2>
