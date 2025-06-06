@@ -1,0 +1,36 @@
+---
+layout: single
+title: "2025−06−06 Diving Ollama"
+date: "2025-06-06T09:14:38.621Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p>
+ やっぱりunloadされて終わっているケースあるかも。。？
+</p>
+<p></p>
+<p></p>
+<p>
+ Just memo:
+</p>
+<div>
+ <div>
+  <pre>$ ollama ps
+NAME                 ID              SIZE     PROCESSOR    UNTIL
+gemma3:27b-it-qat    29eb0b9aeda3    26 GB    100% GPU     1 second from now
+
+
+Ollama Log:
+[GIN] 2025/06/06 - 18:12:14 | 200 |          5m1s |  100.113.133.73 | POST     "/api/chat"
+time=2025-06-06T18:12:14.989+09:00 level=DEBUG source=sched.go:434 msg="context for request finished" runner.name=registry.ollama.ai/library/gemma3:27b-it-qat runner.inference=rocm runner.devices=1 runner.size="24.7 GiB" runner.vram="24.7 GiB" runner.parallel=1 runner.pid=18964 runner.model="C:\\Users\\Haruki Sato\\.ollama\\models\\blobs\\sha256-ccc0cddac56136ef0969cf2e3e9ac051124c937be42503b47ec570dead85ff87" runner.num_ctx=40000
+time=2025-06-06T18:12:14.989+09:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/gemma3:27b-it-qat runner.inference=rocm runner.devices=1 runner.size="24.7 GiB" runner.vram="24.7 GiB" runner.parallel=1 runner.pid=18964 runner.model="C:\\Users\\Haruki Sato\\.ollama\\models\\blobs\\sha256-ccc0cddac56136ef0969cf2e3e9ac051124c937be42503b47ec570dead85ff87" runner.num_ctx=40000 duration=5m0s
+time=2025-06-06T18:12:14.989+09:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/gemma3:27b-it-qat runner.inference=rocm runner.devices=1 runner.size="24.7 GiB" runner.vram="24.7 GiB" runner.parallel=1 runner.pid=18964 runner.model="C:\\Users\\Haruki Sato\\.ollama\\models\\blobs\\sha256-ccc0cddac56136ef0969cf2e3e9ac051124c937be42503b47ec570dead85ff87" runner.num_ctx=40000 refCount=0
+time=2025-06-06T18:12:15.557+09:00 level=DEBUG source=ggml.go:155 msg="key not found" key=general.alignment default=32
+time=2025-06-06T18:12:15.558+09:00 level=DEBUG source=sched.go:615 msg="evaluating already loaded" model="C:\\Users\\Haruki Sato\\.ollama\\models\\blobs\\sha256-ccc0cddac56136ef0969cf2e3e9ac051124c937be42503b47ec570dead85ff87"
+time=2025-06-06T18:12:15.564+09:00 level=DEBUG source=server.go:729 msg="completion request" images=0 prompt=13752 format=""
+time=2025-06-06T18:12:15.568+09:00 level=DEBUG source=vocabulary.go:52 msg="adding bos token to prompt" id=[2]
+time=2025-06-06T18:12:15.568+09:00 level=DEBUG source=cache.go:136 msg="loading cache slot" id=0 cache=5918 prompt=4004 used=0 remaining=4004</pre>
+ </div>
+</div>
+
