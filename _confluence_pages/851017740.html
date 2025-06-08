@@ -1,0 +1,132 @@
+---
+layout: single
+title: "2025-06-07 Update EVO-X2 BIOS"
+date: "2025-06-07T15:40:03.882Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p></p>
+<p></p>
+<p>
+ 少々放置していたが、BIOSをupdateすると、VRAMを96GBに設定できるとのことで、いったんやってみる。
+</p>
+<p></p>
+<p>
+ 公式ページの
+</p>
+<p>
+ AMD Ryzen™ AI Max+ 395 --EVO-X2 AI ミニ PC - <a class="external-link" href="https://www.gmktec.com/products/amd-ryzen%E2%84%A2-ai-max-395-evo-x2-ai-mini-pc?spm=..page_12194539.header_1.1" rel="nofollow">https://www.gmktec.com/products/amd-ryzen%E2%84%A2-ai-max-395-evo-x2-ai-mini-pc?spm=..page_12194539.header_1.1</a>
+</p>
+<p>
+ にもわかりやすくリンクが追加されており、AIPCアプリは特に興味がない＆何ができるのかもよくわからないのでいったん飛ばしておく。。
+</p>
+<p>
+ Windows Update および AMDAMD Software: Adrenalin Edition （現時点で 25.6.1）は最新にしてある。
+</p>
+<p></p>
+<ul>
+ <li>
+  <p>
+   EVO-X2 BIOS&amp;ECブート操作ガイド（Windowsシステム） - <a class="external-link" href="https://www.gmktec.com/pages/evo-x2-biosec-boot-operation-guide-windows-system" rel="nofollow">https://www.gmktec.com/pages/evo-x2-biosec-boot-operation-guide-windows-system</a>
+  </p>
+ </li>
+</ul>
+<p>
+ から。手順が分かりやすく示されているのは好感は持てつつ、なんのアップデートなのかはおしえてほしいかも。「ブラッシュ」と表現しているのは、日本語とかだとFlushを「フラッシュ」と呼ぶけど、有声無声区別の違い？
+</p>
+<p>
+ でもまあ、ガジェットってこんなもんだった気もする。私は忘れているだけかもしれない。。
+</p>
+<p></p>
+<p>
+ 示されたスクショには
+</p>
+<ul>
+ <li>
+  <p>
+   ITE Flash Utility Version D.2.9
+  </p>
+ </li>
+</ul>
+<p>
+ とあったり、解凍したzipの中には、 <code>WineFuitX64.exe</code> なるファイルがあったり。<br>Wineとな。。？ Linuxでもこいつ経由で書き込めるようにしようとしてるとか？ いったん自分はWindowsのまま更新する予定だけど。
+</p>
+<p>
+ <code>FEC.bat</code> を一応覗いてみると、単に結局この実行ファイルを呼んでいるので、名前はたまたまかなー
+</p>
+<p>
+ MSINFO32の表示では、
+</p>
+<div>
+ <div>
+  <pre>埋め込みコントローラーのバージョン	1.01</pre>
+ </div>
+</div>
+<p>
+ があったが、これが更新されるだろうか？
+</p>
+<p>
+ こちら、実行done.
+</p>
+<div>
+ <div>
+  <pre>埋め込みコントローラーのバージョン	1.04</pre>
+ </div>
+</div>
+<p>
+ を確認。
+</p>
+<p>
+ そして、あてになるかはともかく、ファイルのダウンロード先だったGoogle Drive（これもまあ、なんともｗ）に、 <code>Update content.txt</code> があり、一応更新内容書いてあるようではあった。
+</p>
+<p></p>
+<p>
+ BIOSの更新:
+</p>
+<p>
+ 実行前は
+</p>
+<div>
+ <div>
+  <pre>BIOS バージョン/日付	American Megatrends International, LLC. EVO-X2 1.04, 2025/05/12</pre>
+ </div>
+</div>
+<p>
+ で、
+</p>
+<div>
+ <div>
+  <pre>BIOS バージョン/日付	American Megatrends International, LLC. EVO-X2 1.04, 2025/05/14</pre>
+ </div>
+</div>
+<p>
+ 実行後にちょっと変わった。設定だけの変更なのかな？
+</p>
+<span><img src="/c_attachments/851017740/image-20250607-151941.png"></span>
+<p>
+ よし。
+</p>
+<p></p>
+<p></p>
+<p>
+ 関連しそうな情報メモ：
+</p>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://note.com/vast_zephyr6892/n/n2394de179584" rel="nofollow">GMKtec EVO-X2をセットアップしてたらVRAMが96GBになった件｜kroko</a> -
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://shattered-blog.com/archives/50516" rel="nofollow">[GMKtec] NucBox K8のBIOSとECファイルが意味不明な件 [Ryzen 7 8845HS] | shattered-blog.com</a>
+  </p>
+ </li>
+</ul>
+<p></p>
+<hr>
+<p>
+ そして、気になっていること、ollamaが専用を使うか、共有を使うかがなんかよくわからない。<br>ollamaのver upや、今回の設定変更でも変わった気がするけど、速度に影響するのか、とか。とりあえず、今のところ悪影響はなさそうだけど。。
+</p>
+
