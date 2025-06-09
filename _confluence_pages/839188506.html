@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - AI Bot Mail-Chat Integration (n8n, Open WebUI)"
-date: "2025-05-26T20:05:45.279Z"
+date: "2025-06-09T04:50:53.693Z"
 toc: true
 toc_sticky: true
 tags:
@@ -16,7 +16,7 @@ tags:
 <ul>
  <li>
   <p>
-   Docker / <a href="/c/613548059/" data-linked-resource-version="15" data-linked-resource-type="page">Investigations - Docker</a>
+   Docker / <a href="/c/613548059/" data-linked-resource-version="17" data-linked-resource-type="page">Investigations - Docker</a>
   </p>
  </li>
  <li>
@@ -64,7 +64,7 @@ docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n
 docker run -it --rm --name n8n -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
 
 or
-$ docker run -d --rm --name n8n -e NODE_OPTIONS='--max-old-space-size=2048' -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</pre>
+$ docker run -d --name n8n --restart=unless-stopped -e N8N_LOG_LEVEL=debug -e EXECUTIONS_DATA_PRUNE=true -e EXECUTIONS_DATA_PRUNE_MAX_COUNT=1500 -e DB_SQLITE_VACUUM_ON_STARTUP=true -e NODE_OPTIONS='--max-old-space-size=3072' -e N8N_SECURE_COOKIE=false -e N8N_CONCURRENCY_PRODUCTION_LIMIT=1 -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</pre>
      </div>
     </div>
    </li>
