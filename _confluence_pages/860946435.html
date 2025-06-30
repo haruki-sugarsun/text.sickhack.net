@@ -1,0 +1,20 @@
+---
+layout: single
+title: "Notes - n8n debugging"
+date: "2025-06-29T01:25:30.205Z"
+toc: true
+toc_sticky: true
+tags:
+---
+<p>
+ Just pile of logs…:
+</p>
+<div>
+ <div>
+  <pre>2025-06-29T01:06:58.107Z | error | There was a problem in 'Gmail Trigger' node in workflow 'CNXqiN72GpKnv4OP': 'undefined' {"node":"Gmail Trigger","workflowId":"CNXqiN72GpKnv4OP","error":{"message":"write EPIPE","timestamp":1751159218102,"name":"NodeApiError","context":{},"cause":{"message":"write EPIPE","name":"Error","stack":"Error: write EPIPE\n    at Function.AxiosError.from (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.8.3/node_modules/axios/lib/core/AxiosError.js:92:14)\n    at RedirectableRequest.handleRequestError (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.8.3/node_modules/axios/lib/adapters/http.js:620:25)\n    at RedirectableRequest.emit (node:events:536:35)\n    at ClientRequest.eventHandlers.&lt;computed&gt; (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/follow-redirects@1.15.9/node_modules/follow-redirects/index.js:49:24)\n    at ClientRequest.emit (node:events:524:28)\n    at emitErrorEvent (node:_http_client:101:11)\n    at TLSSocket.socketErrorListener (node:_http_client:504:5)\n    at TLSSocket.emit (node:events:524:28)\n    at emitErrorNT (node:internal/streams/destroy:169:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:128:3)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.8.3/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at invokeAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:206:10)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:656:20)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1698:4)\n    at PollContext.requestOAuth2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1045:9)\n    at PollContext.requestWithAuthentication (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1340:11)\n    at PollContext.requestWithAuthentication (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1707:11)\n    at PollContext.googleApiRequest (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_12b981d6b49d407a163f4d5244314033/node_modules/n8n-nodes-base/nodes/Google/Gmail/GenericFunctions.ts:73:20)\n    at PollContext.poll (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_12b981d6b49d407a163f4d5244314033/node_modules/n8n-nodes-base/nodes/Google/Gmail/GmailTrigger.node.ts:282:50)","code":"EPIPE"}},"file":"GmailTrigger.node.js","function":"poll"}</pre>
+ </div>
+</div>
+<p></p>
+<p></p>
+<p></p>
+
