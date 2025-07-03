@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Notes - AI Bot Mail-Chat Integration (n8n, Open WebUI)"
-date: "2025-06-29T03:09:33.315Z"
+date: "2025-07-02T17:49:18.833Z"
 toc: true
 toc_sticky: true
 tags:
@@ -143,6 +143,24 @@ $ docker run -d --name n8n --restart=unless-stopped -e N8N_LOG_LEVEL=debug -e N8
    </li>
    <li>
     <span><img src="/c_attachments/839188506/image-20250526-200542.png"></span>
+   </li>
+   <li>
+    <p>
+     e.g.
+    </p>
+    <div>
+     <div>
+      <pre>[Service]
+Environment="OLLAMA_ORIGINS=*"
+Environment="OLLAMA_KEEP_ALIVE=600"
+Environment="OLLAMA_RUN_TIMEOUT=600"
+Environment="OLLAMA_REQUEST_TIMEOUT=600"
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+Environment="OLLAMA_FLASH_ATTENTION=1"</pre>
+     </div>
+    </div>
+   </li>
+   <li>
     <p></p>
    </li>
   </ul>

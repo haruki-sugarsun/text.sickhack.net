@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Investigations - ollama"
-date: "2025-06-09T04:54:05.234Z"
+date: "2025-07-03T04:09:15.521Z"
 toc: true
 toc_sticky: true
 tags:
@@ -10,8 +10,8 @@ tags:
  Overview
 </h1>
 <p></p>
-<h1 id="Investigations-ollama-TopicParkingLot">
- Topic Parking Lot
+<h1 id="Investigations-ollama-TopicParkingLott">
+ Topic Parking Lott
 </h1>
 <ul>
  <li>
@@ -28,6 +28,14 @@ tags:
   <p>
    <a class="external-link" href="https://github.com/ollama/ollama/issues/6160" rel="nofollow">Ollama ps says 22 GB, but nvidia-smi says 16GB with flash attention enabled · Issue #6160 · ollama/ollama</a>
   </p>
+ </li>
+ <li>
+  <p>
+   Llama only uses dedicated memory when both shared and dedicated are available. · Issue #6743 · ggml-org/llama.cpp - <a class="external-link" href="https://github.com/ggml-org/llama.cpp/issues/6743#issuecomment-2718586945" rel="nofollow">https://github.com/ggml-org/llama.cpp/issues/6743#issuecomment-2718586945</a>
+  </p>
+ </li>
+ <li>
+  <p></p>
  </li>
 </ul>
 <p></p>
@@ -61,6 +69,11 @@ tags:
  Modify Parameter via Environment Variables
 </h2>
 <ul>
+ <li>
+  <p>
+   List of Env Vars: <a class="external-link" href="https://github.com/ollama/ollama/blob/main/envconfig/config.go" rel="nofollow">https://github.com/ollama/ollama/blob/main/envconfig/config.go</a>
+  </p>
+ </li>
  <li>
   <p>
    ollama/docs/faq.md at main · ollama/ollama - <a class="external-link" href="https://github.com/ollama/ollama/blob/main/docs/faq.md#how-do-i-configure-ollama-server" rel="nofollow">https://github.com/ollama/ollama/blob/main/docs/faq.md#how-do-i-configure-ollama-server</a>
@@ -128,6 +141,21 @@ tags:
  </li>
 </ul>
 <p></p>
+<h2 id="Investigations-ollama-MemoryConsumptionTuning">
+ Memory Consumption Tuning
+</h2>
+<ul>
+ <li>
+  <p>
+   Ollama の高速化と VRAM 最適化設定 (ファインチューニング: 2) | Peddals Blog - <a class="external-link" href="https://blog.peddals.com/ollama-vram-fine-tune-with-kv-cache-2/" rel="nofollow">https://blog.peddals.com/ollama-vram-fine-tune-with-kv-cache-2/</a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Ollama 低VRAM 最適化 - <a class="external-link" href="https://chatgpt.com/c/68656f59-dc08-8007-9bde-15dce5070afe" rel="nofollow">https://chatgpt.com/c/68656f59-dc08-8007-9bde-15dce5070afe</a>
+  </p>
+ </li>
+</ul>
 <h2 id="Investigations-ollama-VRAM/GPULoadSplitting">
  VRAM/GPU Load Splitting
 </h2>
@@ -136,6 +164,18 @@ tags:
   <p>
    Understanding VRAM Usage in Ollama with Large Models - Geek Bacon - <a class="external-link" href="https://geekbacon.com/2025/05/03/understanding-vram-usage-in-ollama-with-large-models/" rel="nofollow">https://geekbacon.com/2025/05/03/understanding-vram-usage-in-ollama-with-large-models/</a>
   </p>
+ </li>
+ <li>
+  <p>
+   num_ctx forces entire model to CPU · Issue #7198 · ollama/ollama - <a class="external-link" href="https://github.com/ollama/ollama/issues/7198" rel="nofollow">https://github.com/ollama/ollama/issues/7198</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     so depending on the context size, we cannot use GPU…
+    </p>
+   </li>
+  </ul>
  </li>
 </ul>
 <h2 id="Investigations-ollama-Uninstall">
@@ -162,6 +202,33 @@ tags:
 <h1 id="Investigations-ollama-Issues">
  Issues
 </h1>
+<h2 id="Investigations-ollama-Mysterious5-minTimeout">
+ Mysterious 5-min Timeout
+</h2>
+<ul>
+ <li>
+  <p>
+   Timeout for long generation · Issue #103 · ollama/ollama-js - <a class="external-link" href="https://github.com/ollama/ollama-js/issues/103" rel="nofollow">https://github.com/ollama/ollama-js/issues/103</a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://github.com/ollama/ollama-js/issues/103#issuecomment-2227531780" rel="nofollow">https://github.com/ollama/ollama-js/issues/103#issuecomment-2227531780</a>
+    </p>
+   </li>
+   <li>
+    <p>
+     One of the typical (unresolved IIUC) issues is <code>nodejs fetch default headers timeout (5m)</code>.
+    </p>
+   </li>
+   <li>
+    <p>
+     Also javascript - Fetch API request timeout? - Stack Overflow - <a class="external-link" href="https://stackoverflow.com/questions/46946380/fetch-api-request-timeout" rel="nofollow">https://stackoverflow.com/questions/46946380/fetch-api-request-timeout</a> may be helpful.
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
 <h2 id="Investigations-ollama-withWSL2andRyzen">
  with WSL2 and Ryzen
 </h2>
